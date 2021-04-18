@@ -1,0 +1,98 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+
+  <meta>
+  <link rel="stylesheet" type="text/css" href="../css/style-signup-signin-sell.css">
+  <title> PropertyPro LITE</title>
+  <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
+</head>
+
+<body>
+
+
+
+  <a class="sell" href="sell.html"><img src="../image/header.png" height="80px" width="200px"></a>
+
+
+  <div class="topnav">
+
+
+    <a href="../index.html"><strong>HOME</strong></a>
+
+    <!-- <a class="register" href="sell.html"><strong>SELL A PROPERTY</strong></a> -->
+
+
+    <div class="login-container">
+      <form action="post">
+
+        <a href="login.html">Sign In </a>
+        <a class="active" href="sign_up.html">Sign up</a>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="login">
+    <div class="login-screen">
+      <div class="app-title">
+        <h1>Create an account</h1>
+      </div>
+      <!-- i want to make a background full the space near the form -->
+      <!-- <div class="welcome_page">Here the full width </div>  --> 
+
+      <div class="login-form ">
+       
+              <form id="sign_up" class="control-group">
+                <div id="passwordErr"></div>
+                <div id="password2Err"></div>
+                <div id="emailErr" ></div>
+              
+                <input type="text" class="login-field" placeholder="Email" name="email" id="email">
+
+                <input type="text" class="login-field"  placeholder="Name"  name="firstname"
+                  id="firstname">
+                <!-- <input type="text" class="login-field"  placeholder="Second name"  name="lastname"
+                  id="lastname"> -->
+                
+                <input type="password" class="login-field"  placeholder="set passsword" 
+                  name="password" id="password">
+                
+                  <input type="password" class="login-field"  placeholder="Confirm passsword" 
+                  name="password2" id="password2">
+                  <div id="phoneErr"></div>
+                <input type="text" class="login-field"  placeholder="phone number"  name="phone"
+                  id="phone">
+
+                <input type="text" class="login-field"  placeholder="Address"  name="address"
+                  id="address">
+                <p>Are you admin?<p>
+                    <input type="radio" id="radio-six" name="notaswitch-one" value="yes" checked />
+                    <label for="radio-six">No</label>
+                    <input type="radio" id="radio-seven" name="notaswitch-one" value="maybe" />
+                    <label for="radio-seven">Yes</label>
+                    <br>
+                    <!-- <input id="signupBtn" type="submit"> -->
+                    
+                    <button id="signupBtn" type="button">Create Account</button>
+                    <p>Already have an account,<a class="login-link" href="./login.html">Log In</a></p>
+              </form>
+          </div>
+      </div>
+     </div>
+  </div>
+
+      <!-- footer section -->
+
+  <div id="footer">
+    &copy; 2019 Designed by BYAMUNGU desire || Andela Developer Challenge
+  </div>
+
+</body>
+
+<script src="../js/signup.js" type="module"></script>
+
+</html

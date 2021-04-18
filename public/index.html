@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" type="text/css" href="./css/style.css">
+         <title> PropertyPro LITE</title>
+         <link rel="icon" type="image/ico" href="./image/bar-icon.png" />
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+
+<a class="sell" href="./pages/sell.html"><img src="./image/header.png" height="80px" width="200px"></a>
+
+<div class="topnav">
+
+  
+   <a class="active"href="./index.html"><strong>HOME</strong></a>
+
+   <!-- <a href="./pages/sell.html"><strong>SELL A PROPERTY</strong></a> -->
+   <!-- <div class="dropdown">
+    <button class="dropbtn" onclick="myFunction()"><strong>PROPERTY BY  </strong>
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="myDropdown">
+      <a href="./pages/property_1.html">3 bedrooms and 1 Saloon</a>
+      <a href="./pages/property_2.html">2 bedrooms and 1 Saloon</a>
+      <a href="./pages/property_4.html">1 bedrooms and 1 Saloon</a>
+    </div>
+    </div>  -->
+
+
+   
+<div class="login-container">
+    <form action="post">
+
+      <a  class="register" href="./pages/login.html">Sign In </a>
+      <a  href="./pages/sign_up.html">Sign up</a>
+    </form>
+  </div>
+</div>
+
+
+<div >
+      <img  id="banner" src="./image/banner.png" height="20%" width="100%">
+</div>
+
+<div class="welcome">
+    <h1 class="welcome-words">Welcome to MyPropertyPro!</h1><br>
+    <!-- <h2><i>"We give the comfort you deserve"</i></h2> -->
+    
+</div>
+
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <div class="numbertext">1 / 6</div>
+        <img src="./image/apartment1.png" style="width:100%">
+        <div class="text">This can be your dream house!</div>
+    </div>
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 6</div>
+        <img src="./image/apartment2.png" style="width:100%">
+        <div class="text">This can be your dream house!</div>
+    </div>
+    <div class="mySlides fade">
+        <div class="numbertext">3 / 6</div>
+        <img src="./image/house1.png" style="width:100%">
+        <div class="text">This can be your dream house!</div>
+    </div>          
+    <div class="mySlides fade">
+        <div class="numbertext">4 / 6</div>
+        <img src="./image/house2.png" style="width:100%">
+        <div class="text">This can be your dream house!</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">5 / 6</div>
+        <img src="./image/house3.png" style="width:100%">
+        <div class="text">This can be your dream house!</div>
+    </div>
+    <div class="mySlides fade">
+        <div class="numbertext">6 / 6</div>
+        <img src="./image/house4.png" style="width:100%">
+        <div class="text">This can be your dream house!</div>
+    </div>
+</div>
+<br>
+<div style="text-align:center">
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+<span class="dot"></span> 
+</div>
+
+
+<div id="footer">
+&copy; 2019  Designed by BYAMUNGU desire || Andela Developer Challenge
+ </div> 
+
+</body>
+
+
+<script>
+  /******SLIDESHOW***** */
+  let slideIndex = 0;
+  const showSlides = () => {
+      const slides = document.getElementsByClassName('mySlides');
+      const dots = document.getElementsByClassName('dot');
+      for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+      }
+      slideIndex += 1;
+      if (slideIndex > slides.length) { 
+                  slideIndex = 1; 
+        }
+
+      for (let i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(' active', '');
+      }
+      slides[slideIndex - 1].style.display = 'block';
+      dots[slideIndex - 1].className += ' active';
+      setTimeout(showSlides, 4000); // Change image every 3 seconds
+  };
+  
+  showSlides()
+
+</script>
+</html>
+
+
+
+

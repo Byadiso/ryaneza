@@ -1,0 +1,90 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+ <meta>
+        <link rel="stylesheet" type="text/css" href="../css/style-signup-signin-sell.css">
+        <title> PropertyPro LITE</title>
+        <link rel="icon" type="image/ico" href="../image/bar-icon.png" />      
+
+<body>
+  <a class="sell" href="sell.html"><img src="../image/header.png" height="80px" width="200px"></a>
+<div class="topnav">
+
+  <a href="../index.html"><strong>HOME </strong></a>
+
+   
+
+
+<div class="login-container">
+    <form action="post">
+      <a   class="active" href="login.html">Sign In </a>
+      <a  href="sign_up.html">Sign up</a>
+    </form>
+  </div>
+</div>
+
+    <div class="login">
+        <div class="login-screen">
+            <div class="app-title">
+                <h1>Login to your account.</h1>
+            </div>
+
+
+            <!-- <form action="/api/v1/login" method="POST" id="formLogin"> -->
+            <form id="formLogin">
+             
+               <div class="login-form">
+                <div id="password2Err"></div>
+                  <div id="usernameErr"></div>
+                    <div class="control-group">
+                      <input type="text" class="login-field"  placeholder="Email" name="email" id="email">
+                     
+                     </div>
+                <div id="emailErr"></div>
+                <div class="control-group">
+                   <input type="password" class="login-field" placeholder="Password" name="password"  id="password">
+                </div>
+                <div id="passwordErr"></div>
+                
+                <div><input type="checkbox" id="checkbox" onclick="togglePassword()">Show Password</div>
+				      	<div id="password2Err"></div>
+
+              
+               <div id="incorrect"> </div>
+                
+            </form>
+            <button id="loginBtn">login</button>
+           
+                <a class="login-link" href="#">Forgot your password?</a> <p>or need an account,<a class="login-link" href="./sign_up.html">Register Now</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        &copy; 2019  Designed by BYAMUNGU desire || Andela Developer Challenge
+    </div> 
+
+</body>
+
+<script >
+
+        function togglePassword() {
+                        const input = document.getElementById("password");
+                        if (input.type === "password") {
+                            input.type = "text";
+                        } else {
+                            input.type = "password";
+                        }
+                    }
+
+                function login () {
+
+                }
+
+</script>
+<script src="../js/login.js"></script>
+
+</html>

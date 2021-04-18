@@ -1,0 +1,142 @@
+      
+          
+document.addEventListener('DOMContentLoaded', () => {     
+          
+          const ordersMsg = document.getElementById('header-text');  
+          const mainDiv = document.getElementById('myProperties'); 
+          const searchBar = document.getElementById('searchBar'); 
+          let properties = []         
+                  
+          //function to fetch all dat from backend
+
+          const listAll = () => {
+           return  fetch('http://localhost:3000/api/v1/property')
+            .then((resp) =>resp.json())
+            .then((data) =>  {
+            renderProperty(data);
+            localStorage.setItem('properties', JSON.stringify(data));
+          });
+            
+          }
+
+          // function to render my property
+          function  renderProperty(dataPro) {          
+              console.log(dataPro);
+             
+
+              // trying to change my binary image to bas64
+            //   function arrayBufferToBase64( buffer ) {
+            //     var binary = '';
+            //     var bytes = new Uint8Array( buffer );
+            //     var len = bytes.byteLength;
+            //     for (var i = 0; i < len; i++) {
+            //         binary += String.fromCharCode( bytes[ i ] );
+            //     }
+            //     return window.btoa( binary );
+            // }
+
+            
+        
+
+            // ----------------------------------------------------------- //
+              
+              console.log(dataPro);
+              ordersMsg.className = 'err';
+              ordersMsg.innerHTML = dataPro.message;
+               properties= dataPro.Property;                  
+              for ( var i= 0; i < properties.length; i++ ){            
+                let  divprop= document.createElement("DIV"); 
+                const { _id,image,phone,address,date} = properties[i];
+
+                //for image convertion 
+                // var base64Flag = 'data:image/jpeg;base64,';
+                // var imageStr = arrayBufferToBase64(photo.data.data);
+                // let photoFromDb = base64Flag + imageStr;
+
+                // console.log(photoFromDb);
+
+                //----------------------------------------//
+
+                // console.log(photo.data)
+
+                // for short  notation is the best
+                divprop.innerHTML =`
+                <div class="flip-box" data-id= ${_id}>
+                  <div class="flip-box-inner">
+                     <div class="flip-box-front">
+                           <img src=${image} class="imgCreated" style="width: 270px; height: 170px;">
+                           
+                      </div>
+                      
+                      <div class="flip-box-back">
+                          <p id="phone"><strong>Phone:</strong> ${phone}</p>
+                          <p id="address"><strong>Adress:</strong> ${address}</p>
+                          <p id="dateCreated;"><strong>Date Create:</strong> ${date.toLocaleString()}</p>
+                      </div>
+                  </div>  
+                  <button class="btn-view">View</button>
+                </div>`
+                
+                
+
+
+          // adding a class to my divprop 
+        divprop.setAttribute("class",'column-grid-Property')
+
+          // to append my whole create section    
+          mainDiv.append(divprop);        
+              }   
+              
+                   
+         const viewBtns = document.querySelectorAll('.btn-view');
+         viewBtns.forEach(Btn => {
+                  Btn.addEventListener('click', (e)=>{
+                    // Storage()
+                    let propId = e.target.parentElement.dataset.id;
+                    localStorage.setItem('id', propId)
+                    console.log(propId);
+                    location.href='../pages/singleProperty.html';
+                  })
+  
+                });
+              }            
+                   
+              
+              // implementing logOut
+                const logOutBtn = document.querySelector('.log-out');
+                  logOutBtn.addEventListener('click', ()=>{
+                    console.log('plz I am out')
+                  localStorage.clear();
+                  window.location.href = '../pages/login.html';
+              })
+
+              //implementing search bar
+              
+              searchBar.addEventListener('keyup',(e)=>{
+                const searchString = e.target.value.toLowerCase();                   
+                const filtredPro = properties.filter((property) =>{
+                    return (
+                          property.owner.toLowerCase().includes(searchString) ||
+                          property.state.toLowerCase().includes(searchString) ||
+                          property.city.toLowerCase().includes(searchString)
+                        )
+                    })
+                    console.log(filtredPro)
+                   
+              })
+               listAll();
+      
+          })
+          
+          
+          
+          
+          
+          
+          
+          
+          
+              
+     
+
+ 

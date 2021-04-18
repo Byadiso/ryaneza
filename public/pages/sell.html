@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta>
+    <link rel="stylesheet" type="text/css" href="../css/style-signup-signin-sell.css">
+    <title> PropertyPro LITE</title>
+    <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
+    <!-- for-font-awesome -->
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/style-property.css"> -->
+
+</head>
+
+<body>
+
+  <a class="sell" href="http://localhost:3000/public/pages/property.html"><img src="../image/header.png" height="80px" width="200px"></a>
+
+
+  <div class="topnav">
+
+    <a href="./property.html"><strong>Market</strong></a>
+
+    <a class="active" href="user.html"><strong>My Details</strong></a>
+
+    <div class="login-container">
+      <form action="post">
+          <a class="cart-btn">
+                  <span class="nav-icon">
+                      <i class="fas fa-cart-plus"></i>
+                  </span>
+                  <div class="cart-items">0</div>                                    
+          </a>
+
+          <a  class="log-out" href="login.html"><strong>Sign Out </strong></a>
+          <!-- <a  href="../index.html">Home</a> -->
+      </form>
+</div>
+    </div>
+  </div>
+
+
+  <div class="login">
+    <div class="login-screen">
+      <div class="login-form">
+
+        <form action="/api/v1/property" method="POST" id="sell" class="control-group"> 
+            
+            <input type="text" class="login-field" placeholder="owner"  name="owner" id="owner"> 
+            <input type="text" class="login-field"  placeholder="price"  name="price" id="price">
+            <input type="text" class="login-field" placeholder="state"  name="state" id="state">
+            <input type="text" class="login-field"  placeholder="city"  name="city"  id="city">
+            <input type="text" class="login-field"  placeholder="phone"  name="phone" id="phone">
+            <input type="text" class="login-field"  placeholder="Address" type="text" id="address" name="address"
+              >
+            <input type="file" accept="image/*" class="login-field"   name="image" id="fileUpload">          
+            <br>
+            
+            <input type="submit"  class="submitBtn login-field " id="create_pro"> 
+        </form>
+
+      </div>
+    </div>
+  </div>
+  </form>
+  </div>
+
+
+  <div id="footer">
+    &copy; 2019 Designed by BYAMUNGU Desire || Andela Developer Challenge
+  </div>
+
+
+
+</body>
+<script src="../js/createPro.js"></script>
+
+</html>
