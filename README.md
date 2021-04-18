@@ -17,10 +17,10 @@
 
 # PROJECT OVERVIEW
 
-**Property Pro Lite**is a platform where people can create and/or search properties for sale or rent.It was built fromscratch using javascritpt, node, HTML , CSS.
+**Property Pro Lite**is a platform where people can create and/or search properties for sale or rent. It was built from scratch using javascritpt, node, HTML , CSS.
 
--   my user interface link : https://byadiso.github.io/UI/
--   my link for heroku link : https://propertypro-lite.herokuapp.com
+-   The user interface link : https://byadiso.github.io/UI/
+-   Live app is hosted on heroku : https://propertypro-lite.herokuapp.com
 
 # FEATURES
 
@@ -29,9 +29,10 @@
 -   user can view
 -   user can view specific property
 -   user can view user property
--   user can deete his property
+-   user can delete his property
 -   user can mdoifying his own property
--   user can mark his proeprty as sold
+-   user can mark his proeprty as booked
+-   user can book and pay his apartment  
 
 # DEMO
 
@@ -41,6 +42,7 @@
 
 -   CSS
 -   HTML
+-   Javascript
 
 ### backend
 
@@ -51,6 +53,7 @@
 
 -   express-fileupload
 -   body-Parser
+-   morgan
 
 ## API End Points
 
@@ -66,7 +69,7 @@
 
 Everything work perfect , However :
 
--   The BACk End is incomplete
+-   The BACk End hosted on heroku
 
 # Installation
 
