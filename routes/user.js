@@ -12,11 +12,11 @@ const router = express.Router();
 //         user: req.profile
 //     });
 // });
-router.get('/user/:userId', requireSignin ,isAuth, read);
-router.put('/user/:userId', requireSignin ,isAuth, update);
-router.delete('/user/:userId', requireSignin ,isAuth,isAdmin, remove);
+router.get('/v1/user/:userId', requireSignin ,isAuth, read);
+router.put('/v1/user/:userId', requireSignin ,isAuth, update);
+router.delete('/v1/user/:userId', requireSignin ,isAuth,isAdmin, remove);
 
-router.get('/orders/by/user/:userId', requireSignin, isAuth, purchaseHistory);
+router.get('/v1/orders/by/user/:userId', requireSignin, isAuth, purchaseHistory);
 
 
 router.param('userId', userById);

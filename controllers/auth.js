@@ -17,8 +17,10 @@ import {errorHandler} from '../helper/dbErroHandler';
         }
         user.salt = undefined
         user.hashed_password = undefined
-        res.json({
-            user : user
+        res.status(200).json({
+            user : user,
+            status: 'success',
+            message:'user created successful'
         });
     })
  }
@@ -50,7 +52,7 @@ import {errorHandler} from '../helper/dbErroHandler';
         res.cookie('t', token, {expire: new Date() + 9999})
         //retunr response with the user and token to froned client 
         const {_id, name, email, role } = user;
-        return res.json({token, user: {_id, email, name, role }})
+        return res.status(200).json({token,status:true, user: {_id, email, name, role }})
    });
  };
 
