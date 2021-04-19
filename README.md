@@ -17,10 +17,10 @@
 
 # PROJECT OVERVIEW
 
-**Property Pro Lite**is a platform where people can create and/or search properties for sale or rent. It was built from scratch using javascritpt, node, HTML , CSS.
+**rentowacu**is a platform where people can create and/or search properties for sale or rent. It was built from scratch using javascritpt, node, HTML , CSS.
 
--   The user interface link : https://byadiso.github.io/UI/
--   Live app is hosted on heroku : https://propertypro-lite.herokuapp.com
+-   The user interface link : https://byadiso.github.io/rentowacu/
+-   Live app is hosted on heroku : https://rentowacu.herokuapp.com
 
 # FEATURES
 
@@ -73,7 +73,7 @@ Everything work perfect , However :
 
 # Installation
 
--   \$ git clone https://github.com/Byadiso/UI.git
+-   \$ git clone https://github.com/Byadiso/rentowacu.git
 -   \$ cd UI
 -   \$ npm i, to install depencies
 -   \$ npm start ,to start the server
