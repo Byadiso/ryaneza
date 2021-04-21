@@ -104,13 +104,9 @@ function renderPropertyByUser(data){
        <img src=${photoUrl} class="imgCreated" style="width: 100px; height: 50px;"> 
        <p id="phone"><strong>Name:</strong> ${name} </p>       
        <button class="btn-modify">update</button>
-       <button class="btn-delete">detele</button>
-       
-       
-     
-     
+       <button class="btn-delete">detele</button>      
     </div>
-    <hr>
+   
     `
     console.log(user_container_manager)
     
@@ -120,7 +116,6 @@ function renderPropertyByUser(data){
 }
 
 propertyCreatedByUser();
-
 
 });
 

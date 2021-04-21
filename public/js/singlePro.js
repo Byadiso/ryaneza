@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
      item.Property.id[0]=== proId }
   )
 
-  let newPro = Mypro.Property 
+  let newPro = Mypro.properties 
   console.log(newPro);
   let findedOne = newPro.find(item=> item._id === proId)
     
@@ -72,8 +72,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
     //for image
+    let photoUrl = `http://localhost:3000/api/v1/property/photo/${proId}`
         const img = document.createElement("img");  
-        img.src = singlePro.url; 
+        img.src = photoUrl; 
         img.style.width= "570px";
         img.style.height= "670px";
         img.classList.add('imgCreated');
@@ -88,7 +89,62 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 //  fetchingSingle();
 
-renderPro()
+
+
+renderPro();
+
+
+// ----------------------------------------------------------------------------------
+
+
+
+//fetching related 
+const  fetchingRelated = ( () => {
+      fetch( `http://localhost:3000/api/v1/properties/related/${proId}/`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+       
+        },
+      }
+        )
+      .then((res) => res.json())
+      .then(data => renderRelated(data)
+         )    
+   }); 
+
+function renderRelated(data){
+      console.log(data);
+      
+      let properties = data;
+      console.log(properties);
+      for ( var i= 0; i < properties.length; i++ ){ 
+    
+            const {_id,name, category} = properties[i];
+
+            let property_related = document.createElement('div');
+            property_related.classList.add('dashboard_user_details');
+      
+        
+            property_related.innerHTML = 
+         `<p id="phone"><strong>name:</strong> ${name}</p>
+         <p id="owner"><strong>categry:</strong> ${category.name}</p> 
+          <p id="owner"><strong>User ID:</strong> ${_id}</p>`
+      
+          mainSingleDiv.appendChild(property_related)
+
+
+
+      }
+
+     
+
+
+}
+
+   fetchingRelated();
+
 
 })
 
