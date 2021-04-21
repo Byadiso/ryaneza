@@ -85,13 +85,14 @@
                 }
 
 
-    let userData = JSON.parse(localStorage.getItem('user')); 
-    console.log(userData);
-    if(userData){
+    let user = JSON.parse(localStorage.getItem('user')); 
+    console.log(user);
+    if(user){
       window.location.href = '../pages/user.html';
     }      
 
 </script>
 <script src="../js/login.js"></script>
+
 
 </html>

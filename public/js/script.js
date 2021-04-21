@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
           const mainDiv = document.getElementById('myProperties'); 
           const searchBar = document.getElementById('searchBar'); 
           let properties = []         
-                  
+                 
+          
+         
           //function to fetch all dat from backend
 
           const listAll = () => {
@@ -28,21 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 properties= dataPro.properties;                  
               for ( var i= 0; i < properties.length; i++ ){            
                 let  divprop= document.createElement("DIV"); 
-                const { _id,image,phone,address,date} = properties[i];
+                const { _id,photo,name,description,createdAt} = properties[i];        
+                 
+
+                 
+            
+
+             let photoUrl = `http://localhost:3000/api/v1/property/photo/${_id}`
 
                                 // for short  notation is the best
                 divprop.innerHTML =`
                 <div class="flip-box" data-id= ${_id}>
                   <div class="flip-box-inner">
                      <div class="flip-box-front">
-                           <img src=${image} class="imgCreated" style="width: 270px; height: 170px;">
+                           <img src=${photoUrl} class="imgCreated" style="width: 270px; height: 170px;">
                            
                       </div>
                       
                       <div class="flip-box-back">
-                          <p id="phone"><strong>Phone:</strong> ${phone}</p>
-                          <p id="address"><strong>Adress:</strong> ${address}</p>
-                          <p id="dateCreated;"><strong>Date Create:</strong> ${date.toLocaleString()}</p>
+                          <p id="phone"><strong>name:</strong> ${name}</p>
+                          <p id="address"><strong>Description:</strong> ${description}</p>
+                          <p id="dateCreated;"><strong>Date Create:</strong> ${createdAt.toLocaleString()}</p>
                       </div>
                   </div>  
                   <button class="btn-view">View</button>

@@ -1,51 +1,60 @@
-
 import mongoose from 'mongoose';
-import { number, string } from 'joi';
+const {ObjectId } = mongoose.Schema;
 
-mongoose.Promise = global.Promise
 
-//schema for the  database for properties
-const  { ObjectId } = mongoose.Schema;
- 
-const propertySchema = new mongoose.Schema({
-   
-    owner: {
-        type: String,
-        required: true,
+const propertySchema = new mongoose.Schema(
+    {
+        name:{
+            type:String,
+            trim:true,
+            required:true,
+            maxlength:32
+        },
+        description:{
+            type:String,
+            trim:true,
+            required:true,
+            maxlength:2000
+        },
+        price:{
+            type:Number,
+            trim:true,
+            required:true,
+            maxlength:32
+        },
+        category:{
+            type:ObjectId,
+            ref:'Category',
+            require:true
+        },
+        quantity:{
+            type: Number,
+            
+        },
+        sold:{
+            type: Number,
+            default: 0,
+            
+        },
+
+        photo:{
+            data:Buffer,
+            conentType: String            
+        },
+        shipping:{
+            require: false,
+            type: Boolean
+        },
+        createdBy:{
+            type: ObjectId,
+            ref: 'USer'
+        }
+
+
     },
-    city: {
-        type: String,
-        required: false,
-    },
-    price: {
-        type: Number,
-        required: true,
-    },
-    state: {
-        type: String,
-        required: false,
-    },
- 
-    phone: {
-        type: Number,
-        required: true,
-    },
-    address: {
-        type: String,
-        required: false,
-    },
-    date: {
-        type: Date,
-        default: Date.now
-    },
-   
-    image: {
-        type: String,        
-        
-    },
-    postedBy: {
-        type: ObjectId,
-        ref: 'User'
-    },
-})
-export default mongoose.model('Property', propertySchema)
+      { timestamps: true }
+);
+
+
+
+module.exports = mongoose.model("Property", propertySchema);

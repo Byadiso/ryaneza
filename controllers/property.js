@@ -27,7 +27,7 @@ exports.read = (req,res )=>{
 exports.list = (req, res )=>{
     let order = req.query.order ? req.query.order : 'asc' ;
     let sortBy = req.query.sortBy ? req.query.sortBy :'_id' ;
-    let limit = req.query.limit ? parseInt(req.query.limit) : 4 ;    
+    let limit = req.query.limit ? parseInt(req.query.limit) : 6 ;    
 
     Product.find()
         .select('-photo')
@@ -76,6 +76,25 @@ exports.listCategories = (req, res )=>{
         res.json(categories)
     })
 }
+
+
+exports.listByUser = (req, res) => {
+    Product.find({ createdBy: req.profile._id })
+        .populate('createdBy', '_id name')
+        .select('_id name description created shipping')
+        .sort('_created')
+        .exec((err, properties) => {
+            if (err) {
+                return res.status(400).json({
+                    error: err
+                });
+            }
+            res.json({
+                properties: properties,
+                message: `property by this user`
+            });
+        });
+};
 
 
 exports.listBySearch = (req, res) => {
@@ -142,7 +161,8 @@ exports.create = (req, res)=>{
             })
         }
 
-        let product = new Product(fields)
+        let product = new Product(fields);
+        product.createdBy = req.profile;
         if(files.photo){
             //validation of photo files
             if(files.photo.size> 3000000){
