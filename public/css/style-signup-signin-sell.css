@@ -233,6 +233,12 @@ for cart */
   .hide{
     display: none;
   }
+/* 
+  for successful message */
+
+  .success{
+    color:green;
+  }
   
 
 @media screen and (max-width: 600px) {

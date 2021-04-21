@@ -8,21 +8,21 @@ const { userById} = require('../controllers/user');
 // const { productById} = require('../controllers/product');
 
 
-router.post('/v1/product/create/:userId', requireSignin, isAuth, isAdmin, create);
-router.delete('/v1/product/:productId/:userId', requireSignin, isAuth, isAdmin, remove);
-router.put('/v1/product/:productId/:userId', requireSignin, isAuth, isAdmin, update);
-router.get('/v1/product/:productId', read);
-router.get('/v1/products', list);
-router.get("/v1/products/search", listSearch);
-router.get('/v1/products/related/:productId', listRelated);
-router.get('/v1/products/categories' ,  listCategories);
-router.post("/v1/products/by/search", listBySearch);
-router.get("/v1/product/photo/:productId", photo);
+router.post('/v1/property /create/:userId', requireSignin, isAuth, isAdmin, create);
+router.delete('/v1/property /:propertyId/:userId', requireSignin, isAuth, isAdmin, remove);
+router.put('/v1/property /:propertyId/:userId', requireSignin, isAuth, isAdmin, update);
+router.get('/v1/property /:propertyId', read);
+router.get('/v1/properties', list);
+router.get("/v1/properties/search", listSearch);
+router.get('/v1/properties/related/:propertyId', listRelated);
+router.get('/v1/properties/categories' ,  listCategories);
+router.post("/v1/properties/by/search", listBySearch);
+router.get("/v1/property/photo/:propertyId", photo);
 
 
 
 router.param('userId', userById);
-router.param('productId', productById);
+router.param('propertyId', productById);
 
 
 module.exports = router;

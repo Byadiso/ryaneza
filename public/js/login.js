@@ -11,6 +11,8 @@ const usernameErr = document.querySelector('div#usernameErr');
 const emailErr = document.querySelector('div#emailErr');
 const passwordErr = document.querySelector('div#passwordErr');
 const password2Err = document.querySelector('div#password2Err');
+const incorrectServer = document.querySelector('div#incorrectServer');
+
 
 
 loginBtn.onmouseover = () => {
@@ -35,22 +37,18 @@ loginBtn.onclick = (e) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email:email, password: password }),
-      }).then(resp => resp.json().then((user) => {      
-    if (user.status === 'fail') {       
-    console.log(user.message)
-    return password2Err.innerHTML = user.message;
-    } else {
-    if (user.status === 'success') {
-        window.location.href = '../pages/user.html';
-        let userLogged =  localStorage.setItem('user',JSON.stringify(user));
-        // console.log(userLogged);
-        // console.log('wow')
-        password2Err.innerHTML = `<span style='color: green yellow'>${user.message}</span>`;
-        }
-    }
-    }).catch((err) => {
-      password2Err.innerHTML = err.message
-      return;
+      }).then(resp => resp.json().then((user) => { 
+
+        if (user.status == true) {
+          window.location.href = '../pages/user.html';
+          let userLogged =  localStorage.setItem('user',JSON.stringify(user));                 
+          } 
+          if(user.status == false){
+            password2Err.innerHTML = user.error          
+          }  
+    
+    }).catch((err) => {     
+      console.log(err)
     }))
     .catch(((fetchErr) => {
       usernameErr.innerHTML = fetchErr;

@@ -3,6 +3,10 @@ const name = document.getElementById('name');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
+const SignupForm = document.getElementById('signUpForm');
+const header_signUp = document.getElementById('header_signUp');
+
+
 
 
 // const usernameErr = document.querySelector('div#usernameErr');
@@ -80,15 +84,19 @@ signupBtn.onclick = (e) => {
        }),
     })
         .then(res => res.json())
-        .then((data) => {  
-              console.log(data)    
-              if (data.status === 400) {
-                return errorDisplay.innerHTML = data.message;
-              }else if (data.status === true ) {
-                let userLogged =  localStorage.setItem('user',JSON.stringify(data));
-                password2Err.innerHTML = `<span style='color: greenyellow'>${data.message}</span>`;
-                window.location.href = '../pages/property.html';        
-              }
+        .then((user) => {  
+              console.log(user);    
+              if (user.status == true) {
+                // window.location.href = '../pages/user.html';
+                // let userLogged =  localStorage.setItem('user',JSON.stringify(user)); 
+                SignupForm.innerHTML = `<p>Hey, <span class="registered_name"><strong>${user.user.name}</strong></span> Your account has been created successfull!</p>
+                <p><a href="./login.html">Please login !</a></p>`;
+                header_signUp.innerHTML = "Account created";
+                header_signUp.classList.add('success');            
+                } 
+                if(user.status == false){
+                  password2Err.innerHTML = user.message          
+                }  
          }).catch((err) => {
                 errorDisplay.innerHTML = err.message;
          })

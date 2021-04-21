@@ -29,7 +29,7 @@
     <div class="login">
         <div class="login-screen">
             <div class="app-title">
-                <h1>Login to your account.</h1>
+                <h1 >Login to your account.</h1>
             </div>
 
 
@@ -50,10 +50,10 @@
                 <div id="passwordErr"></div>
                 
                 <div><input type="checkbox" id="checkbox" onclick="togglePassword()">Show Password</div>
-				      	<div id="password2Err"></div>
+				   
 
               
-               <div id="incorrect"> </div>
+               <div id="incorrectServer"> </div>
                 
             </form>
             <button id="loginBtn">login</button>
@@ -83,6 +83,13 @@
                 function login () {
 
                 }
+
+
+    let userData = JSON.parse(localStorage.getItem('user')); 
+    console.log(userData);
+    if(userData){
+      window.location.href = '../pages/user.html';
+    }      
 
 </script>
 <script src="../js/login.js"></script>

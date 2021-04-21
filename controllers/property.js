@@ -1,9 +1,9 @@
-const { errorHandler } = require("../helper/dbErroHandler");
-const formidable = require('formidable');
-const _ = require('lodash');
-const fs = require('fs');
-const Product = require("../models/property");
-const { result, orderBy } = require("lodash");
+import  { errorHandler } from "../helper/dbErroHandler";
+import  formidable from 'formidable';
+import _  from 'lodash';
+import fs from 'fs';
+import Product from "../models/property";
+import { result, orderBy }from "lodash";
 
 
 
@@ -34,13 +34,17 @@ exports.list = (req, res )=>{
         .populate('category')
         .sort([[sortBy, order]])
         .limit(limit)
-        .exec((err, products) =>{
+        .exec((err, properties) =>{
         if(err) {
             return res.status(400).json({
                 error: "Products not found"
             });
         }
-        res.json(products)
+       return res.status(200).json({
+            properties:properties,
+            message: 'all properties',
+            status: true
+        })
     })
 }
 

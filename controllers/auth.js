@@ -6,20 +6,22 @@ import {errorHandler} from '../helper/dbErroHandler';
 
  
  
- exports.signup = (req,res) =>{
+ export function signup (req,res){
     console.log('req.body' , req.body);
     const user = new User(req.body);
     user.save((err, user) =>{
         if(err) {
             return res.status(400).json({
-                err:errorHandler(err)
+                err:errorHandler(err),
+                status: false,
+                message: 'Email already exist!'
             });
         }
         user.salt = undefined
         user.hashed_password = undefined
         res.status(200).json({
             user : user,
-            status: 'success',
+            status:true,
             message:'user created successful'
         });
     })
@@ -43,7 +45,8 @@ import {errorHandler} from '../helper/dbErroHandler';
         // create authenticate method in user model 
         if(!user.authenticate(password)){
             return res.status(401).json({
-                error: 'Email and password dont match'
+                error: 'Email and password dont match',
+                status: false
             })
         }
         // generate a signed token with uer id and secret

@@ -39,12 +39,12 @@
   <div class="login">
     <div class="login-screen">
       <div class="app-title">
-        <h1>Create an account</h1>
+        <h1 id="header_signUp">Create an account</h1>
       </div>
       <!-- i want to make a background full the space near the form -->
       <!-- <div class="welcome_page">Here the full width </div>  --> 
 
-      <div class="login-form ">
+      <div class="login-form" id="signUpForm">
        
               <form id="sign_up" class="control-group">
                 <div id="passwordErr"></div>
@@ -78,6 +78,10 @@
                     <p>Already have an account,<a class="login-link" href="./login.html">Log In</a></p>
               </form>
           </div>
+          <div id="succes_message" class="login-form" >
+            <!-- <p>Hey, <span class="registered_name"></span> Your account has been created successfull!</p>
+            <p>Please <a href="./login.html">login</a></p> -->
+          </div>
       </div>
      </div>
   </div>
@@ -89,7 +93,16 @@
   </div>
 
 </body>
+<script >  
+
+    let userData = JSON.parse(localStorage.getItem('user')); 
+    console.log(userData);
+    if(userData){
+    window.location.href = '../pages/user.html';
+    }      
+
+</script>
 
 <script src="../js/signup.js" type="module" defer></script>
 
-</html
+</html  

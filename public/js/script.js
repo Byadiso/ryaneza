@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
           //function to fetch all dat from backend
 
           const listAll = () => {
-           return  fetch('http://localhost:3000/api/v1/property')
+           return  fetch('http://localhost:3000/api/v1/properties')
             .then((resp) =>resp.json())
             .then((data) =>  {
             renderProperty(data);
@@ -21,45 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // function to render my property
           function  renderProperty(dataPro) {          
-              console.log(dataPro);
-             
+              console.log(dataPro);             
 
-              // trying to change my binary image to bas64
-            //   function arrayBufferToBase64( buffer ) {
-            //     var binary = '';
-            //     var bytes = new Uint8Array( buffer );
-            //     var len = bytes.byteLength;
-            //     for (var i = 0; i < len; i++) {
-            //         binary += String.fromCharCode( bytes[ i ] );
-            //     }
-            //     return window.btoa( binary );
-            // }
-
-            
-        
-
-            // ----------------------------------------------------------- //
-              
-              console.log(dataPro);
-              ordersMsg.className = 'err';
+               ordersMsg.className = 'err';
               ordersMsg.innerHTML = dataPro.message;
-               properties= dataPro.Property;                  
+                properties= dataPro.properties;                  
               for ( var i= 0; i < properties.length; i++ ){            
                 let  divprop= document.createElement("DIV"); 
                 const { _id,image,phone,address,date} = properties[i];
 
-                //for image convertion 
-                // var base64Flag = 'data:image/jpeg;base64,';
-                // var imageStr = arrayBufferToBase64(photo.data.data);
-                // let photoFromDb = base64Flag + imageStr;
-
-                // console.log(photoFromDb);
-
-                //----------------------------------------//
-
-                // console.log(photo.data)
-
-                // for short  notation is the best
+                                // for short  notation is the best
                 divprop.innerHTML =`
                 <div class="flip-box" data-id= ${_id}>
                   <div class="flip-box-inner">

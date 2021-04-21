@@ -78,4 +78,14 @@
                         &copy; 2019  Designed by BYAMUNGU desire || Andela Developer Challenge
                 </div> 
 </body>
+
+<script >
+
+    let user = JSON.parse(localStorage.getItem('user')); 
+    console.log(user);
+    if(user == null){
+      window.location.href = './login.html';
+    }      
+
+</script>
 </html>

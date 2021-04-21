@@ -1,7 +1,7 @@
 import express from 'express';
 
 
-import { userById, read, update,remove, purchaseHistory } from '../controllers/user';
+import userCtrl, { userById, read, update,remove, purchaseHistory } from '../controllers/user';
 import { requireSignin, isAuth, isAdmin } from '../controllers/auth';
 const router = express.Router();
 
