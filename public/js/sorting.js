@@ -36,6 +36,7 @@ function renderPropertyBySell(data){
     let headerSell = document.querySelector('.header_sell');
     headerSell.textContent="Most Sold ";
    
+   
 
 
     
@@ -56,11 +57,11 @@ function renderPropertyBySell(data){
 
         content_by_sell.innerHTML = 
        
-         `<div>
+         `
             <img scr=http://localhost:3000/api/v1/property/photo/${_id} class="imgCreated" style="width: 100px; height: 50px;">
-            <p id="phone"><strong>name:</strong> ${name}</p> 
-            <p id="phone"><strong>price:</strong> ${price}</p>       
-         </div>
+            <p id="phone"><strong> ${name} </strong></p> 
+            <p id="phone"><strong> ${price} </strong></p>       
+        
          `
 
         //  content_by_sell.append(headerSell);
@@ -84,6 +85,7 @@ fetchProperty('createdAt').then((data)=>{
 function renderPropertyByArrival(data){
     let headerArrival = document.querySelector('.header_arrival');
     headerArrival.textContent="NEW ARRIVALS";
+   
     
     console.log('Property by Arrival')
 
@@ -105,11 +107,11 @@ function renderPropertyByArrival(data){
         let photoUrl = `http://localhost:3000/api/v1/property/photo/${_id}` 
 
         content_by_arrival.innerHTML = 
-         `<div>
+         `
             <img scr=http://localhost:3000/api/v1/property/photo/${_id} class="imgCreated" style="width: 100px; height: 50px;">
-            <p id="phone"><strong>name:</strong> ${name}</p>
-            <p id="phone"><strong>price:</strong> ${price}</p>         
-         <div> 
+            <p id="phone"><strong> ${name} </strong></p> 
+            <p id="phone"><strong> ${price} Frw</strong></p>          
+         
          `
 
         //  content_by_arrival.append(headerArrival);

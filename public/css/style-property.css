@@ -459,7 +459,8 @@ margin-bottom: 10px;
 .imgCreated{
   display: block;
   border: 1px solid white;
-  border-radius: 40px;
+  border-radius: 20px;
+  width: 20%;
 }
  
 /* do a flip horizontall wshen  image is hover*/
@@ -605,34 +606,53 @@ width: 300px;
 height: 30px;
 
 }
-
+/* 
+............................................................... */
 
 #sell_and_arrival {
-  display: block;
+  display: flex;
   width: 100%;
-  grid-template-columns: auto auto ;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  /* background-color: rgba(255, 255, 255, 0.479); */
+  padding: .4rem;  
 }
 
-#property_by_sell {
+
+#property_by_arrival, #property_by_sell{
   display: grid;
-  width: 100%;
-  grid-template-columns: auto auto auto;
- 
+  width: 30%;
+  grid-template-columns: auto auto
 }
-
 #property_by_arrival{
-  display: grid;
-  width: 100%;
-  grid-template-columns: auto auto auto ;
+  float: left;
+  color: green;
+  margin-left: 300px;
+}
+#property_by_arrival h1, #property_by_sell h1{
+grid-column-start: 1;
+grid-column-end: 3;
+
 }
 
-.header_sell{
-  margin-left: 500px;
-  margin-right: 200px;
-  display: block;
+
+.header_sell,.header_arrival {
+    display: block;
+    color: red;
+  }
+
   
+  .property_by_arrival_content, .property_by_sell_content{        
+    background-color: rgba(255, 255, 255, 0.479);
+    margin: .7rem;
+    padding: .7rem;
+    display: flex;    
+  }
 
-}
+  .property_by_arrival_content p,.property_by_sell_content p {
+    margin-left: 20px;
+    color: blue;
+  }
 
-
+  
 
