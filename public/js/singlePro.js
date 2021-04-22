@@ -28,37 +28,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
    const singlePro = findedOne;
    const propertyContainer= document.createElement('DIV');
    propertyContainer.classList.add('property_container');
-   
-   //for delete button
-
-//     const deleteBtn= document.createElement('BUTTON');
-//     deleteBtn.classList.add('btn-delete');
-//     deleteBtn.innerHTML = "Delete";
-//     deleteBtn.style.margin = "5px 2px 5px 2px";
-//     deleteBtn.addEventListener('click', ()=>{
-//             console.log('yes delete something');                         
-//             fetch( `http://localhost:3000/api/v1/property/${proId}`, {
-//               method: 'DELETE',
-//               headers: {
-//                 Accept: "application/json",
-//                 "Content-Type": "application/json",
-//                 // Authorization: `Bearer `
-//              }
-//             }).then(()=> location.reload()); 
-     
-// });
-
-    //for modify button
-//     const modifyBtn= document.createElement('BUTTON');
-//           modifyBtn.classList.add('btn-modify');
-//           modifyBtn.innerHTML = "Modify";
-//           modifyBtn.style.margin = "5px 2px 5px 2px";
-//           modifyBtn.addEventListener('click', ()=>{
-//                 console.log('yes updates')
-
-//                 location.href='../pages/updated.html';
-
-//           });
+  
 
           //for add to the cart
           const addCartBtn= document.createElement('BUTTON');

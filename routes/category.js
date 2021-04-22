@@ -12,11 +12,11 @@ const router = express.Router();
 
 //for categories routers
 
-router.get('/category/:categoryId',  read);
-router.post('/category/create/:userId', requireSignin, isAuth, isAdmin, create);
-router.delete('/category/:categoryId/:userId', requireSignin, isAuth, isAdmin, remove);
-router.put('/category/:categoryId/:userId', requireSignin, isAuth, isAdmin, update);
-router.get('/categories' ,  list);
+router.get('/v1/category/:categoryId',  read);
+router.post('/v1/category/create/:userId', requireSignin, isAuth, isAdmin, create);
+router.delete('/v1/category/:categoryId/:userId', requireSignin, isAuth, isAdmin, remove);
+router.put('/v1/category/:categoryId/:userId', requireSignin, isAuth, isAdmin, update);
+router.get('/v1/categories' ,  list);
 
 
 router.param('userId', userById);

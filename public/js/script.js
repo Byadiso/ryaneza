@@ -33,12 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const { _id,photo,name,description,createdAt} = properties[i];        
                  
 
-                 
             
 
              let photoUrl = `http://localhost:3000/api/v1/property/photo/${_id}`
 
-                                // for short  notation is the best
+               // for short  notation is the best
                 divprop.innerHTML =`
                 <div class="flip-box" data-id= ${_id}>
                   <div class="flip-box-inner">

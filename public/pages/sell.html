@@ -44,12 +44,15 @@
     <div class="login-screen">
       <div class="login-form">
 
-        <form action="/api/v1/property" method="POST" id="sell" class="control-group"> 
+        <form action="" method="POST" id="sell" class="control-group"> 
             
-            <input type="text" class="login-field" placeholder="owner"  name="owner" id="owner"> 
+            <input type="text" class="login-field" placeholder="name"  name="name" id="name"> 
             <input type="text" class="login-field"  placeholder="price"  name="price" id="price">
-            <input type="text" class="login-field" placeholder="state"  name="state" id="state">
-            <input type="text" class="login-field"  placeholder="city"  name="city"  id="city">
+            <input type="text" class="login-field" placeholder="description"  name="description" id="description">
+            <select class="login-field category" name="category">
+              <option placeholder="category"> Choose category</option>
+             
+            </select>
             <input type="text" class="login-field"  placeholder="phone"  name="phone" id="phone">
             <input type="text" class="login-field"  placeholder="Address" type="text" id="address" name="address"
               >
