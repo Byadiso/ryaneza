@@ -26,37 +26,39 @@ document.addEventListener('DOMContentLoaded', ()=>{
          
  const renderPro = ()=>{  
    const singlePro = findedOne;
+   const propertyContainer= document.createElement('DIV');
+   propertyContainer.classList.add('property_container');
    
    //for delete button
 
-    const deleteBtn= document.createElement('BUTTON');
-    deleteBtn.classList.add('btn-delete');
-    deleteBtn.innerHTML = "Delete";
-    deleteBtn.style.margin = "5px 2px 5px 2px";
-    deleteBtn.addEventListener('click', ()=>{
-            console.log('yes delete something');                         
-            fetch( `http://localhost:3000/api/v1/property/${proId}`, {
-              method: 'DELETE',
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-                // Authorization: `Bearer `
-             }
-            }).then(()=> location.reload()); 
+//     const deleteBtn= document.createElement('BUTTON');
+//     deleteBtn.classList.add('btn-delete');
+//     deleteBtn.innerHTML = "Delete";
+//     deleteBtn.style.margin = "5px 2px 5px 2px";
+//     deleteBtn.addEventListener('click', ()=>{
+//             console.log('yes delete something');                         
+//             fetch( `http://localhost:3000/api/v1/property/${proId}`, {
+//               method: 'DELETE',
+//               headers: {
+//                 Accept: "application/json",
+//                 "Content-Type": "application/json",
+//                 // Authorization: `Bearer `
+//              }
+//             }).then(()=> location.reload()); 
      
-});
+// });
 
     //for modify button
-    const modifyBtn= document.createElement('BUTTON');
-          modifyBtn.classList.add('btn-modify');
-          modifyBtn.innerHTML = "Modify";
-          modifyBtn.style.margin = "5px 2px 5px 2px";
-          modifyBtn.addEventListener('click', ()=>{
-                console.log('yes updates')
+//     const modifyBtn= document.createElement('BUTTON');
+//           modifyBtn.classList.add('btn-modify');
+//           modifyBtn.innerHTML = "Modify";
+//           modifyBtn.style.margin = "5px 2px 5px 2px";
+//           modifyBtn.addEventListener('click', ()=>{
+//                 console.log('yes updates')
 
-                location.href='../pages/updated.html';
+//                 location.href='../pages/updated.html';
 
-          });
+//           });
 
           //for add to the cart
           const addCartBtn= document.createElement('BUTTON');
@@ -75,13 +77,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let photoUrl = `http://localhost:3000/api/v1/property/photo/${proId}`
         const img = document.createElement("img");  
         img.src = photoUrl; 
-        img.style.width= "570px";
-        img.style.height= "670px";
+        img.style.width= "350px";
+        img.style.height= "400px";
         img.classList.add('imgCreated');
-        mainSingleDiv.append(img);
-        mainSingleDiv.append(deleteBtn);
-        mainSingleDiv.append(modifyBtn);
-        mainSingleDiv.append(addCartBtn);
+        propertyContainer.append(img);
+      //   propertyContainer.append(deleteBtn);
+      //   propertyContainer.append(modifyBtn);
+        propertyContainer.append(addCartBtn);
+        //appending the main container
+        mainSingleDiv.appendChild(propertyContainer);
         
         
               
@@ -119,20 +123,37 @@ function renderRelated(data){
       
       let properties = data;
       console.log(properties);
+      const container_related = document.createElement('DIV');
+      container_related.classList.add('property_container');
+      let header_related = document.createElement('h1');
+      header_related.classList.add('header_related');
+      header_related.textContent= "Related Property";
+
+      // create a header for related property
+
+      container_related.append(header_related);
+
+
+
+
       for ( var i= 0; i < properties.length; i++ ){ 
     
             const {_id,name, category} = properties[i];
 
             let property_related = document.createElement('div');
-            property_related.classList.add('dashboard_user_details');
+            property_related.classList.add('related_properties');
       
         
             property_related.innerHTML = 
-         `<p id="phone"><strong>name:</strong> ${name}</p>
-         <p id="owner"><strong>categry:</strong> ${category.name}</p> 
-          <p id="owner"><strong>User ID:</strong> ${_id}</p>`
+         `<img scr=http://localhost:3000/api/v1/property/photo/${_id} class="imgCreated" style="width: 100px; height: 50px;">
+         <p id="phone"><strong>name:</strong> ${name}</p>        
+          `
       
-          mainSingleDiv.appendChild(property_related)
+          container_related.append(property_related); 
+          
+          mainSingleDiv.appendChild(container_related); 
+
+          
 
 
 
