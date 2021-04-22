@@ -565,7 +565,7 @@ display:none
 
 /* single property*/
 #forSingleElement{
-  display: flex;
+  display: block;
   justify-content: center;
 
 }
@@ -588,6 +588,7 @@ display:none
 }
 #myProperties{
   margin: 40px;
+  width: 100%;
 }
 
 
@@ -604,3 +605,34 @@ width: 300px;
 height: 30px;
 
 }
+
+
+#sell_and_arrival {
+  display: block;
+  width: 100%;
+  grid-template-columns: auto auto ;
+}
+
+#property_by_sell {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto auto auto;
+ 
+}
+
+#property_by_arrival{
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto auto auto ;
+}
+
+.header_sell{
+  margin-left: 500px;
+  margin-right: 200px;
+  display: block;
+  
+
+}
+
+
+
