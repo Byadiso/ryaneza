@@ -4,16 +4,22 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
               
     // for accessing only my form to create a property 
-    const owner = document.querySelector('#owner');
+    const name = document.querySelector('#name');
     const price = document.querySelector('#price');
-    const state = document.querySelector('#state');
-    const city = document.querySelector('#city');
-    const phone = document.querySelector('#phone');
-    const adress = document.querySelector('#address');
+    const quantity = document.querySelector('#quantity');
+    const description = document.querySelector('#description');
+    const shipping = document.querySelector('#shipping');
+    const sold = document.querySelector('#sold');
     const category = document.querySelector('.category');
-    const image = document.querySelector('#fileUpload');
-    const button = document.querySelector('#create_pro');
+    const photo = document.querySelector('#fileUpload');
+    const submitButton = document.querySelector('#create_pro');
     const selectionCategory = document.querySelector('.category');
+    const form = document.querySelector('#create_property_form');
+    
+
+    let categoryVar
+    let shippingVar
+    let photoVar
 
 
     // ...................................................................................
@@ -36,12 +42,22 @@ document.addEventListener('DOMContentLoaded', ()=> {
        .catch(err =>console.log(err));
      };
 
-     
+     //for quantity change event 
+
+     quantity.addEventListener('change',(e)=>{
+       console.log(e.target.value);
+       quantity.textContent = e.target.value
+     })
+//for sold thing change 
+
+sold.addEventListener('change',(e)=>{
+  console.log(e.target.value);
+  sold.textContent = e.target.value
+})
 
      ///get categories
 
      function getCategories(){
-
       fetchCategories();
 
       let categoriesItem  = JSON.parse(localStorage.getItem('categories'));
@@ -49,9 +65,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
       for ( var i= 0; i < categoriesItem.length; i++ ){ 
         console.log(categoriesItem[i].name)
         const optionCategorie = document.createElement('option');
-        optionCategorie.innerHTML= `<option data-id=${categoriesItem[i]._id}>${categoriesItem[i].name}</option>`;
+        optionCategorie.innerHTML= `<option class="option_tag" value=${categoriesItem[i]._id}>${categoriesItem[i]._id}</option>`;
 
         selectionCategory.appendChild(optionCategorie);
+       
         }
 
         
@@ -61,48 +78,79 @@ document.addEventListener('DOMContentLoaded', ()=> {
      
     
 
-     const id= selectionCategory.getAttribute('data-id');
-     console.log(id)
+    
 
+//for selection event 
+selectionCategory.addEventListener('change',(e)=>{
+  const myCategorie = e.target.value;
+  category.textContent= myCategorie; 
+  console.log(myCategorie);
+  categoryVar = myCategorie
 
+});
+
+//for shipping change event
+shipping.addEventListener('change',(e)=>{
+  const myShipping = e.target.value;
+  console.log(myShipping);
+  shipping.textContent= myShipping;
+  shippingVar = myShipping
+
+})
+
+// for image change event 
+
+photo.addEventListener('change', (event) => {
+  const fileList = event.target.files;
+  console.log(fileList);
+  photoVar = fileList;
+});
 
   // --------------------------------------------------------------------------------------
-    
-    button.addEventListener('click', (e) => { 
-      e.preventDefault();
-      function postProperty(){
-       return  fetch(`http://localhost:3000/api/v1/property/create/${id}`, {
+      const user= JSON.parse(localStorage.getItem('user'));
+      const id = user.user._id;
+      const token = user.token;
+      console.log(id);
+      console.log(id)
+
+  submitButton.onclick = (e) => {
+      e.preventDefault();       
+        fetch(`http://localhost:3000/api/v1/property/create/${id}`, {
                 method: 'POST',
                 headers:{
-                  'Content-Type':'application/json'
+                  'Content-Type':'application/json',
+                  "Access-Control-Allow-Origin": "*",
+                  'Authorization': `Bearer ${token}`
                        },
+
                 body: JSON.stringify({         
                     name:name.value,
                     price:price.value,
                     description:description.value,
-                    category:category.value,
+                    category:categoryVar,
                     quantity: quantity.value,
-                    photo:photo.file,
-                    sold:sold.file,
+                    photo: photoVar,
+                    sold:sold.value,
+                    shipping: shippingVar
               
           })
         })
         .then(response =>response.json())
-        .then(createdProperty =>{
-          if(createdProperty.status == true){
-             let storedData = localStorage.setItem('properties', JSON.stringify(createdProperty))
+        .then(data =>{
+          // console.log(data)
+          if(data.status == true){
+             let storedData = localStorage.setItem('properties', JSON.stringify(data))
              window.location.href = '../pages/property.html'
           } 
-          if(createdProperty.status == false){
-            console.log(createdProperty.error)
+          if(data.status == false){
+            console.log(data.error)
           }         
         })
-        .catch(err =>console.log(err));
-        }
-      
-      postProperty();
-
-    })       
+        .catch((err) =>{
+          console.log(err)
+        });
+        }          
+    
 });
 
 
