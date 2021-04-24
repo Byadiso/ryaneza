@@ -46,14 +46,12 @@ document.addEventListener('DOMContentLoaded', ()=> {
      //for quantity change event 
 
      quantity.addEventListener('change',(e)=>{
-       console.log(e.target.value);
        quantity.textContent = e.target.value
      })
 //for sold thing change 
 
 sold.addEventListener('change',(e)=>{
-  console.log(e.target.value);
-  sold.textContent = e.target.value
+    sold.textContent = e.target.value
 })
 
      ///get categories
@@ -85,7 +83,6 @@ sold.addEventListener('change',(e)=>{
 selectionCategory.addEventListener('change',(e)=>{
   const myCategorie = e.target.value;
   category.textContent= myCategorie; 
-  console.log(myCategorie);
   categoryVar = myCategorie
 
 });
@@ -93,7 +90,6 @@ selectionCategory.addEventListener('change',(e)=>{
 //for shipping change event
 shipping.addEventListener('change',(e)=>{
   const myShipping = e.target.value;
-  console.log(myShipping);
   shipping.textContent= myShipping;
   shippingVar = myShipping
 
@@ -101,35 +97,17 @@ shipping.addEventListener('change',(e)=>{
 
 // for image change event 
 
-photo.addEventListener('change', (event) => {
-  // const fileList = event.target.files[0];
-  const fileList = URL.createObjectURL(event.target.files[0])
-  console.log(fileList);
-  photoVar = fileList;
-
-  
-    //   const formData = new FormData();
-    //   const fileField = document.querySelector('input[type="file"]');
-
-    // formData.append('name', name.value);
-    // formData.append('photo', fileField.files[0]);
-    // formData.append('price', price.value);
-    // formData.append('description', description.value);
-    // formData.append('category', categoryVar);
-    // formData.append('quantity', quantity.value);
-    // formData.append('sold', sold.value);
-    // formData.append('shipping', shippingVar);
-
-    // console.log(formData);
- 
-});
+// photo.addEventListener('change', (event) => {
+//   // const fileList = event.target.files[0];
+//   const fileList = URL.createObjectURL(event.target.files[0])
+//   photoVar = fileList;
+// });
 
   // --------------------------------------------------------------------------------------
       const user= JSON.parse(localStorage.getItem('user'));
       const id = user.user._id;
       const token = user.token;
-      console.log(id);
-      console.log(id)
+    
 
   submitButton.addEventListener('click',  (e) => {
     e.preventDefault(); 
