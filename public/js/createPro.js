@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     const submitButton = document.querySelector('#create_pro');
     const selectionCategory = document.querySelector('.category');
     const form = document.querySelector('#create_property_form');
+    const display_error = document.querySelector('.display_error');
     
 
     let categoryVar
@@ -101,9 +102,26 @@ shipping.addEventListener('change',(e)=>{
 // for image change event 
 
 photo.addEventListener('change', (event) => {
-  const fileList = event.target.files;
+  // const fileList = event.target.files[0];
+  const fileList = URL.createObjectURL(event.target.files[0])
   console.log(fileList);
   photoVar = fileList;
+
+  
+    //   const formData = new FormData();
+    //   const fileField = document.querySelector('input[type="file"]');
+
+    // formData.append('name', name.value);
+    // formData.append('photo', fileField.files[0]);
+    // formData.append('price', price.value);
+    // formData.append('description', description.value);
+    // formData.append('category', categoryVar);
+    // formData.append('quantity', quantity.value);
+    // formData.append('sold', sold.value);
+    // formData.append('shipping', shippingVar);
+
+    // console.log(formData);
+ 
 });
 
   // --------------------------------------------------------------------------------------
@@ -113,43 +131,67 @@ photo.addEventListener('change', (event) => {
       console.log(id);
       console.log(id)
 
-  submitButton.onclick = (e) => {
-      e.preventDefault();       
-        fetch(`http://localhost:3000/api/v1/property/create/${id}`, {
-                method: 'POST',
-                headers:{
-                  'Content-Type':'application/json',
-                  "Access-Control-Allow-Origin": "*",
-                  'Authorization': `Bearer ${token}`
-                       },
+  submitButton.addEventListener('click',  (e) => {
+    e.preventDefault(); 
+    
+    if (!name.value.trim() ) {
+      display_error.textContent = '* Please fill in all fields';        
+    } else{
 
-                body: JSON.stringify({         
-                    name:name.value,
-                    price:price.value,
-                    description:description.value,
-                    category:categoryVar,
-                    quantity: quantity.value,
-                    photo: photoVar,
-                    sold:sold.value,
-                    shipping: shippingVar
-              
-          })
-        })
-        .then(response =>response.json())
-        .then(data =>{
-          // console.log(data)
-          if(data.status == true){
-             let storedData = localStorage.setItem('properties', JSON.stringify(data))
-             window.location.href = '../pages/property.html'
-          } 
-          if(data.status == false){
-            console.log(data.error)
-          }         
-        })
-        .catch((err) =>{
-          console.log(err)
-        });
-        }          
+      const formData = new FormData();
+      const fileField = document.querySelector('input[type="file"]');
+
+    formData.append('name', name.value);
+    formData.append('photo', fileField.files[0]);
+    formData.append('price', price.value);
+    formData.append('description', description.value);
+    formData.append('category', categoryVar);
+    formData.append('quantity', quantity.value);
+    formData.append('sold', sold.value);
+    formData.append('shipping', shippingVar);
+    
+
+
+
+      fetch(`http://localhost:3000/api/v1/property/create/${id}`, {
+        method: 'POST',
+        headers: {
+          // 'Content-Type':'text/plain',
+          // 'Content-Type': 'application/json',
+          "Access-Control-Allow-Origin": "*",
+          'Authorization': `Bearer ${token}`
+           },
+           body: formData
+  //       body: JSON.stringify({         
+  //           name:name.value,
+  //           price:price.value,
+  //           description:description.value,
+  //           category:categoryVar,
+  //           quantity: quantity.value,
+  //           photo: photoVar,
+  //           sold:sold.value,
+  //           shipping: shippingVar              
+  // })
+})
+.then(response => {
+    return  response.json()
+})
+.then(data => {
+  // console.log(data)
+  if(data.status == true){
+     let storedData = localStorage.setItem('properties', JSON.stringify(data))
+     window.location.href = '../pages/property.html'
+  } 
+  if(data.status == false){
+    console.log(data.error)
+  }         
+})
+.catch((err) =>{
+  console.log(err)
+});
+    }
+      
+      })          
     
 });
 

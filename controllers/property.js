@@ -27,7 +27,7 @@ exports.read = (req,res )=>{
 exports.list = (req, res )=>{
     let order = req.query.order ? req.query.order : 'asc' ;
     let sortBy = req.query.sortBy ? req.query.sortBy :'_id' ;
-    let limit = req.query.limit ? parseInt(req.query.limit) : 9 ;    
+    let limit = req.query.limit ? parseInt(req.query.limit) : 20 ;    
 
     Product.find()
         .select('-photo')
@@ -177,6 +177,7 @@ exports.create = (req, res)=>{
             if(err){
                 return res.status(404).json({
                     error: errorHandler(err),
+                    // error: err,
                     status: false
                 });
             }
