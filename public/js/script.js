@@ -90,18 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
               //implementing search bar
               
-              searchBar.addEventListener('keyup',(e)=>{
-                const searchString = e.target.value.toLowerCase();                   
-                const filtredPro = properties.filter((property) =>{
-                    return (
-                          property.owner.toLowerCase().includes(searchString) ||
-                          property.state.toLowerCase().includes(searchString) ||
-                          property.city.toLowerCase().includes(searchString)
-                        )
-                    })
-                    console.log(filtredPro)
+              // searchBar.addEventListener('keyup',(e)=>{
+              //   const searchString = e.target.value.toLowerCase();                   
+              //   const filtredPro = properties.filter((property) =>{
+              //       return (
+              //             property.owner.toLowerCase().includes(searchString) ||
+              //             property.state.toLowerCase().includes(searchString) ||
+              //             property.city.toLowerCase().includes(searchString)
+              //           )
+              //       })
+              //       console.log(filtredPro)
                    
-              })
+              // })
                listAll();
       
           })

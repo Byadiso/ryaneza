@@ -8,6 +8,7 @@
          <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
          <script  type="module" src="../js/script.js" defer></script>
          <script  type="module" src="../js/sorting.js" defer></script>
+         <script src="../js/search.js" defer></script>
          
 
          <!-- for fonts -->
@@ -60,8 +61,8 @@
                                 <input type="checkbox" name="all" id="all_property">
                                 <label for="all"><strong> Electronics </strong></label>
                         </div>
-                        <form class="searchBar" method="GET" action="/api/v1/property">
-                                <input type="text" name="search" id="searchBar" placeholder="search for a propery">
+                        <form class="searchBar" id="input_search">
+                                <input type="text" name="search" id="searchBar" class="input_search" placeholder="search for a propery">
                                 <input type="submit" value="Search" class="btnSearch">
                         </form>
                         
