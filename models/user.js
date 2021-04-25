@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import crypto from 'crypto';
+const {ObjectId } = mongoose.Schema;
 // const uuidv1 = require('uuid/v1');
 const { v1: uuidv1 } = require('uuid');
 const { strict } = require('assert');
@@ -30,8 +31,8 @@ const userSchema = new mongoose.Schema({
         type:String,
         trim:true
        },
-    following: [{ type: ObjectId, ref: "User" }],
-    followers: [{ type: ObjectId, ref: "User" }],
+    following: [{ type: ObjectId, ref: "USer" }],
+    followers: [{ type: ObjectId, ref: "USer" }],
     salt: String,
     role:{
            type: Number,

@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
         <link rel="stylesheet" type="text/css" href="../css/style-property.css">
         <script src="../js/user.js" defer></script>
+        <script src="../js/user_tabs.js" defer></script>
 
 </head>
 
@@ -42,21 +43,60 @@
                 </div>               
           </div>
         </div>
-        <div class="dashboard">                
-                <h2 class="header-text"> </h2>
 
-                <div class="dashboard_user">
-                       
-                        
-                </div>
-                <div class="dashboard_manage">
-                        <h4></h4> 
-                </div>        
+        <div class="tab">
+                <button class="tablinks" onclick="open_menu_dashboard(event, 'admin_details')">Admin Details</button>
+                <button class="tablinks" onclick="open_menu_dashboard(event, 'manager_property')">Manager Property</button>
+                <button class="tablinks" onclick="open_menu_dashboard(event, 'all_user')">All user</button>
         </div>
+
+        <!-- Tab content -->
+        <div id="admin_details" class="tabcontent admin_details ">
+        <h5>Welcome admin <span class="all_admin_header"></span>  </h5>
+        
+        </div>
+
+        <div id="manager_property" class="tabcontent manager_property">
+         <h3>Manager all your <span class="all_property_header"></span> properties </h3>        
+        </div>
+
+        <div id="all_user" class="tabcontent all_user">
+                <h3 >All <span class="all_user_header"></span> users on the website </h3>
+        
+        </div>
+
+       
 
 
         <div id="footer">
           &copy; 2019 Designed by BYAMUNGU desire || Andela Developer Challenge
         </div>
+
+        <script>
+                
+
+                function open_menu_dashboard(evt, menu_dashboard) {
+                // Declare all variables
+                var i, tabcontent, tablinks;
+                
+                // Get all elements with class="tabcontent" and hide them
+                tabcontent = document.getElementsByClassName("tabcontent");
+                // tabcontent.textContent= 'this has been fecthed'
+                for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";     
+                }
+                
+                // Get all elements with class="tablinks" and remove the class "active"
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                
+                // Show the current tab, and add an "active" class to the button that opened the tab
+                document.getElementById(menu_dashboard).style.display = "block";
+                evt.currentTarget.className += " active"; 
+
+                }
+         </script>
 </body>
 </html>
