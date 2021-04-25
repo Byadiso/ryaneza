@@ -22,7 +22,32 @@ document.addEventListener('DOMContentLoaded', ()=>{
   let findedOne = newPro.find(item=> item._id === proId)
     
   console.log(findedOne);
+  let {description,shipping,reviews,comments} = findedOne
+
+  //for acessing my comments reviews and description
+  const descriptionCont = document.querySelector('.description_details');
+  const ShippingCont = document.querySelector('.shipping_details');
+  const reviewsCont = document.querySelector('.reviews_details');
+  const commentsCont = document.querySelector('.comment_details');
   
+
+  // set all content 
+  descriptionCont.textContent= description;
+  ShippingCont.textContent= shipping == true ? "Please remember to update your address in order to deliver you product at your door" : "Sorry this is not delivable product";
+  reviewsCont.textContent=reviews.length == 0 ? "No Reviews found!" : reviews.map((review)=>{
+    const reviewsContainer = document.createElement('div');
+    reviewsContainer.innerHTML =
+    ` <p>${review}</p>
+    <p>${review.postedBy.name}</p>
+    `
+  });
+  commentsCont.textContent= comments.length == 0 ? "No comments found for this product. Be the first to comment!" : comments.map((coment)=>{
+    const comentContainer = document.createElement('div');
+    comentContainer.innerHTML =
+    ` <p>${coment}</p>
+    <p>${coment.postedBy.name}</p>
+    `
+  });
          
  const renderPro = ()=>{  
    const singlePro = findedOne;
@@ -41,6 +66,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 location.href='#';
 
           });
+          
+
+          
 
 
     //for image
@@ -100,7 +128,6 @@ function renderRelated(data){
       header_related.textContent= "Related Property";
 
       // create a header for related property
-
       container_related.append(header_related);
 
 
@@ -109,7 +136,6 @@ function renderRelated(data){
       for ( var i= 0; i < properties.length; i++ ){ 
     
             const {_id,name, category} = properties[i];
-
             let property_related = document.createElement('div');
             property_related.classList.add('related_properties');
       
