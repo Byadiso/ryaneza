@@ -45,24 +45,26 @@
       <div class="login-form">
 
         <form id="create_property_form" class="control-group create_property">
+          <h3 class="create_property_header" >Create Your Property</h3>
 
           <div class="display_error"></div> 
             
             <input type="text" class="login-field" placeholder="name"  name="name" id="name"> 
             <input type="text" class="login-field"  placeholder="price"  name="price" id="price">
             <input type="text" class="login-field" placeholder="description"  name="description" id="description">
-            <select class="login-field category" name="category">
-              <option placeholder="category"> Choose category</option>
+  
+           <select class="login-field category create_select_center " name="category">
+              <option placeholder="category" class="login-field create_select"> Choose category</option>
              
             </select>
             <input type="number" class="login-field"  placeholder="sold"  name="sold" id="sold">
             <input type="number" class="login-field"  placeholder="quantity"  name="quantity" id="quantity">
-            <select class="login-field" name="shipping" id="shipping">
-              <option placeholder="category">Choose shipping </option>
-              <option placeholder="category" value="yes">Yes </option>
-              <option placeholder="category" value="no">No</option>             
+            <select class="login-field create_select_center" name="shipping" id="shipping">
+              <option placeholder="Shipping">Choose shipping </option>
+              <option placeholder="Shipping" value="yes">Yes </option>
+              <option placeholder="Shipping" value="no">No</option>             
             </select>
-            <input type="file" accept="image/*" class="login-field"   name="image" id="fileUpload">          
+            <input type="file" accept="image/*" class="login-field create_select_center"   name="image" id="fileUpload">          
             <br>
             
             <!-- <input type="submit"  class="submitBtn login-field " id="create_pro">  -->

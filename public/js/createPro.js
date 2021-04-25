@@ -67,7 +67,7 @@ sold.addEventListener('change',(e)=>{
         let { name, _id} = categoriesItem[i];
         console.log(name);
         const optionCategorie = document.createElement('option');
-        optionCategorie.innerHTML= `<option class="option_tag" data-id=${_id}>${name}</option>`;
+        optionCategorie.innerHTML= `<option class="option_tag login-field" data-id=${_id}>${name}</option>`;
 
         selectionCategory.appendChild(optionCategorie);
        
