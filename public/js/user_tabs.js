@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     //fro user details 
    const userHeader = document.querySelector('.all_admin_header');
-   userHeader.textContent = user.name; 
+   userHeader.textContent = ` ${user.role == 1 ? "Admin " + user.name : "User " + user.name}`; 
 
    const userContainer = document.createElement('div');
    

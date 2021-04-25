@@ -37,7 +37,8 @@ import {errorHandler} from '../helper/dbErroHandler';
    User.findOne({email}, (err, user) =>{
         if (err || !user ){
             return res.status(400).json({
-                error: "User with that email does not exist . Please signup"
+                error: "User with that email does not exist. Please signup",
+                status: false
             });
         }
         // if user is found make sure that the email and passwword match
@@ -45,7 +46,7 @@ import {errorHandler} from '../helper/dbErroHandler';
         // create authenticate method in user model 
         if(!user.authenticate(password)){
             return res.status(401).json({
-                error: 'Email and password dont match',
+                error: 'Email and password does not match',
                 status: false
             })
         }
