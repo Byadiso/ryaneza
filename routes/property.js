@@ -3,7 +3,11 @@ const router = express.Router();
 
 
 const { requireSignin, isAuth, isAdmin } = require('../controllers/auth');
-const { create, productById ,read, remove, update , list,listByUser, listRelated, listCategories,listBySearch,listSearch,photo } = require('../controllers/property');
+const { create, productById ,read, remove, update , list,listByUser, listRelated, listCategories,listBySearch,listSearch,photo,like,
+    unlike,
+    comment,
+    uncomment,
+    updateComment } = require('../controllers/property');
 const { userById} = require('../controllers/user');
 // const { productById} = require('../controllers/product');
 
@@ -19,6 +23,15 @@ router.get('/v1/properties/categories' ,  listCategories);
 router.post("/v1/properties/by/search", listBySearch);
 router.get('/v1/properties/:userId', listByUser);
 router.get("/v1/property/photo/:propertyId", photo);
+
+// like unlike
+router.put('/v1/property/like', requireSignin, like);
+router.put('/v1/property/unlike', requireSignin, unlike);
+
+// comments
+router.put('/v1/property/comment', requireSignin, comment);
+router.put('/v1/property/uncomment', requireSignin, uncomment);
+router.put('/v1/property/updatecomment', requireSignin, updateComment);
 
 
 

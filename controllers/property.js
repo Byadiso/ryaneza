@@ -307,3 +307,99 @@ exports.decreaseQuantity = (req, res, next) => {
         next();
     });
 };
+
+
+
+//new feauture for review comment, uncomment and likes, unlike for property 
+
+exports.like = (req, res) => {
+    Product.findByIdAndUpdate(req.body.propertyId, { $push: { likes: req.body.userId } }, { new: true }).exec(
+        (err, result) => {
+            if (err) {
+                return res.status(400).json({
+                    error: err
+                });
+            } else {
+                res.json(result);
+            }
+        }
+    );
+};
+
+exports.unlike = (req, res) => {
+    Product.findByIdAndUpdate(req.body.propertyId, { $pull: { likes: req.body.userId } }, { new: true }).exec(
+        (err, result) => {
+            if (err) {
+                return res.status(400).json({
+                    error: err
+                });
+            } else {
+                res.json(result);
+            }
+        }
+    );
+};
+
+exports.comment = (req, res) => {
+    let comment = req.body.comment;
+    comment.postedBy = req.body.userId;
+
+    Product.findByIdAndUpdate(req.body.propertyId, { $push: { comments: comment } }, { new: true })
+        .populate('comments.postedBy', '_id name')
+        .populate('postedBy', '_id name')
+        .exec((err, result) => {
+            if (err) {
+                return res.status(400).json({
+                    error: err
+                });
+            } else {
+                res.json(result);
+            }
+        });
+};
+
+exports.uncomment = (req, res) => {
+    let comment = req.body.comment;
+
+    Product.findByIdAndUpdate(req.body.propertyId, { $pull: { comments: { _id: comment._id } } }, { new: true })
+        .populate('comments.postedBy', '_id name')
+        .populate('postedBy', '_id name')
+        .exec((err, result) => {
+            if (err) {
+                return res.status(400).json({
+                    error: err
+                });
+            } else {
+                res.json(result);
+            }
+        });
+};
+
+exports.updateComment = (req, res) => {
+    let comment = req.body.comment;
+
+    Product.findByIdAndUpdate(req.body.propertyId, { $pull: { comments: { _id: comment._id } } }).exec((err, result) => {
+        if (err) {
+            return res.status(400).json({
+                error: err
+            });
+        } else {
+            Product.findByIdAndUpdate(
+                req.body.propertyId,
+                { $push: { comments: comment, updated: new Date() } },
+                { new: true }
+            )
+                .populate('comments.postedBy', '_id name')
+                .populate('postedBy', '_id name')
+                .exec((err, result) => {
+                    if (err) {
+                        return res.status(400).json({
+                            error: err
+                        });
+                    } else {
+                        res.json(result);
+                    }
+                });
+        }
+    });
+};

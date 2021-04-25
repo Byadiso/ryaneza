@@ -22,12 +22,18 @@ const userSchema = new mongoose.Schema({
         required:true,
       
     },
+    photo: {
+        data: Buffer,
+        contentType: String
+    },
     about:{
         type:String,
         trim:true
        },
+    following: [{ type: ObjectId, ref: "User" }],
+    followers: [{ type: ObjectId, ref: "User" }],
     salt: String,
-       role:{
+    role:{
            type: Number,
            default: 0
        },

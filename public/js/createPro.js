@@ -157,7 +157,7 @@ shipping.addEventListener('change',(e)=>{
 .then(data => {
   // console.log(data)
   if(data.status == true){
-     let storedData = localStorage.setItem('properties', JSON.stringify(data))
+     let storedData = localStorage.setItem('property', JSON.stringify(data))  
      window.location.href = '../pages/property.html'
   } 
   if(data.status == false){
