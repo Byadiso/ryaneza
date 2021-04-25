@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     let shippingVar
     let photoVar
 
+    let categoriesItem  = JSON.parse(localStorage.getItem('categories'));
 
     // ...................................................................................
 
@@ -59,12 +60,14 @@ sold.addEventListener('change',(e)=>{
      function getCategories(){
       fetchCategories();
 
-      let categoriesItem  = JSON.parse(localStorage.getItem('categories'));
+      // let categoriesItem  = JSON.parse(localStorage.getItem('categories'));
 
       for ( var i= 0; i < categoriesItem.length; i++ ){ 
-        console.log(categoriesItem[i].name)
+       
+        let { name, _id} = categoriesItem[i];
+        console.log(name);
         const optionCategorie = document.createElement('option');
-        optionCategorie.innerHTML= `<option class="option_tag" value=${categoriesItem[i]._id}>${categoriesItem[i]._id}</option>`;
+        optionCategorie.innerHTML= `<option class="option_tag" data-id=${_id}>${name}</option>`;
 
         selectionCategory.appendChild(optionCategorie);
        
@@ -82,15 +85,20 @@ sold.addEventListener('change',(e)=>{
 //for selection event 
 selectionCategory.addEventListener('change',(e)=>{
   const myCategorie = e.target.value;
-  category.textContent= myCategorie; 
-  categoryVar = myCategorie
+  // category.textContent= myCategorie; 
+  // myCategorie === String ? "_id ": 'name'; 
+  let datCategorie = categoriesItem.find(item => item.name === myCategorie);
+
+  // categoryVar = myCategorie
+  categoryVar = datCategorie._id;
+  console.log(datCategorie._id)
 
 });
 
 //for shipping change event
 shipping.addEventListener('change',(e)=>{
   const myShipping = e.target.value;
-  shipping.textContent= myShipping;
+  // shipping.textContent= myShipping;
   shippingVar = myShipping
 
 })
