@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleChange = name => event => {
      name = event.target.value;
     };
-
+    let input_search
     const input = document.getElementById('input_search');
     input.addEventListener('keyup',(e)=>{
-        let input_search = e.target.value;
+     input_search = e.target.value;
         console.log(input_search)
     } )
 
@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const searchData = () => {
+        let search = input_search;
         // console.log(search, category);
         if (search) {
             list({ search: search || undefined, category: category }).then(
