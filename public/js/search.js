@@ -1,6 +1,8 @@
       
 document.addEventListener('DOMContentLoaded', () => {            
   
+    
+
     const searchBar = document.getElementById('searchBar'); 
     const submit_serch_btn = document.querySelector('.btnSearch');
     const search_container = document.querySelector('.search_container');
@@ -29,7 +31,8 @@ function fetchCategories(){
     let CategoriesStored = JSON.parse(localStorage.getItem('categories'));
     console.log(CategoriesStored);
     // let categoryAny= "fresh vegetables"
-    let categoryAny = "6076d05f3d6773321c50cb9a"
+    // let categoryAny = "6076d05f3d6773321c50cb9a"
+    let categoryAny = ""
    ///handle search business 
 
     // const handleChange = name => event => {
@@ -45,11 +48,18 @@ function fetchCategories(){
 
 
     //for fetching data 
+
+   
+
     const list = params => {
-        const query = JSON.stringify(params);
+        // const query = queryString.stringify(params);
+        const  query = new URLSearchParams(params)
+                for (const oneQuerry of query) {
+                     console.log(oneQuerry);
+            }
         console.log("and I have reached to list function")
         console.log("query", query);
-        return fetch(`http://localhost:3000/api/v1/products/search?${query}`, {
+        return fetch(`http://localhost:3000/api/v1/properties/search?${query}`, {
             method: "GET"
         })
             .then(response => {
