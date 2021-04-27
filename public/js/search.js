@@ -45,7 +45,8 @@ function fetchCategories(){
 
     //for fetching data 
     const list = params => {
-        const query = queryString.stringify(params);
+        const query = JSON.stringify(params);
+        console.log("and I have reached to list function")
         console.log("query", query);
         return fetch(`http://localhost:3000/api/v1/products/search?${query}`, {
             method: "GET"
@@ -59,6 +60,7 @@ function fetchCategories(){
 
 // for search data 
     const searchData = () => {
+        console.log('now it is going on to search data functon')
         let search = input_search;
         // console.log(search, category);
         if (search) {
@@ -77,14 +79,17 @@ function fetchCategories(){
 
     
     
-    function searchSubmit (e){
-        e.preventDefault();
-        searchData();
-    };
+  
+        
+    
 
-    submit_serch_btn.addEventListener('submit', ()=>{
-                      searchSubmit(e)
-                }
+    submit_serch_btn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        console.log('I am serach something')
+        searchData()
+                
+    }
+                   
     
                  )
 
