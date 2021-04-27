@@ -3,26 +3,31 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const searchBar = document.getElementById('searchBar'); 
     const submit_serch_btn = document.querySelector('.btnSearch');
+    const search_container = document.querySelector('.search_container');
 
 // fetching of categories 
-// function fetchCategories(){
-//     return  fetch(`http://localhost:3000/api/v1/categories`, {
-//              method: 'GET',
-//              headers:{
-//                'Content-Type':'application/json'
-//                     }
+function fetchCategories(){
+    return  fetch(`http://localhost:3000/api/v1/categories`, {
+             method: 'GET',
+             headers:{
+               'Content-Type':'application/json'
+                    }
 
-//        })
-//      .then(response =>response.json())
-//      .then(categories =>{ 
-//       let storedCategories = localStorage.setItem('categories', JSON.stringify(categories))
+       })
+     .then(response =>response.json())
+     .then(categories =>{ 
+      let storedCategories = localStorage.setItem('categories', JSON.stringify(categories))
    
-//      })
-//      .catch(err =>console.log(err));
-//    };
+     })
+     .catch(err =>console.log(err));
+   };
 
-//    fetchCategories();
+   fetchCategories();
 
+
+//    get them from localStorage
+    let CategoriesStored = JSON.parse(localStorage.getItem('categories'));
+    console.log(CategoriesStored)
    ///handle search business 
 
     const handleChange = name => event => {
@@ -35,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(input_search)
     } )
 
+
+    //for fetching data 
     const list = params => {
         const query = queryString.stringify(params);
         console.log("query", query);
@@ -47,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(err => console.log(err));
     };
 
+
+// for search data 
     const searchData = () => {
         let search = input_search;
         // console.log(search, category);
@@ -71,6 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
         searchData();
     };
 
-    submit_serch_btn.addEventListener('submit',searchSubmit())
+    submit_serch_btn.addEventListener('submit', ()=>{
+                      searchSubmit(e)
+                }
+    
+                 )
 
     })
