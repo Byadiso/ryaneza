@@ -81,17 +81,12 @@ function fetchCategories(){
                         console.log(response.error);
                     } else {
                        console.log(response);
+                       renderSearch(response);
                     }
                 }
             );
         }
     };
-
-
-    
-    
-  
-        
     
 
     submit_serch_btn.addEventListener('click', (e)=>{
@@ -99,9 +94,32 @@ function fetchCategories(){
         console.log('I am serach something')
         searchData()
                 
-    }
-                   
+    });
+
+   function renderSearch(searchedData){
+if(searchedData.length === 0 ){
+search_container.innerHTML =
+`<div>
+    <h2>No property found </h2>
     
-                 )
+</div>`
+} else {
+    const Searched_title = document.querySelector('.search_title');
+    Searched_title.textContent =   `Found ${searchedData.length} `;
+
+    for (var i = 0 ; i<searchedData.length ; i++){
+
+        let searched =document.createElement('div');
+        searched.innerHTML = `<div>       
+        <p>${searchedData[i].name}</p>
+        <p>${searchedData[i].description}</p>
+        <p>${searchedData[i].price}</p>
+        </div>`
+        search_container.append(searched);
+       }
+}
+      
+      
+   }
 
     })
