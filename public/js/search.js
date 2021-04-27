@@ -27,12 +27,14 @@ function fetchCategories(){
 
 //    get them from localStorage
     let CategoriesStored = JSON.parse(localStorage.getItem('categories'));
-    console.log(CategoriesStored)
+    console.log(CategoriesStored);
+    let categoryAny= "fresh vegetables"
    ///handle search business 
 
-    const handleChange = name => event => {
-     name = event.target.value;
-    };
+    // const handleChange = name => event => {
+    //  name = event.target.value;
+    // };
+
     let input_search
     const input = document.getElementById('input_search');
     input.addEventListener('keyup',(e)=>{
@@ -60,7 +62,7 @@ function fetchCategories(){
         let search = input_search;
         // console.log(search, category);
         if (search) {
-            list({ search: search || undefined, category: category }).then(
+            list({ search: input_search || undefined, category: categoryAny }).then(
                 response => {
                     if (response.error) {
                         console.log(response.error);
