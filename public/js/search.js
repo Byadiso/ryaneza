@@ -28,7 +28,8 @@ function fetchCategories(){
 //    get them from localStorage
     let CategoriesStored = JSON.parse(localStorage.getItem('categories'));
     console.log(CategoriesStored);
-    let categoryAny= "fresh vegetables"
+    // let categoryAny= "fresh vegetables"
+    let categoryAny = "6076d05f3d6773321c50cb9a"
    ///handle search business 
 
     // const handleChange = name => event => {
