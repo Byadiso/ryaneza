@@ -101,7 +101,9 @@ function renderSearch(searchedData){
     main_properties.classList.add('hide');
 
 if(searchedData.length === 0 ){
-    Searched_title.innerHTML = `No property found`
+    searchedContent.innerHTML= '';
+    Searched_title.innerHTML = `No property found`;
+    
     } else {
        
         Searched_title.textContent =   `Found ${searchedData.length} Property`;       
