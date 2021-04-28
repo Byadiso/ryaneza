@@ -9,6 +9,7 @@
          <script  type="module" src="../js/script.js" defer></script>
          <script  type="module" src="../js/sorting.js" defer></script>
          <script src="../js/search.js" defer></script>
+         <script src="../js/category.js" defer></script>
          
 
          <!-- for fonts -->
@@ -50,17 +51,8 @@
 
 
                 <h2 id="header-text">Properties</h2>
-                <div class="filter">
-                        <div class="filterCheck"> 
-                                <input type="checkbox" name="all" id="all_property" checked>
-                                <label for="all"><strong>All Properties </strong></label>
-                                <input type="checkbox" name="all" id="all_property">
-                                <label for="all"><strong>Furniture </strong></label>
-                                <input type="checkbox" name="all" id="all_property">
-                                <label for="all"><strong> Clothes </strong></label>
-                                <input type="checkbox" name="all" id="all_property">
-                                <label for="all"><strong> Electronics </strong></label>
-                        </div>
+                <div class="filters">
+                        <div class="filterCheck"></div>
                         <form class="searchBar" id="input_search">
                                 <input type="text" name="search" id="searchBar" class="input_search" placeholder="search for a propery">
                                 <button  class="btnSearch">search</button>
@@ -96,20 +88,36 @@
                                 </div>  
                         </div>
                 </div>
-                
-                
+                <!--   want to implement a loading spin  -->
+                <div id="loader-wrapper">
+                        <div id="loader"></div>       
+                </div>
 
                 <div id="footer">
                         &copy; 2019  Designed by BYAMUNGU desire || Andela Developer Challenge
                 </div> 
 </body>
 
-<script >
+<script defer>
                 let user = JSON.parse(localStorage.getItem('user')); 
                 console.log(user);
                 if(user == null){
                 window.location.href = './login.html';
-                }      
+                } 
+                
+                
+                // for laoding feature
+                // document.onreadystatechange = function() {
+                // if (document.readyState !== "complete") {
+                //         document.querySelector("body").style.visibility = "hidden";
+                //         document.querySelector("#loader").style.visibility = "visible";
+                //         console.log('its is not yet complete')
+                // } else {
+                //         document.querySelector("#loader").style.display = "none";
+                //         document.querySelector("body").style.visibility = "visible";
+                //         console.log('Godd complete ')
+                //    }
+                // };
 
 </script>
 </html>

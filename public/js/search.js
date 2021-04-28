@@ -10,23 +10,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const main_properties = document.querySelector('.main_properties');
 
 // fetching of categories 
-function fetchCategories(){
-    return  fetch(`http://localhost:3000/api/v1/categories`, {
-             method: 'GET',
-             headers:{
-               'Content-Type':'application/json'
-                    }
+// function fetchCategories(){
+//     return  fetch(`http://localhost:3000/api/v1/categories`, {
+//              method: 'GET',
+//              headers:{
+//                'Content-Type':'application/json'
+//                     }
 
-       })
-     .then(response =>response.json())
-     .then(categories =>{ 
-      let storedCategories = localStorage.setItem('categories', JSON.stringify(categories))
+//        })
+//      .then(response =>response.json())
+//      .then(categories =>{ 
+//       let storedCategories = localStorage.setItem('categories', JSON.stringify(categories))
    
-     })
-     .catch(err =>console.log(err));
-   };
+//      })
+//      .catch(err =>console.log(err));
+//    };
 
-   fetchCategories();
+//    fetchCategories();
 
 
 //    get them from localStorage

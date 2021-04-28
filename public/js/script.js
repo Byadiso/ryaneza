@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const ordersMsg = document.getElementById('header-text');  
           const mainDiv = document.getElementById('myProperties'); 
           const searchBar = document.getElementById('searchBar'); 
-          let properties = []         
-                 
+          let properties = [] ;                   
           
          
           //function to fetch all dat from backend
@@ -87,21 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   localStorage.clear();
                   window.location.href = '../pages/login.html';
               })
-
-              //implementing search bar
               
-              // searchBar.addEventListener('keyup',(e)=>{
-              //   const searchString = e.target.value.toLowerCase();                   
-              //   const filtredPro = properties.filter((property) =>{
-              //       return (
-              //             property.owner.toLowerCase().includes(searchString) ||
-              //             property.state.toLowerCase().includes(searchString) ||
-              //             property.city.toLowerCase().includes(searchString)
-              //           )
-              //       })
-              //       console.log(filtredPro)
-                   
-              // })
                listAll();
       
           })
