@@ -97,7 +97,7 @@ if(searchedData.length === 0 ){
     } else {
        
         Searched_title.textContent =   `Found ${searchedData.length} `;
-        let searchedContent = document.querySelector('.searched_content');
+        let searchedContent = document.querySelector('#searched_content');
         searchedContent.innerHTML= '';
         
 

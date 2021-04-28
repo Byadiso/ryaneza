@@ -559,19 +559,32 @@ putted there to resolve dislaying properties on one block */
 }
 /* 
 for searched properties */
-
+/* 
 .search_container{
   display: block;
-}
+} */
 .search_title{
   display: block;
 };
 
-.searched_content{
-  display: grid;
-  grid-template-columns: auto auto auto;
+#searched_content{
+    margin-bottom: 20px;  
+    display: grid;
+    grid-template-columns: auto auto auto;
+    color: red;
 }
 
+.searched_content_item{
+  width:300px;
+  height: auto;     
+  /* float: left;   */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid white; 
+  margin-bottom: 20px;
+  background-color:rgba(222,222,222, 0.4);
+ 
+}
 
 /* single property*/
 #forSingleElement{
@@ -596,11 +609,12 @@ for searched properties */
   border-radius: 40px;
   width: 500px;
 }
+/* 
 #myProperties{
   margin: 40px;
   width: 100%;
   display: grid;
-}
+} */
 
 
 .filter{
