@@ -119,7 +119,7 @@ admin.append(userContainer);
       </div>
      
       `
-      console.log(user_container_manager)
+      // console.log(user_container_manager)
       
       allMyProperty.appendChild(user_container_manager);
       
@@ -173,7 +173,7 @@ const  fetchAllUsers = ( () => {
     </div>
         
       `
-      console.log(user_container_manager)
+      // console.log(user_container_manager)
       
       allUser.appendChild(user_container_manager);
       
