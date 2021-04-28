@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchBar = document.getElementById('searchBar'); 
     const submit_serch_btn = document.querySelector('.btnSearch');
     const search_container = document.querySelector('.search_container');
+    let searchedContent = document.querySelector('#searched_content');
+    const main_properties = document.querySelector('.main_properties');
 
 // fetching of categories 
 function fetchCategories(){
@@ -92,13 +94,20 @@ function fetchCategories(){
 
 function renderSearch(searchedData){
     let Searched_title = document.querySelector('.search_title');
+    searchedContent.classList.add('border_bottom');
+
+
+    // i want to hide all other content let add a class hide to it 
+    main_properties.classList.add('hide');
+
 if(searchedData.length === 0 ){
     Searched_title.innerHTML = `No property found`
     } else {
        
-        Searched_title.textContent =   `Found ${searchedData.length} `;
-        let searchedContent = document.querySelector('#searched_content');
+        Searched_title.textContent =   `Found ${searchedData.length} Property`;       
         searchedContent.innerHTML= '';
+       
+
         
 
 
