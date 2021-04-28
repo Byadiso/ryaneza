@@ -89,37 +89,42 @@ function fetchCategories(){
     };
     
 
-    submit_serch_btn.addEventListener('click', (e)=>{
-        e.preventDefault();
-        console.log('I am serach something')
-        searchData()
-                
-    });
 
-   function renderSearch(searchedData){
+function renderSearch(searchedData){
+    let Searched_title = document.querySelector('.search_title');
 if(searchedData.length === 0 ){
-search_container.innerHTML =
-`<div>
-    <h2>No property found </h2>
-    
-</div>`
-} else {
-    const Searched_title = document.querySelector('.search_title');
-    Searched_title.textContent =   `Found ${searchedData.length} `;
+    Searched_title.innerHTML = `No property found`
+    } else {
+       
+        Searched_title.textContent =   `Found ${searchedData.length} `;
+        let searchedContent = document.querySelector('.searched_content');
+        searchedContent.innerHTML= '';
+        
 
-    for (var i = 0 ; i<searchedData.length ; i++){
 
-        let searched =document.createElement('div');
-        searched.innerHTML = `<div>       
-        <p>${searchedData[i].name}</p>
-        <p>${searchedData[i].description}</p>
-        <p>${searchedData[i].price}</p>
-        </div>`
-        search_container.append(searched);
+        for (var i = 0 ; i< searchedData.length ; i++){
+            let searched =document.createElement('div');
+            searched.innerHTML = `<div>       
+            <p>${searchedData[i].name}</p>
+            <p>${searchedData[i].description}</p>
+            <p>${searchedData[i].price}</p>
+            </div>`;            
+            searchedContent.append(searched);
        }
+
+      
+
 }
       
       
    }
+
+   
+   submit_serch_btn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    console.log('I am serach something');
+    searchData();
+            
+});
 
     })
