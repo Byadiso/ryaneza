@@ -104,11 +104,12 @@ if(searchedData.length === 0 ){
 
         for (var i = 0 ; i< searchedData.length ; i++){
             let searched =document.createElement('div');
-            searched.innerHTML = `<div>       
+            searched.classList.add('searched_content_item');
+            searched.innerHTML = `      
             <p>${searchedData[i].name}</p>
             <p>${searchedData[i].description}</p>
             <p>${searchedData[i].price}</p>
-            </div>`;            
+          `;            
             searchedContent.append(searched);
        }
 
