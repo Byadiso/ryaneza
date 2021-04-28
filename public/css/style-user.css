@@ -79,6 +79,11 @@ font-weight: 200;
   color:black;
   text-align: center;
 }
+/* 
+for hidding post feature for non admin users */
+.hide{
+  display: none;
+}
 
 @media screen and (max-width: 600px) {
   .topnav .login-container {

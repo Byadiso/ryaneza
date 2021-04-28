@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const allMyProperty= document.querySelector('.manager_property');
     const admin= document.querySelector('.admin_details');
     const allUser = document.querySelector('.all_user');
+    const for_admin_only = document.querySelector('.for_admin_only');
+
+
+    
+    
   
    
    let userIdStored = JSON.parse(localStorage.getItem('user'));
@@ -38,6 +43,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     //fro user details 
    const userHeader = document.querySelector('.all_admin_header');
    userHeader.textContent = ` ${user.role == 1 ? "Admin " + user.name : "User " + user.name}`; 
+
+   //creating property here is for admin only so this menu for creating property will have hide class
+
+  user.role == 0 ? for_admin_only.textContent ='You are not admin to post' : for_admin_only.textContent ='Plz admin you can post';
+  // for_admin_only.textContent = 'yese'
 
    const userContainer = document.createElement('div');
    
