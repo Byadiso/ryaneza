@@ -84,6 +84,10 @@ for hidding post feature for non admin users */
 .hide{
   display: none;
 }
+/* for chicking deletion */
+.checkDel{
+  color: red;
+}
 
 @media screen and (max-width: 600px) {
   .topnav .login-container {

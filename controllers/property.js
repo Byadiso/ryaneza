@@ -202,7 +202,8 @@ exports.remove = (req, res)=>{
         }
         res.json({
             // deletedProduct, 
-            message:"Product deleted successfully"
+            message:"Product deleted successfully",
+            status:true
         })
     })
 }

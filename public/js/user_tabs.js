@@ -134,6 +134,27 @@ admin.append(userContainer);
         btn.addEventListener('click',(e)=>{
           let propId = e.target.parentElement.dataset.id;
           console.log('soon i am going to delete you enemy ' + propId);
+
+          // checking for deletion later
+
+          // alert('do you want do delete this property?')
+
+                             
+           return fetch( `http://localhost:3000/api/v1/property/${propId}/${id}`, {
+              method: 'DELETE',
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+             }
+            }).then((res)=>res.json()).then(data => {              
+              if(data.status== true){
+                location.reload();
+              } else {
+                console.log(data.error);
+              }
+              
+            });    
         })        
       });
       
