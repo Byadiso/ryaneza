@@ -130,8 +130,8 @@ shipping.addEventListener('change',(e)=>{
 .then(data => {
   // console.log(data)
   if(data.status == true){
-     let storedData = localStorage.setItem('property', JSON.stringify(data))  
-     window.location.href = '../pages/property.html'
+    //  let storedData = localStorage.setItem('property', JSON.stringify(data))  
+     hideForm(data.message);
   } 
   if(data.status == false){
     console.log(data.error)
@@ -144,6 +144,22 @@ shipping.addEventListener('change',(e)=>{
   };
 
   });
+
+
+  function hideForm(message){
+    const sub_main = document.querySelector('.login-screen');
+    const main = document.querySelector('.login');
+    sub_main.classList.add('hide');
+    console.log(message);
+    const successfulMessage = document.createElement('div');
+    successfulMessage.classList.add('successful_message');
+    successfulMessage.innerHTML= `
+    <p>${message}</p>
+    `
+
+    main.append(successfulMessage);
+
+  }
 
 })
 

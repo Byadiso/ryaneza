@@ -177,6 +177,16 @@ box-shadow: none;
 .create_property_header{
   color:#2980B9 ;
 }
+/* 
+for updated successful */
+.successful_message{
+  display: flex;
+  justify-content: center;
+  background-color: #FFF;  
+  color: green;  
+  border-radius: 5px;
+  height: 100%;
+}
 
 
 /*  
