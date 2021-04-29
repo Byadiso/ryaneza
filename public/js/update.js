@@ -2,75 +2,106 @@
 /* eslint-disable prettier/prettier */
 document.addEventListener('DOMContentLoaded', ()=> { 
   
-  let urlPro = 'http://localhost:3000/api/v1/property/:propertyId/:userId';
+  let urlPro = 'http://localhost:3000/api/v1/property/';
             
   // for accessing only my form to be updated 
-  const owner = document.querySelector('#owner');
+  // for accessing only my form to create a property 
+  const name = document.querySelector('#name');
   const price = document.querySelector('#price');
-  const state = document.querySelector('#state');
-  const city = document.querySelector('#city');
-  const phone = document.querySelector('#phone');
-  const adress = document.querySelector('#address');
-  const url = document.querySelector('#url');
-  const submitBtn = document.querySelector('#submitUpdates');
+  const quantity = document.querySelector('#quantity');
+  const description = document.querySelector('#description');
+  const shipping = document.querySelector('#shipping');
+  const sold = document.querySelector('#sold');
+  const category = document.querySelector('.category');
+  const photo = document.querySelector('#fileUpload');
+  const submitButton = document.querySelector('#create_pro');
+  const selectionCategory = document.querySelector('.category');
+  const form = document.querySelector('#create_property_form');
+  const display_error = document.querySelector('.display_error');
+  
+
+  let categoryVar
+  let shippingVar
+  let photoVar
+
+  let categoriesItem  = JSON.parse(localStorage.getItem('categories'));
 
 
   // for storage purpose 
   let property_to_update = JSON.parse(localStorage.getItem('id_to_update'));
+  let properties = JSON.parse(localStorage.getItem('properties'));
+  let data = properties.properties;
   
 // console.log(property_to_update.user_id);
   const { prop_id,user_id,token } = property_to_update
   console.log(prop_id);
   console.log(user_id);
   console.log(token);
-  // let propertiesItem = {...JSON.parse(localStorage.getItem('properties'))};
 
-  // console.log(properties);  
-  // console.log(proId);
-  // let pro =[];
-  // pro = [...pro, propertiesItem];  
-  // let Mypro = pro.find(item => ()=>{
-  //    item.Property.id[0]=== proId }
-  // )
+  // console.log(data)
 
-  // let newPro = Mypro.Property 
-  // console.log(newPro);
-  // let findedOne = newPro.find(item=> item._id === proId);
-    
+  let proData = data.find(item => item._id == prop_id);
+  console.log(proData);
+
+  //
+
   // // setting values 
-  // owner.value = findedOne.owner;  
-  // price.value = findedOne.price;
-  // state.value = findedOne.state;
-  // city.value = findedOne.city;
-  // phone.value = findedOne.phone;
-  // adress.value = findedOne.address;
-  // url.value = findedOne.url;  
+  name.value = proData.name;  
+  price.value = proData.price;
+  description.value = proData.description;
+  quantity.value = proData.quantity;
+  sold.value = proData.sold;
   
-  // submitBtn.addEventListener('click', (e) => { 
-  //   e.preventDefault();
-  //     fetch(`${urlPro}/${proId}`, {
-  //      method: 'PUT',
-  //      headers:{
-  //        'Content-Type':'application/json'
-  //       },
-  //      body: JSON.stringify({
-  //        _id: proId,
-  //        owner:owner.value,
-  //        price:price.value,
-  //        state:state.value,
-  //        city:city.value,
-  //        phone: phone.value,
-  //        url:url.value,
-  //        dateCreated: Date.now()
-  //      })
-  //    })
-  //    .then(response =>response.json())
-  //    .then(dataUpdated =>{
-  //     let storedData = localStorage.setItem('properties', JSON.stringify(dataUpdated))
-  //     window.location.href = '../pages/property.html'
-  //    })
-  //    .catch(err =>console.log(err));
-  //   })
-  })
+  
+  
+
+  submitButton.addEventListener('click',  (e) => {
+    e.preventDefault();     
+    if (!name.value.trim() ) {
+      display_error.textContent = '* Please fill in all fields';        
+    } else{
+
+      const formData = new FormData();
+      const fileField = document.querySelector('input[type="file"]');
+
+    formData.append('name', name.value);
+    formData.append('photo', fileField.files[0]);
+    formData.append('price', price.value);
+    formData.append('description', description.value);
+    formData.append('category', categoryVar);
+    formData.append('quantity', quantity.value);
+    formData.append('sold', sold.value);
+    formData.append('shipping', shippingVar); 
+      fetch(`http://localhost:3000/api/v1/property/${prop_id}/${user_id}`, {
+        method: 'PUT',
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          'Authorization': `Bearer ${token}`
+           },
+           body: formData
+ 
+})
+.then(response => {
+    return  response.json()
+})
+.then(data => {
+  // console.log(data)
+  if(data.status == true){
+     let storedData = localStorage.setItem('property', JSON.stringify(data))  
+     window.location.href = '../pages/property.html'
+  } 
+  if(data.status == false){
+    console.log(data.error)
+  }         
+})
+.catch((err) =>{
+  console.log(err)
+});
+
+  };
+
+  });
+
+})
 
 

@@ -42,25 +42,33 @@
     <div class="login-screen">
 
       <div class="login-form">
-        <div class="app-title">
-                <h1>Update your property</h1>
-        </div>
+        
+        <form id="create_property_form" class="control-group create_property">
+          <h3 class="create_property_header" >Update Your Property</h3>
 
-        <form action="/api/v1/property/:id" method="PUT" id="updated" class="control-group">
-
-          <input type="text" class="login-field" value="" placeholder="owner" type="text" name="owner" id="owner">
-          <input type="text" class="login-field" value="" placeholder="price" type="text" name="price" id="price">
-          <input type="text" class="login-field" value="" placeholder="state" type="text" name="state" id="state">
-          <input type="text" class="login-field" value="" placeholder="city" type="text" name="city" id="city">
-          <input type="text" class="login-field" value="" placeholder="phone" type="number" name="phone"
-            id="phone">
-          <input type="text" class="login-field" value="" placeholder="Address" type="text" name="address"
-            id="address">
-          <input type="file"  accept="image/*" class="login-field" value="" name="url" id="fileUpload">
-         
-          
-          <input type="submit"  id="submitUpdates " class="submitBtn login-field">
+          <div class="display_error"></div> 
+            
+            <input type="text" class="login-field" placeholder="name"  name="name" id="name"> 
+            <input type="text" class="login-field"  placeholder="price"  name="price" id="price">
+            <input type="text" class="login-field" placeholder="description"  name="description" id="description">
+  
+           <select class="login-field category create_select_center " name="category">
+              <option placeholder="category" class="login-field create_select"> Choose category</option>
+             
+            </select>
+            <input type="number" class="login-field"  placeholder="sold"  name="sold" id="sold">
+            <input type="number" class="login-field"  placeholder="quantity"  name="quantity" id="quantity">
+            <select class="login-field create_select_center" name="shipping" id="shipping">
+              <option placeholder="Shipping">Choose shipping </option>
+              <option placeholder="Shipping" value="yes">Yes </option>
+              <option placeholder="Shipping" value="no">No</option>             
+            </select>
+            <input type="file" accept="image/*" class="login-field create_select_center"   name="image" id="fileUpload">          
+            <br>
+            
+            <!-- <input type="submit"  class="submitBtn login-field " id="create_pro">  -->
         </form>
+        <button id="create_pro" class="submitBtn login-field">Update property</button>
 
       </div>
     </div>

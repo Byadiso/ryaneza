@@ -243,7 +243,8 @@ exports.update = (req, res)=>{
         product.save((err, result)=>{
             if(err){
                 return res.status(404).json({
-                    error: errorHandler(err)
+                    // error: errorHandler(err);
+                    error:err
                 });
             }
             res.json(result);
