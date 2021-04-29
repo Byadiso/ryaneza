@@ -111,7 +111,7 @@ admin.append(userContainer);
        let photoUrl = `http://localhost:3000/api/v1/property/photo/${_id}`
     
        user_container_manager.innerHTML =   
-    `<div class="manager"> 
+    `<div class="manager" data-id=${_id}> 
          <img src=${photoUrl} class="imgCreated" style="width: 100px; height: 50px;"> 
          <p id="phone"><strong>Name:</strong> ${name} </p>          
          <button class="btn-modify">update</button>  
@@ -131,16 +131,18 @@ admin.append(userContainer);
       // .........................................................for updating property..........................
    
       delBtns.forEach(btn => {
-        btn.addEventListener('click',()=>{
-          console.log('soon i am going to delete you enemy')
+        btn.addEventListener('click',(e)=>{
+          let propId = e.target.parentElement.dataset.id;
+          console.log('soon i am going to delete you enemy ' + propId);
         })        
       });
       
 
       // .........................................................for updating property..........................
       updateBtns.forEach(btn => {
-        btn.addEventListener('click',()=>{
-          console.log('soon i am going to udpate you friend')
+        btn.addEventListener('click',(e)=>{
+          let propId = e.target.parentElement.dataset.id;
+          console.log('soon i am going to udpate you friend ' + propId);
         })        
       });
       
