@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="../css/style-property.css">
         <script src="../js/user.js" defer></script>    
         <script src="../js/user_tabs.js" defer></script>
-        <script src="../js/deletePro.js" defer></script>
+        <script src="../js/categories.js"></script>
         
 </head>
 
@@ -48,6 +48,7 @@
         <div class="tab">
                 <button class="tablinks" onclick="open_menu_dashboard(event, 'admin_details')">Personal Details</button>
                 <button class="tablinks" onclick="open_menu_dashboard(event, 'manager_property')">Manager Property</button>
+                <button class="tablinks" onclick="open_menu_dashboard(event, 'manager_category')">Manager Category</button>
                 <button class="tablinks" onclick="open_menu_dashboard(event, 'all_user')">All user</button>
         </div>
 
@@ -59,13 +60,17 @@
 
         <div id="manager_property" class="tabcontent manager_property">
          <h3>Manager all your <span class="all_property_header"></span> properties </h3>   
-         <button>Create category</button>     
+             
         </div>
 
         <div id="all_user" class="tabcontent all_user">
                 <h3 >All <span class="all_user_header"></span> users on the website </h3>
         
         </div>
+        <div id="manager_category" class="tabcontent manager_category">
+                <h3 >All <span class="all_category_header"></span> Categories </h3>        
+        </div>
+
 
        
 
