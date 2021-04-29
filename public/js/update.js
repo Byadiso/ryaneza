@@ -43,9 +43,52 @@ document.addEventListener('DOMContentLoaded', ()=> {
   let proData = data.find(item => item._id == prop_id);
   console.log(proData);
 
-  //
+  
+///get categories
 
-  // // setting values 
+function getCategories(){
+
+  // let categoriesItem  = JSON.parse(localStorage.getItem('categories'));
+
+  for ( var i= 0; i < categoriesItem.length; i++ ){ 
+   
+    let { name, _id} = categoriesItem[i];
+    console.log(name);
+    const optionCategorie = document.createElement('option');
+    optionCategorie.innerHTML= `<option class="option_tag login-field" data-id=${_id}>${name}</option>`;
+
+    selectionCategory.appendChild(optionCategorie);
+   
+    }
+
+    
+ }
+
+ getCategories();
+ 
+  
+//for selection event 
+selectionCategory.addEventListener('change',(e)=>{
+  const myCategorie = e.target.value;
+  // category.textContent= myCategorie; 
+  // myCategorie === String ? "_id ": 'name'; 
+  let datCategorie = categoriesItem.find(item => item.name === myCategorie);
+
+  // categoryVar = myCategorie
+  categoryVar = datCategorie._id;
+  console.log(datCategorie._id)
+
+});
+
+//for shipping change event
+shipping.addEventListener('change',(e)=>{
+  const myShipping = e.target.value;
+  // shipping.textContent= myShipping;
+  shippingVar = myShipping
+
+})
+
+  // setting values 
   name.value = proData.name;  
   price.value = proData.price;
   description.value = proData.description;
