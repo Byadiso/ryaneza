@@ -113,12 +113,8 @@ exports.userPhoto = (req, res, next) => {
 
 //fetch all users from theb database
 
-
 exports.listUsers = (req, res )=>{
-    // let order = req.query.order ? req.query.order : 'asc' ;
-    // let sortBy = req.query.sortBy ? req.query.sortBy :'_id' ;
-    // let limit = req.query.limit ? parseInt(req.query.limit) : 20 ;    
-
+    
     User.find()
         .select('-photo')
         .exec((err, users) =>{

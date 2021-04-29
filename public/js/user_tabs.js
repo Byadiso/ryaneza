@@ -114,12 +114,21 @@ admin.append(userContainer);
     `<div class="manager"> 
          <img src=${photoUrl} class="imgCreated" style="width: 100px; height: 50px;"> 
          <p id="phone"><strong>Name:</strong> ${name} </p>       
-         <button class="btn-modify">update</button>
-         <button class="btn-delete">detele</button>      
-      </div>
-     
+        
+      </div>     
       `
-      // console.log(user_container_manager)
+
+      const delBtn = document.createElement('button');
+      delBtn.classList.add('btn-delete');
+      delBtn.textContent ='delele';
+
+      const updateBtn = document.createElement('button');
+      updateBtn.classList.add('btn-modify');
+      updateBtn.textContent ='update';
+      // console.log(user_container_manager);
+
+      user_container_manager.append(updateBtn);
+      user_container_manager.append(delBtn);
       
       allMyProperty.appendChild(user_container_manager);
       

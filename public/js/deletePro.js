@@ -5,73 +5,61 @@ document.addEventListener('DOMContentLoaded', ()=>{
             
     // const ordersMsg = document.getElementById('header-text');  
     const allMyProperty= document.querySelector('.manager_property');
-    const admin= document.querySelector('.admin_details');
-    const allUser = document.querySelector('.all_user');
-    const for_admin_only = document.querySelector('.for_admin_only');
+    const admin= document.querySelector('.admin_details');  
+    const button = document.querySelectorAll('button');    
     const deleteBtns = document.querySelectorAll('.btn-delete');
-    const dashboard_manager =document.querySelectorAll('.dashboard_manager');
     
+    let numberDel = 0
+    console.log(numberDel)
     
   
    
    let userIdStored = JSON.parse(localStorage.getItem('user'));
    let id = userIdStored.user._id
    let token = userIdStored.token
-   console.log(userIdStored);
-   console.log(token);
-   console.log(id);
-  
-   
+
      
-       
-    
-  
+     
   
 //   ...........................................................................................
 
-
-// for (var i =0 ; i< deleteBns.length ; i++){
-//     deleteBns[i].addEventListener('click', (e)=>{
-//         // const prodToDelete= e.target
-//         // console.log(prodToDelete);
-//         console.log('yes i can delete something')
- 
-//      })
-// }
-
-deleteBtns.forEach(btn => {
-    btn.addEventListener('click', (e)=>{
-                const prodToDelete= e.target
-                console.log(prodToDelete);
-                console.log('yes i can delete something')
-         
-             })
-})
-dashboard_manager.forEach(btn=>{
-    btn.addEventListener('click',(e)=>{
-        console.log( e.target.parentElement.dataset.id)
+if(button.classList =='btn-delete'){
+    button.addEventListener('click', (e)=>{
+        console.log('this is a delte button')
     })
-})
-    
-
-    
-    
+}
 
 
- const deleteProduct = (prodId) => {
-    return fetch(`http://localhost:3000/api/v1/property/${prodId}/${_id}`, {
-        method: 'DELETE',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`
-        }
+if(button.classList =='btn-modify'){
+    button.addEventListener('click', (e)=>{
+        console.log('this is a update button')
     })
-        .then(response => {
-            return response.json();
-        })
-        .catch(err => console.log(err));
-        };
+}
+
+
+         deleteBtns.forEach(Btn => {
+                  Btn.addEventListener('click',deleteMyPro())  
+                });
+
+                function deleteMyPro(){
+                 console.log('yes ')  
+                }
+
+
+//  const deleteProduct = (prodId) => {
+//     return fetch(`http://localhost:3000/api/v1/property/${prodId}/${_id}`, {
+//         method: 'DELETE',
+//         headers: {
+//             Accept: 'application/json',
+//             'Content-Type': 'application/json',
+//             Authorization: `Bearer ${token}`
+//         }
+//     })
+//         .then(response => {
+//             return response.json();
+//         })
+//         .catch(err => console.log(err));
+//         };
   
   });
   
