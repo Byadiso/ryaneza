@@ -16,8 +16,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 
   // for storage purpose 
-  let property_to_update = localStorage.getItem('id_to_update');
-  console.log(property_to_update)
+  let property_to_update = JSON.parse(localStorage.getItem('id_to_update'));
+  
+// console.log(property_to_update.user_id);
+  const { prop_id,user_id,token } = property_to_update
+  console.log(prop_id);
+  console.log(user_id);
+  console.log(token);
   // let propertiesItem = {...JSON.parse(localStorage.getItem('properties'))};
 
   // console.log(properties);  
