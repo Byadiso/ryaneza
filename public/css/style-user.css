@@ -88,6 +88,43 @@ for hidding post feature for non admin users */
 .checkDel{
   color: red;
 }
+.create_property_form{
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 5px;
+  align-items: center;
+  margin-left: 200px;
+}
+
+.category-field{
+  text-align: center;
+  background-color: #ECF0F1;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: 200;
+  margin: 2px;
+  padding: 10px 0;
+  width: 300px;
+  transition: border .5s;
+}
+
+
+.create_category_header{
+  color:#2980B9 ;
+}
+
+.create_category_btn{
+  color:white ;
+  background-color: #2980B9;
+}
+.display_error_category{
+  color: red;
+}
+
+
+
+
 
 @media screen and (max-width: 600px) {
   .topnav .login-container {

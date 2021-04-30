@@ -10,7 +10,11 @@ exports.create = (req, res)=>{
             });
 
         }
-        res.json({ data });
+        res.json({ 
+            category:data,
+            status:true ,
+            message:"Your category has been successfull created"
+        });
     });
 };
 

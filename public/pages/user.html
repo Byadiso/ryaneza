@@ -3,7 +3,7 @@
 
 <head>
         <meta>
-        <link rel="stylesheet" type="text/css" href="../css/style-signup-signin-sell.css">
+        <!-- <link rel="stylesheet" type="text/css" href="../css/style-signup-signin-sell.css"> -->
         <link rel="stylesheet" href="../css/style-user.css">
         <title> PropertyPro LITE</title>
         <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
@@ -68,7 +68,22 @@
         
         </div>
         <div id="manager_category" class="tabcontent manager_category">
-                <h3 >All <span class="all_category_header"></span> Categories </h3>        
+                <h3 >All <span class="all_category_header"></span> Categories </h3>
+                
+                        <div class="create_category_form">
+                                <form id="create_category_form" class="control-group create_category">          
+                                        <h3 class="create_category_header" >Add category</h3>
+                                        <div class="display_error_category"></div>             
+                                        <input type="text" class="category-field" placeholder="name"  name="name" id="name"> 
+                                </form>
+                            
+                                <button  class="submitBtn category-field create_category_btn">Create Category</button> 
+        
+                        </div>
+
+                
+                
+                   
         </div>
 
 
