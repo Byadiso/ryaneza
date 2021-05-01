@@ -118,8 +118,7 @@ shipping.addEventListener('change',(e)=>{
     
 
   submitButton.addEventListener('click',  (e) => {
-    e.preventDefault(); 
-    
+    e.preventDefault();     
     if (!name.value.trim() ) {
       display_error.textContent = '* Please fill in all fields';        
     } else{
@@ -135,9 +134,6 @@ shipping.addEventListener('change',(e)=>{
     formData.append('quantity', quantity.value);
     formData.append('sold', sold.value);
     formData.append('shipping', shippingVar);
-    
-
-
 
       fetch(`http://localhost:3000/api/v1/property/create/${id}`, {
         method: 'POST',

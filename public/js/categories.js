@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
               
     // for accessing only my form to create a property 
-    const name = document.querySelector('#name');    
+    const namecategory = document.querySelector('#name');    
     const submitButton = document.querySelector('.submitBtn');
     const form = document.querySelector('#create_category_form');
     const display_error = document.querySelector('.display_error_category');   
@@ -18,17 +18,20 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     submitButton.addEventListener('click',  (e) => {
     e.preventDefault();     
-    if (!name.value.trim()) {
+    if (!namecategory.value.trim()) {
       display_error.textContent = '* Please fill the name of category';        
     } else{
-      fetch(`http://localhost:3000/api/v1/category/create/${id}`, {
+      console.log(namecategory.value)
+      let name = namecategory.value
+      // http://localhost:3000/api/v1/category/create/6076cfe03d6773321c50cb99
+      return fetch(`http://localhost:3000/api/v1/category/create/${id}`, {
         method: 'POST',
-        headers: {          
+        headers: { 
+          Accept: 'application/json',         
           'Content-Type': 'application/json',
-          // "Access-Control-Allow-Origin": "*",
-          // 'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}`
            },
-           body: name.value  
+        body: JSON.stringify({ name }) 
 })
 .then(response => {
     return  response.json()
