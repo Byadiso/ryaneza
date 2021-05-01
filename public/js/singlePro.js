@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   // set all content 
   descriptionCont.textContent= description;
-  // ShippingCont.textContent= shipping == true ? "Please remember to update your address in order to deliver you product at your door" : "Sorry this is not delivable product";
+  ShippingCont.textContent= shipping == true ? "Please remember to update your address in order to deliver you product at your door" : "Sorry this is not delivable product";
   reviewsCont.textContent=reviews.length == 0 ? "No Reviews found!" : reviews.map((review)=>{
     const reviewsContainer = document.createElement('div');
     reviewsContainer.innerHTML =
