@@ -58,7 +58,22 @@ document.addEventListener('DOMContentLoaded', ()=> {
     // ..............................render all catgories............................
 
 function renderAllCategories (cat){
-  console.log(cat)
+
+  for (var i = 0; i <cat.length ; i++){
+    const {name, _id} = cat[i]
+
+    const category = document.createElement('div');
+    category.classList.add('category_item');    
+    category.innerHTML= `
+    <h3 data-id=${_id}>${name}</h3>
+    <button class="btn-delete">delete</button>
+    
+   
+    `;
+
+    categories_container.append(category);
+  }
+ 
 }
 
     
