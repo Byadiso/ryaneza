@@ -149,7 +149,9 @@ admin.append(userContainer);
              }
             }).then((res)=>res.json()).then(data => {              
               if(data.status== true){
-                location.reload();
+                // location.reload();
+                propertyCreatedByUser();
+
               } else {
                 console.log(data.error);
               }
