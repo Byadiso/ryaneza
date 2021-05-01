@@ -30,7 +30,38 @@ document.addEventListener('DOMContentLoaded', ()=> {
  // ------------------------FETCH MY CATEGORIES--------------------------------------------------------------
 
 
+//  const categories= JSON.parse(localStorage.getItem('categories'));
+//  console.log(categories)
 
+
+    // fetching of categories 
+    function getAllCategories(){
+      return  fetch(`http://localhost:3000/api/v1/categories`, {
+        method: 'GET',
+        headers:{
+          'Content-Type':'application/json'
+               }
+
+  })
+.then(response =>response.json())
+.then(categories =>{ 
+ let storedCategories = localStorage.setItem('categories', JSON.stringify(categories));
+ renderAllCategories(categories);
+
+})
+.catch(err =>console.log(err));
+    }
+    
+    getAllCategories();
+
+
+    // ..............................render all catgories............................
+
+function renderAllCategories (cat){
+  console.log(cat)
+}
+
+    
 
 
 
@@ -67,6 +98,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     console.log(data.message);
      let storedData = localStorage.setItem('categorycreated', JSON.stringify(data));  
      success_message.innerHTML = `<h3>Your category has been successfully created</h3>`
+     getAllCategories();
     
   } 
   if(data.status == false){

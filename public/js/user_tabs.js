@@ -164,6 +164,7 @@ admin.append(userContainer);
         btn.addEventListener('click',(e)=>{
           let propId = e.target.parentElement.dataset.id;
           console.log('soon i am going to udpate you friend ' + propId);
+
           let data_to_be_updated = {
             prop_id: propId,
             user_id: id,
@@ -171,13 +172,9 @@ admin.append(userContainer);
           }
           localStorage.setItem('id_to_update', JSON.stringify(data_to_be_updated));
 
-          let stored = JSON.parse(localStorage.getItem('id_to_update'));
-         
+          let stored = JSON.parse(localStorage.getItem('id_to_update'));         
        
-             stored ? location.href='../pages/updated.html' : console.log('no stored id to update');
-         
-
-          
+             stored ? location.href='../pages/updated.html' : console.log('no stored id to update');   
 
         })        
       });
