@@ -43,12 +43,14 @@ exports.remove = (req, res)=>{
     category.remove((err, deletedCategory)=>{
         if(err){
             return res.status(400).json({
-                error: errorHandler(err)
+                error: errorHandler(err),
+                status: false
             });
         }
         res.json({
             // deletedCategory, 
-            message:"Category deleted successfully"
+            message:"Category deleted successfully",
+            status: true
         })
     })
 }
