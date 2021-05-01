@@ -128,6 +128,11 @@ for hidding post feature for non admin users */
   border-bottom: 1px solid  blanchedalmond;
 }
 
+.category_item:last-of-type{
+  border-bottom: none;
+  
+} 
+
 .success_message{
   color: green;
 }

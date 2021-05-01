@@ -77,6 +77,13 @@
         <div id="comment_details" class="tabcontent">
                 <h3 >Comments (<span class="comment_details_header">0</span>) </h3>
                 <p class="comment_details"></p>
+                <div class="add_comments_form">
+                    <form>
+                        <textarea type="text" class="login-field" placeholder="comment"  name="comment" id="comment"> 
+                        <button class="submitBtn add_comments">Add comments</button>
+
+                    </form>
+                </div>
          </div>
          <div id="shipping_details" class="tabcontent">
             <h3 >Shipping & Location<span class="all_user_header"></span> users on the website </h3>
@@ -123,7 +130,7 @@
 
 </body>
 <script src="../js/cart.js"></script>
-<script>
+<script defer>
                 
 
 function open_single_tabs(evt, single_tabs) {

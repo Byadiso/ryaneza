@@ -1,0 +1,62 @@
+[33m1c33bf2[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m  finishing deleteing category
+[33m615cf1f[m finiahing delete feature
+[33mcfcc8d3[m adding delete funcitonality to category
+[33madbb96c[m adding render alll category
+[33ma6cf48f[m putting draft to follow in when puttin logic after deletion
+[33m50d99e7[m after delete implement some logic
+[33md8f13e3[m rendering categories
+[33mc134c82[m fetching my categories
+[33me84d21f[m creating category
+[33me243923[m creating category on frontednd
+[33m614b05e[m adding category
+[33m70d85aa[m adding category
+[33maa80f77[m ading category
+[33mae5c34a[m adding successfulll message
+[33mc900e4d[m finishing update endpoint
+[33m6bd3f7f[m fixing update bug
+[33m832fb2d[m geting my data to update property from locahost
+[33m3585f1e[m working on update endpoints
+[33m367d819[m reloading delete endpoints after successfull deletion of data at the backend
+[33mb30723a[m accessing id of delete property with e.target.parentElement data set
+[33m05393cb[m implementing update adn delete
+[33m59138a8[m fixing delete bug
+[33m94f771d[m fixing delete issue on front end
+[33m9918810[m adding category id from storage
+[33m4e764a8[m laading category for change event prurpose
+[33m07d8834[m conditioning my post property button for admin and regular user
+[33m5edc56e[m fixing reset data not found
+[33me4da4e9[m fixinging condition dispaying search data
+[33m511689e[m fixing style bugs
+[33m34eae31[m fixing styles in syle-property.css
+[33m9d491db[m fixing bug with displaying every searched thing on the page
+[33mab5de7a[m displaying searched data on fron page prperty.html
+[33m5dc5144[m querying string fix
+[33mcccaced[m searching how to get string on my search querry
+[33mb2609a5[m understadning list funciton on search.js
+[33ma7e2cd8[m search again
+[33ma34c7b2[m implementing search feauture
+[33m3c978f2[m working on search features
+[33m0c57f4c[m implementing search feature
+[33m760c878[m fixing bug with login display errors
+[33m53abb35[m fixing bugs with css
+[33me355c36[m fixing showing name instead of Id onthe creatinon of properrty on category field
+[33ma40d274[m adding conditon for not showing my index page if user logged in
+[33maf1c0d1[m implementing review and comment on front end
+[33m607e9b4[m adding tabs on single preoprty
+[33meb66afd[m  adding tabcontent on userpage and implement getallusers
+[33m18d1545[m adding comment uncomment like unlike follow unfollow reviews
+[33m853c585[m fixing bug with uploading functionality
+[33m084f99d[m fixing post fetch on user with form
+[33mf81190d[m fixing bug on createPropert on frontend pages
+[33m04cd738[m fixing bug with styles
+[33m4448b36[m fixing bug with styles on property page & single property
+[33m79865b9[m working on styling and rendering property by sell and by arrival
+[33m12c2673[m implementing realted protpery on frontend
+[33m87661ab[m implementing related fetch data
+[33mbf3a5a2[m solving bug with frontend and impementing listByUser endpoint
+[33m9277aae[m implementing login and signup validation & link them with server message
+[33mdf66d21[m editing read me
+[33m4fd8875[m fixing signup matter
+[33m3829b13[m editing read me
+[33ma06fda1[m adding all files
+[33ma57e56b[m first commit

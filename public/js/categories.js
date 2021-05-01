@@ -58,15 +58,19 @@ document.addEventListener('DOMContentLoaded', ()=> {
     // ..............................render all catgories............................
 
 function renderAllCategories (cat){
+  const categoriesHeader =document.querySelector('.all_category_header');
+   categoriesHeader.textContent = cat.length;
 
   for (var i = 0; i <cat.length ; i++){
     const {name, _id} = cat[i]
 
     const category = document.createElement('div');
     category.classList.add('category_item');    
-    category.innerHTML= `
-    <h3 data-id=${_id}>${name}</h3>
-    <button class="btn-delete">delete</button>
+    category.innerHTML= `<di data-id=${_id} class="category_item">
+      <h3>${name}</h3>
+      <button class="btn-delete">delete</button>
+    </di>
+    
     
    
     `;
@@ -81,7 +85,7 @@ function renderAllCategories (cat){
       btn.addEventListener('click',(e)=>{
         let categroy_id = e.target.parentElement.dataset.id;
 
-        console.log('soon i am going to delete you enemy ' + propId);
+        console.log('soon i am going to delete you enemy ' + categroy_id);
 
         // checking for deletion later
 
@@ -101,6 +105,7 @@ function renderAllCategories (cat){
               // after put a button to go to market or shop or rental space
               // location.reload();
               // propertyCreatedByUser();
+              console.log("category with Id" + categroy_id + "has been deleted" )
 
             } else {
               console.log(data.error);
@@ -152,7 +157,7 @@ function renderAllCategories (cat){
     console.log(data.message);
      let storedData = localStorage.setItem('categorycreated', JSON.stringify(data));  
      success_message.innerHTML = `<h3>Your category has been successfully created</h3>`
-     getAllCategories();
+    //  location.reload();
     
   } 
   if(data.status == false){
