@@ -157,7 +157,7 @@ function renderAllCategories (cat){
     console.log(data.message);
      let storedData = localStorage.setItem('categorycreated', JSON.stringify(data));  
      success_message.innerHTML = `<h3>Your category has been successfully created</h3>`
-     getAllCategories();
+    //  location.reload();
     
   } 
   if(data.status == false){
