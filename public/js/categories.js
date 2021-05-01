@@ -72,6 +72,45 @@ function renderAllCategories (cat){
     `;
 
     categories_container.append(category);
+
+    // accessingmy dele btns
+
+    // // accesing button for delete and update
+    const delBtns =document.querySelectorAll('.btn-delete') ;
+    delBtns.forEach(btn => {
+      btn.addEventListener('click',(e)=>{
+        let categroy_id = e.target.parentElement.dataset.id;
+
+        console.log('soon i am going to delete you enemy ' + propId);
+
+        // checking for deletion later
+
+        // alert('do you want do delete this property?')
+
+                           
+         return fetch( `http://localhost:3000/api//v1/category/${categroy_id}/${id}`, {
+            method: 'DELETE',
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`
+           }
+          }).then((res)=>res.json()).then(data => {              
+            if(data.status== true){
+              // show a successful message to the user by creating a div 
+              // after put a button to go to market or shop or rental space
+              // location.reload();
+              // propertyCreatedByUser();
+
+            } else {
+              console.log(data.error);
+            }
+            
+          });    
+      })        
+    });
+    
+
   }
  
 }
