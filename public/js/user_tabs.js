@@ -149,8 +149,10 @@ admin.append(userContainer);
              }
             }).then((res)=>res.json()).then(data => {              
               if(data.status== true){
-                // location.reload();
-                propertyCreatedByUser();
+                // show a successful message to the user by creating a div 
+                // after put a button to go to market or shop or rental space
+                location.reload();
+                // propertyCreatedByUser();
 
               } else {
                 console.log(data.error);
