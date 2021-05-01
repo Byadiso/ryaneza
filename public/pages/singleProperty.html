@@ -9,6 +9,7 @@
          <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
          <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
          <script src="../js/singlePro.js" defer></script>
+         <script src="../js/comments.js" defer></script>
 
 </head>
 <body>
@@ -77,6 +78,15 @@
         <div id="comment_details" class="tabcontent">
                 <h3 >Comments (<span class="comment_details_header">0</span>) </h3>
                 <p class="comment_details"></p>
+                <p class="display_error_comment"></p>
+                <p class="success_message"></p>
+
+                <form class="add_comments control-group create_property">                    
+                        <textarea name="comments" id="comments">                   
+                        </textarea>
+                        <input type="submit" value="Add comment" class="submitBtn_comments">                   
+                    
+                </form>
          </div>
          <div id="shipping_details" class="tabcontent">
             <h3 >Shipping & Location<span class="all_user_header"></span> users on the website </h3>

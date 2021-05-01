@@ -120,7 +120,32 @@ margin:0;
   border-top: none;
 }
 
+/* 
+for comments */
 
+.submitBtn_comments{
+  display: block;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  padding: 7px;
+  text-align: center;  
+  background-color: #2980B9;
+  color: white;
+}
+/* .add_comments{
+ 
+} */
+
+#comments{
+  display: block;
+  width: 300px;
+  height: 150px;
+  
+}
+
+.display_error_comment{
+  color: red;
+}
 
 
 
