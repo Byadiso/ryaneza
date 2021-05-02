@@ -49,19 +49,19 @@ const propertySchema = new mongoose.Schema(
             type: ObjectId,
             ref: 'USer'
         },
-        whishlist: [{ type: ObjectId, ref: 'User' }],
+        whishlist: [{ type: ObjectId, ref: 'USer' }],
         comments: [
             {
             text: String,
             created: { type: Date, default: Date.now },
-            createdBy: { type: ObjectId, ref: 'User' }
+            createdBy: { type: ObjectId, ref: 'USer' }
             }
     ],   
          reviews: [
                 {
                 text: String,
                 created: { type: Date, default: Date.now },
-                postedBy: { type: ObjectId, ref: 'User' }
+                createdBy: { type: ObjectId, ref: 'USer' }
                 }
             ],  
 

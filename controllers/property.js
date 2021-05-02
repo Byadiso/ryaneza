@@ -8,7 +8,11 @@ import { result, orderBy }from "lodash";
 
 
 exports.productById = (req,res, next, id ) =>{
-    Product.findById(id).populate('category').exec((err, product)=>{
+    Product.findById(id)
+    .populate('category')
+    .populate('comments','text created')
+    .populate('comments.postedBy','_id name')
+    .exec((err, product)=>{
         if(err || !product){
             return res.status(400).json({
                 error:" Product not found"
@@ -32,6 +36,8 @@ exports.list = (req, res )=>{
     Product.find()
         .select('-photo')
         .populate('category')
+        .populate('comments','text created')
+        .populate('comments.postedBy','_id name')
         .sort([[sortBy, order]])
         .limit(limit)
         .exec((err, properties) =>{
@@ -359,7 +365,11 @@ exports.comment = (req, res) => {
                     error: err
                 });
             } else {
-                res.json(result);
+                res.json({                    
+                    data:result,
+                    status: true,
+                    message:"Your comment has been added "
+                });
             }
         });
 };

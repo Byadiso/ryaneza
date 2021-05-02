@@ -1,127 +1,159 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-        <meta>
+    <head>
+        <meta />
         <!-- <link rel="stylesheet" type="text/css" href="../css/style-signup-signin-sell.css"> -->
-        <link rel="stylesheet" href="../css/style-user.css">
-        <title> PropertyPro LITE</title>
+        <link rel="stylesheet" href="../css/style-user.css" />
+        <title>PropertyPro LITE</title>
         <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
         <!-- for-font-awesome -->
-        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-        <link rel="stylesheet" type="text/css" href="../css/style-property.css">
-        <script src="../js/user.js" defer></script>    
+        <link
+            rel="stylesheet"
+            href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../css/style-property.css"
+        />
+        <script src="../js/user.js" defer></script>
         <script src="../js/user_tabs.js" defer></script>
         <script src="../js/categories.js"></script>
-        
-</head>
+    </head>
 
-<body>
-
-        <a class="sell" href="sell.html"><img src="../image/header.png" height="80px" width="200px"></a>
-
+    <body>
+        <a class="sell" href="sell.html"
+            ><img src="../image/header.png" height="80px" width="200px"
+        /></a>
 
         <div class="topnav">
+            <a href="./property.html"><strong> MY PROPERTY </strong></a>
 
-          <a href="./property.html"><strong> MY PROPERTY </strong></a>
+            <a class="active for_admin_only" href="sell.html"
+                ><strong> Post A PROPERTY</strong></a
+            >
 
-          <a class="active for_admin_only" href="sell.html"><strong> Post A PROPERTY</strong></a>
-
-          <div class="bannerContainer">
+            <div class="bannerContainer">
                 <div class="login-container">
-                        <form action="post">
-                                <a class="cart-btn">
-                                        <span class="nav-icon">
-                                            <i class="fas fa-cart-plus"></i>
-                                        </span>
-                                        <div class="cart-items">0</div>                                    
-                                </a>
-                    
-                                <a  class="log-out" href="login.html"><strong>Sign Out </strong></a>
-                                <!-- <a  href="../index.html">Home</a> -->
-                            </form>
+                    <form action="post">
+                        <a class="cart-btn">
+                            <span class="nav-icon">
+                                <i class="fas fa-cart-plus"></i>
+                            </span>
+                            <div class="cart-items">0</div>
+                        </a>
 
-                </div>               
-          </div>
+                        <a class="log-out" href="login.html"
+                            ><strong>Sign Out </strong></a
+                        >
+                        <!-- <a  href="../index.html">Home</a> -->
+                    </form>
+                </div>
+            </div>
         </div>
 
         <div class="tab">
-                <button class="tablinks" onclick="open_menu_dashboard(event, 'admin_details')">Personal Details</button>
-                <button class="tablinks" onclick="open_menu_dashboard(event, 'manager_property')">Manager Property</button>
-                <button class="tablinks" onclick="open_menu_dashboard(event, 'manager_category')">Manager Category</button>
-                <button class="tablinks" onclick="open_menu_dashboard(event, 'all_user')">All user</button>
+            <button
+                class="tablinks"
+                onclick="open_menu_dashboard(event, 'admin_details')"
+            >
+                Personal Details
+            </button>
+            <button
+                class="tablinks"
+                onclick="open_menu_dashboard(event, 'manager_property')"
+            >
+                Manager Property
+            </button>
+            <button
+                class="tablinks"
+                onclick="open_menu_dashboard(event, 'manager_category')"
+            >
+                Manager Category
+            </button>
+            <button
+                class="tablinks"
+                onclick="open_menu_dashboard(event, 'all_user')"
+            >
+                All user
+            </button>
         </div>
 
         <!-- Tab content -->
-        <div id="admin_details" class="tabcontent admin_details ">
-        <h5>Welcome <span class="all_admin_header"></span>  </h5>
-        
+        <div id="admin_details" class="tabcontent admin_details">
+            <h5>Welcome <span class="all_admin_header"></span></h5>
         </div>
 
         <div id="manager_property" class="tabcontent manager_property">
-         <h3>Manager all your <span class="all_property_header"></span> properties </h3>   
-             
+            <h3>
+                Manager all your
+                <span class="all_property_header"></span> properties
+            </h3>
         </div>
 
         <div id="all_user" class="tabcontent all_user">
-                <h3 >All <span class="all_user_header"></span> users on the website </h3>
-        
+            <h3>
+                All <span class="all_user_header"></span> users on the website
+            </h3>
         </div>
         <div id="manager_category" class="tabcontent manager_category">
-                <h3 >All <span class="all_category_header"></span> Categories </h3>
-                
-                        <div class="create_category_form">
-                                <form id="create_category_form" class="control-group create_category">          
-                                       
-                                        <div class="display_error_category"></div>             
-                                        <input type="text" class="category-field" placeholder="name"  name="name" id="name"> 
-                                        <button  class="submitBtn category-field create_category_btn">Add Category</button> 
-                                </form>                         
-                            
-                               
-                                <div class="success_message"></div>
-                                <div class="all_categories"></div>
-        
-                        </div>
+            <h3>All <span class="all_category_header"></span> Categories</h3>
 
-                
-                
-                   
+            <div class="create_category_form">
+                <form
+                    id="create_category_form"
+                    class="control-group create_category"
+                >
+                    <div class="display_error_category"></div>
+                    <input
+                        type="text"
+                        class="category-field"
+                        placeholder="name"
+                        name="name"
+                        id="name"
+                    />
+                    <button
+                        class="submitBtn category-field create_category_btn"
+                    >
+                        Add Category
+                    </button>
+                </form>
+
+                <div class="success_message"></div>
+                <div class="all_categories"></div>
+            </div>
         </div>
 
-
-       
-
-
         <div id="footer">
-          &copy; 2019 Designed by BYAMUNGU desire || Andela Developer Challenge
+            &copy; 2019 Designed by BYAMUNGU desire || Andela Developer
+            Challenge
         </div>
 
         <script>
-                
-
-                function open_menu_dashboard(evt, menu_dashboard) {
+            function open_menu_dashboard(evt, menu_dashboard) {
                 // Declare all variables
-                var i, tabcontent, tablinks;
-                
+                var i, tabcontent, tablinks
+
                 // Get all elements with class="tabcontent" and hide them
-                tabcontent = document.getElementsByClassName("tabcontent");
+                tabcontent = document.getElementsByClassName('tabcontent')
                 // tabcontent.textContent= 'this has been fecthed'
                 for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";     
+                    tabcontent[i].style.display = 'none'
                 }
-                
-                // Get all elements with class="tablinks" and remove the class "active"
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-                }
-                
-                // Show the current tab, and add an "active" class to the button that opened the tab
-                document.getElementById(menu_dashboard).style.display = "block";
-                evt.currentTarget.className += " active"; 
 
+                // Get all elements with class="tablinks" and remove the class "active"
+                tablinks = document.getElementsByClassName('tablinks')
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(
+                        ' active',
+                        ''
+                    )
                 }
-         </script>
-</body>
+
+                // Show the current tab, and add an "active" class to the button that opened the tab
+                document.getElementById(menu_dashboard).style.display = 'block'
+                evt.currentTarget.className += ' active'
+            }
+        </script>
+    </body>
 </html>

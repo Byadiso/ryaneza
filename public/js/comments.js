@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
     const form = document.querySelector('#create_category_form');
     const display_error = document.querySelector('.display_error_comment');   
     const success_message = document.querySelector('.success_message');
+    const singlePro = document.querySelector('.property_container');
+
+    // console.log(singlePro.dataset.id);
 
     
  // --------------------------------------------------------------------------------------
@@ -16,7 +19,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
       const userId = user.user._id;
       const token = user.token; 
       const comment = comment_input.value;
-      let propId = JSON.parse(localStorage.getItem('id'));
+      let propId = singlePro.dataset.id
 
 
  
@@ -35,7 +38,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`
                     },
-                    body: JSON.stringify({ userId,propId, comment })
+                    body: JSON.stringify( {userId, propId,comment })
                 })
                     .then(data => {
                         // console.log(data)

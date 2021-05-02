@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   let findedOne = newPro.find(item=> item._id === proId)
     
   console.log(findedOne);
-  let {description,shipping,reviews,comments} = findedOne
+  let {description,shipping,reviews,comments,_id} = findedOne
 
   //for acessing my comments reviews and description
   const descriptionCont = document.querySelector('.description_details');
@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
    const singlePro = findedOne;
    const propertyContainer= document.createElement('DIV');
    propertyContainer.classList.add('property_container');
+   propertyContainer.setAttribute('data-id',_id);
   
 
           //for add to the cart

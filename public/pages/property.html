@@ -1,123 +1,138 @@
 <!DOCTYPE html>
 <html>
-<head>
- <meta>
-         <link rel="stylesheet" type="text/css" href="../css/style-property.css">
-         <!-- <link rel="stylesheet" href="../css/style.css"> -->
-         <title> PropertyPro LITE</title>
-         <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
-         <script  type="module" src="../js/script.js" defer></script>
-         <script  type="module" src="../js/sorting.js" defer></script>
-         <script src="../js/search.js" defer></script>
-         <script src="../js/categories.js" defer></script>
-         
+    <head>
+        <meta />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../css/style-property.css"
+        />
+        <!-- <link rel="stylesheet" href="../css/style.css"> -->
+        <title>PropertyPro LITE</title>
+        <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
+        <script type="module" src="../js/script.js" defer></script>
+        <script type="module" src="../js/sorting.js" defer></script>
+        <script src="../js/search.js" defer></script>
+        <script src="../js/categories.js" defer></script>
 
-         <!-- for fonts -->
-         <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-       
-</head>
-<body>
+        <!-- for fonts -->
+        <link
+            rel="stylesheet"
+            href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+        />
+    </head>
+    <body>
+        <a class="sell" href="http://localhost:3000/public/pages/property.html"
+            ><img src="../image/header.png" height="80px" width="200px"
+        /></a>
 
+        <div class="topnav">
+            <!-- <a class="active"href="../index.html"><strong>PROPERTY FOR RENT</strong></a> -->
 
-                <a class="sell" href="http://localhost:3000/public/pages/property.html"><img src="../image/header.png" height="80px" width="200px"></a>
+            <a href="sell.html"
+                ><strong
+                    ><span class="admin_createPro"
+                        >SELL A PROPERTY</span
+                    ></strong
+                ></a
+            >
 
-                <div class="topnav">
+            <!-- <a href="./property-user.html"><strong>MY PROPERTY</strong></a> -->
+            <a href="./user.html"><strong>My Dashboard</strong></a>
 
-                
-                <!-- <a class="active"href="../index.html"><strong>PROPERTY FOR RENT</strong></a> -->
+            <div class="login-container">
+                <form action="post">
+                    <a class="cart-btn">
+                        <span class="nav-icon">
+                            <i class="fas fa-cart-plus"></i>
+                        </span>
+                        <div class="cart-items">0</div>
+                    </a>
 
-                <a href="sell.html"><strong><span class="admin_createPro">SELL A PROPERTY</span></strong></a>
-                
-                <!-- <a href="./property-user.html"><strong>MY PROPERTY</strong></a> -->
-                <a href="./user.html"><strong>My Dashboard</strong></a>
-                
-                        <div class="login-container">
-                                <form action="post">
-                                       <a class="cart-btn">
-                                                <span class="nav-icon">
-                                                    <i class="fas fa-cart-plus"></i>
-                                                </span>
-                                                <div class="cart-items">0</div>                                    
-                                        </a>
+                    <a class="log-out" href="#"><strong>Sign Out </strong></a>
+                    <!-- <a  href="../index.html">Home</a> -->
+                </form>
+            </div>
+        </div>
+        <div>
+            <img
+                id="banner"
+                src="../image/banner.png"
+                height="20%"
+                width="100%"
+            />
+        </div>
 
-                                        <a  class="log-out" href="#"><strong>Sign Out </strong></a>
-                                        <!-- <a  href="../index.html">Home</a> -->
-                                </form>
-                        </div>
-                </div>
-                <div >
-                <img id="banner" src="../image/banner.png" height="20%" width="100%">
-                </div>
+        <h2 id="header-text">Properties</h2>
+        <div class="filters">
+            <div class="filterCheck"></div>
+            <form class="searchBar" id="input_search">
+                <input
+                    type="text"
+                    name="search"
+                    id="searchBar"
+                    class="input_search"
+                    placeholder="search for a propery"
+                />
+                <button class="btnSearch">search</button>
+            </form>
+        </div>
 
-
-                <h2 id="header-text">Properties</h2>
-                <div class="filters">
-                        <div class="filterCheck"></div>
-                        <form class="searchBar" id="input_search">
-                                <input type="text" name="search" id="searchBar" class="input_search" placeholder="search for a propery">
-                                <button  class="btnSearch">search</button>
-                        </form>
-                        
-                </div>
-                      
-                <!-- Searched products -->
-                <div class="search_container">
-                        <div>
-                                <h2 class="search_title"></h2>
-                        </div>                        
-                        <div id="searched_content"></div>
-                </div>
-                <!--
+        <!-- Searched products -->
+        <div class="search_container">
+            <div>
+                <h2 class="search_title"></h2>
+            </div>
+            <div id="searched_content"></div>
+        </div>
+        <!--
                 I want to put my data here from my backend                
                 -->
 
-                <div class="main_properties">
+        <div class="main_properties">
+            <div id="myProperties"></div>
+            <div id="forSingleElement"></div>
 
-                        <div  id="myProperties"> </div>  
-                        <div id="forSingleElement"></div>
-        
-                        <!-- at bottom for sell and arrival -->                
-                        <div id="sell_and_arrival">
-                                
-                                <div id="property_by_sell">
-                                        <h1 class="header_sell"></h1>
-                                </div>  
-                               
-                                <div id="property_by_arrival">
-                                        <h1 class="header_arrival"> </h1>                                       
-                                </div>  
-                        </div>
-                </div>
-                <!--   want to implement a loading spin  -->
-                <div id="loader-wrapper">
-                        <div id="loader"></div>       
+            <!-- at bottom for sell and arrival -->
+            <div id="sell_and_arrival">
+                <div id="property_by_sell">
+                    <h1 class="header_sell"></h1>
                 </div>
 
-                <div id="footer">
-                        &copy; 2019  Designed by BYAMUNGU desire || Andela Developer Challenge
-                </div> 
-</body>
+                <div id="property_by_arrival">
+                    <h1 class="header_arrival"></h1>
+                </div>
+            </div>
+        </div>
+        <!--   want to implement a loading spin  -->
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+        </div>
 
-<script defer>
-                let user = JSON.parse(localStorage.getItem('user')); 
-                console.log(user);
-                if(user == null){
-                window.location.href = './login.html';
-                } 
-                
-                
-                // for laoding feature
-                // document.onreadystatechange = function() {
-                // if (document.readyState !== "complete") {
-                //         document.querySelector("body").style.visibility = "hidden";
-                //         document.querySelector("#loader").style.visibility = "visible";
-                //         console.log('its is not yet complete')
-                // } else {
-                //         document.querySelector("#loader").style.display = "none";
-                //         document.querySelector("body").style.visibility = "visible";
-                //         console.log('Godd complete ')
-                //    }
-                // };
+        <div id="footer">
+            &copy; 2019 Designed by BYAMUNGU desire || Andela Developer
+            Challenge
+        </div>
+    </body>
 
-</script>
+    <script defer>
+        let user = JSON.parse(localStorage.getItem('user'))
+        console.log(user)
+        if (user == null) {
+            window.location.href = './login.html'
+        }
+
+        // for laoding feature
+        // document.onreadystatechange = function() {
+        // if (document.readyState !== "complete") {
+        //         document.querySelector("body").style.visibility = "hidden";
+        //         document.querySelector("#loader").style.visibility = "visible";
+        //         console.log('its is not yet complete')
+        // } else {
+        //         document.querySelector("#loader").style.display = "none";
+        //         document.querySelector("body").style.visibility = "visible";
+        //         console.log('Godd complete ')
+        //    }
+        // };
+    </script>
 </html>
