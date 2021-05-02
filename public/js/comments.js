@@ -1,4 +1,5 @@
 
+
 /* eslint-disable prettier/prettier */
 document.addEventListener('DOMContentLoaded', ()=> { 
 
@@ -19,7 +20,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
       const userId = user.user._id;
       const token = user.token; 
       const comment = comment_input.value;
-      let propId = singlePro.dataset.id
+      let propertyId = singlePro.dataset.id
+
+      console.log(userId)
 
 
  
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`
                     },
-                    body: JSON.stringify( {userId, propId,comment })
+                    body: JSON.stringify( { userId , propertyId, comment: {text: comment} })
                 })
                     .then(data => {
                         // console.log(data)
