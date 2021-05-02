@@ -47,7 +47,7 @@ exports.list = (req, res )=>{
             });
         }
        return res.status(200).json({
-            properties:properties,
+            properties: properties,
             message: 'all properties',
             status: true
         })
@@ -356,15 +356,6 @@ exports.comment = (req, res) => {
     
     let comment = req.body.comment;
     comment.createdBy = req.body.userId;
-
-    let comments =[];
-
-    comment.forEach(item => {
-        comments.push({
-            _id: item.comment.createdBy,
-            comment:item.comment             
-        });
-    });
 
     Product.findByIdAndUpdate(req.body.propertyId, { $push: { comments: comment } }, { new: true })
         .populate('comments.createdBy', '_id name')
