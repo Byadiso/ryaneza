@@ -36,8 +36,8 @@ exports.list = (req, res )=>{
     Product.find()
         .select('-photo')
         .populate('category')
-        .populate('comments','text created')
-        .populate('comments.createdBy','_id name')
+        // .populate('comments','text created')
+        // .populate('comments.createdBy','_id name')
         .populate('createdBy', '_id name')
         .sort([[sortBy, order]])
         .limit(limit)
@@ -359,6 +359,7 @@ exports.comment = (req, res) => {
     comment.createdBy = req.body.userId; 
 
     Product.findByIdAndUpdate(req.body.propertyId, { $push: { comments: comment } }, { new: true })
+    .populate('comments', '_id name')
         .populate('comments.createdBy', '_id name')
         .populate('createdBy', '_id name')
         .exec((err, result) => {
