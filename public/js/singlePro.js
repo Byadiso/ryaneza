@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const reviewsCont = document.querySelector('.reviews_details');
   const commentsCont = document.querySelector('.comment_details');
   
+  
 
   // set all content 
   descriptionCont.textContent= description;
@@ -41,13 +42,27 @@ document.addEventListener('DOMContentLoaded', ()=>{
     <p>${review.postedBy.name}</p>
     `
   });
-  commentsCont.textContent= comments.length == 0 ? "No comments found for this product. Be the first to comment!" : comments.forEach((coment)=>{
+
+  // ...........................comment section......................................................
+  const comment_details_header = document.querySelector('.comment_details_header');
+  comment_details_header.textContent = comments.length; 
+
+  commentsCont.innerHTML = comments.length == 0 ? "No comments found for this product. Be the first to comment!" : 
+  comments.forEach(element => {
     const comentContainer = document.createElement('div');
     comentContainer.innerHTML =
-    ` <p>${coment.text}</p>
-    <p>${coment.createdBy.name}</p>
-    `
+    ` <p>${element.text}</p>
+    <p>${element.createdBy.name}</p>`
+    commentsCont.append(comentContainer);
   });
+  
+  // comments.forEach((ele)=>{
+  //   const comentContainer = document.createElement('div');
+  //   comentContainer.innerHTML =
+  //   ` <p>${coment.text}</p>
+  //   <p>${coment.createdBy.name}</p>
+  //   `
+  // });
          
  const renderPro = ()=>{  
    const singlePro = findedOne;
