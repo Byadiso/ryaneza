@@ -47,22 +47,26 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const comment_details_header = document.querySelector('.comment_details_header');
   comment_details_header.textContent = comments.length; 
 
-  commentsCont.innerHTML = comments.length == 0 ? "No comments found for this product. Be the first to comment!" : 
-  comments.forEach(element => {
-    const comentContainer = document.createElement('div');
-    comentContainer.innerHTML =
-    ` <p>${element.text}</p>
-    <p>${element.createdBy.name}</p>`
-    commentsCont.append(comentContainer);
-  });
+  commentsCont.innerHTML = comments.length == 0 ? "No comments found for this product. Be the first to comment!" : renderComments();
+
+  function renderComments(){
+    
+    for(var i= 0; i< comments.length; i++){
+      console.log(comments[i]);
+      const {text , _id, createdBy, created} = comments[i];
+      const comentContainer = document.createElement('div');
+      comentContainer.innerHTML =
+        ` <p>${_id}</p>
+        <p>${text}</p>
+         <p>${createdBy}</p>        
+         <p>${created}</p>`;
+
+        commentsCont.appendChild(comentContainer);
+
+    }
+  }
   
-  // comments.forEach((ele)=>{
-  //   const comentContainer = document.createElement('div');
-  //   comentContainer.innerHTML =
-  //   ` <p>${coment.text}</p>
-  //   <p>${coment.createdBy.name}</p>
-  //   `
-  // });
+
          
  const renderPro = ()=>{  
    const singlePro = findedOne;
