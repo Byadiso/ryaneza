@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const descriptionCont = document.querySelector('.description_details');
   const ShippingCont = document.querySelector('.shipping_details');
   const reviewsCont = document.querySelector('.reviews_details');
-  const commentsCont = document.querySelector('.comment_details');
+  const commentsCont = document.querySelector('#comment_details_container');
   
   
 
@@ -52,16 +52,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
   function renderComments(){
     
     for(var i= 0; i< comments.length; i++){
-      console.log(comments[i]);
-      const {text , _id, createdBy, created} = comments[i];
+     
+      const {text , _id, createdBy, created } = comments[i];
+
+      // console.log(`comment: ${_id}${text}, Created on ${created}, by : ${createdBy}`);
+      
       const comentContainer = document.createElement('div');
       comentContainer.innerHTML =
         ` <p>${_id}</p>
-        <p>${text}</p>
-         <p>${createdBy}</p>        
-         <p>${created}</p>`;
+           <p>${text}</p>
+           <p>${createdBy}</p>        
+           <p>${created}</p>`;
 
-        commentsCont.appendChild(comentContainer);
+        commentsCont.append(comentContainer);
 
     }
   }
