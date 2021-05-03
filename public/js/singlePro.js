@@ -41,11 +41,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     <p>${review.postedBy.name}</p>
     `
   });
-  commentsCont.textContent= comments.length == 0 ? "No comments found for this product. Be the first to comment!" : comments.map((coment)=>{
+  commentsCont.textContent= comments.length == 0 ? "No comments found for this product. Be the first to comment!" : comments.forEach((coment)=>{
     const comentContainer = document.createElement('div');
     comentContainer.innerHTML =
-    ` <p>${coment}</p>
-    <p>${coment.postedBy.name}</p>
+    ` <p>${coment.text}</p>
+    <p>${coment.createdBy.name}</p>
     `
   });
          

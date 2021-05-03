@@ -31,23 +31,24 @@ exports.read = (req,res )=>{
 exports.list = (req, res )=>{
     let order = req.query.order ? req.query.order : 'asc' ;
     let sortBy = req.query.sortBy ? req.query.sortBy :'_id' ;
-    let limit = req.query.limit ? parseInt(req.query.limit) : 20 ;    
+    let limit = req.query.limit ? parseInt(req.query.limit) : 6 ;    
 
     Product.find()
         .select('-photo')
         .populate('category')
-        .populate('comments','text created')
-        .populate('comments.postedBy','_id name')
+        // .populate('comments','text created')
+        // .populate('comments.createdBy','_id name')
+        .populate('createdBy', '_id name')
         .sort([[sortBy, order]])
         .limit(limit)
-        .exec((err, properties) =>{
-        if(err) {
-            return res.status(400).json({
-                error: "Products not found"
-            });
-        }
-       return res.status(200).json({
-            properties: properties,
+        .exec((err, data) =>{
+                if(err) {
+                    return res.status(400).json({
+                        error: "Products not found"
+                    });
+                }
+        res.status(200).json({
+            properties: data,
             message: 'all properties',
             status: true
         })
@@ -87,7 +88,7 @@ exports.listCategories = (req, res )=>{
 exports.listByUser = (req, res) => {
     Product.find({ createdBy: req.profile._id })
         .populate('createdBy', '_id name')
-        .select('_id name description created shipping')
+        .select('_id name description created shipping comments')
         .sort('_created')
         .exec((err, properties) => {
             if (err) {
@@ -355,7 +356,7 @@ exports.unlike = (req, res) => {
 exports.comment = (req, res) => {
     
     let comment = req.body.comment;
-    comment.createdBy = req.body.userId;
+    comment.createdBy = req.body.userId; 
 
     Product.findByIdAndUpdate(req.body.propertyId, { $push: { comments: comment } }, { new: true })
         .populate('comments.createdBy', '_id name')
@@ -367,7 +368,7 @@ exports.comment = (req, res) => {
                 });
             } else {
                 res.json({                    
-                    data:result,
+                    data: result,
                     status: true,
                     message:"Your comment has been added "
                 });

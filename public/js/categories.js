@@ -1,24 +1,14 @@
 
 /* eslint-disable prettier/prettier */
 document.addEventListener('DOMContentLoaded', ()=> { 
-
               
     // for accessing only my form to create a property 
     const namecategory = document.querySelector('#name');    
-    const submitButton = document.querySelector('.submitBtn');
+    const submitButton = document.querySelector('#submitBtn_category');
     const form = document.querySelector('#create_category_form');
     const display_error = document.querySelector('.display_error_category');   
     const success_message = document.querySelector('.success_message');
     const categories_container = document.querySelector('.all_categories');
-
-
-
-
-
-
-
-
-
 
     
  // --------------------------------------------------------------------------------------
@@ -120,16 +110,10 @@ function renderAllCategories (cat){
  
 }
 
-    
 
 
 
 
-
-
-
-
- 
  // ------------------------------CREATE CATEGORY--------------------------------------------------------
 
     submitButton.addEventListener('click',  (e) => {
