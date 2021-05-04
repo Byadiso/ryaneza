@@ -356,9 +356,10 @@ exports.unlike = (req, res) => {
 exports.comment = (req, res) => {
     
     let comment = req.body.comment;
-    comment.createdBy = req.body.userId; 
+    comment.createdBy = req.body.userId;    
 
-    Product.findByIdAndUpdate(req.body.propertyId, { $push: { comments: comment } }, { new: true })      
+    Product.findByIdAndUpdate(req.body.propertyId, { $push: { comments: comment } }, { new: true }) 
+        .populate('comments','text created')     
         .populate('comments.createdBy', '_id name')
         .populate('createdBy', '_id name')
         .exec((err, result) => {

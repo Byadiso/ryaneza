@@ -77,16 +77,18 @@
 
         <div id="comment_details" class="tabcontent">
                 <h3 >Comments (<span class="comment_details_header">0</span>) </h3>
+                
+                <form class="add_comments control-group create_property" name="comment_form">                    
+                    <input type="text" name="comments" id="comments_text" placeholder="leave a comment"></input>
+                    <input type="submit" value="leave a comment" class="submitBtn_comments">                   
+                
+                </form>
+
                 <div id="comment_details_container"></div>
                 <p class="display_error_comment"></p>
                 <p class="success_message"></p>
 
-                <form class="add_comments control-group create_property">                    
-                        <textarea name="comments" id="comments" placeholder="leave a comment" value="leave a comment">                   
-                        </textarea>
-                        <input type="submit" value="leave a comment" class="submitBtn_comments">                   
-                    
-                </form>
+                
          </div>
          <div id="shipping_details" class="tabcontent">
             <h3 >Shipping & Location<span class="all_user_header"></span> users on the website </h3>

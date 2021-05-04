@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
            <p>${text}</p>
            <p>${createdBy}</p>        
            <p>${created}</p>
+           <button classs="btn-delete">delete</button>
            <hr />`
 
             commentsCont.append(comentContainer)
