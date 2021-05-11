@@ -64,10 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const { text, _id, createdBy, created } = comments[i]
             const comentContainer = document.createElement('div')
             comentContainer.innerHTML = ` <p>${_id}</p>
+            
            <p>${text}</p>
            <div class="comment_details">
-            <p>Pposted by ${ createdBy }</p>        
-            <p>Comented on ${ created }</p>
+           <p class="posted_by">Posted by ${ createdBy.name }</p>   
+           <p class="date_posted">Comented on ${ created }</p>
            </div>
           
            <button class="btn-delete">delete</button>

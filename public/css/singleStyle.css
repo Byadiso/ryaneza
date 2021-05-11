@@ -151,12 +151,18 @@ for comments */
   background-color: red;
 }
 .comment_details{
-  color: red;
   display: flex;
+  flex-direction: column;
   margin: 5px
 }
 
+.posted_by{
+color: white;
+}
 
+.date_posted{
+  color: black;
+}
 
   
 /* --------------- Cart ---------------- */

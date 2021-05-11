@@ -38,7 +38,7 @@ exports.list = (req, res )=>{
         .populate('category')
         // .populate('comments','text created')
         .populate('comments.createdBy','_id name')
-        .populate('createdBy', '_id name')
+        // .populate('createdBy', '_id name')
         .sort([[sortBy, order]])
         .limit(limit)
         .exec((err, data) =>{
