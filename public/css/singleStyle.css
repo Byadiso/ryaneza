@@ -150,6 +150,11 @@ for comments */
 .btn-delete{
   background-color: red;
 }
+.comment_details{
+  color: red;
+  display: flex;
+  margin: 5px
+}
 
 
 

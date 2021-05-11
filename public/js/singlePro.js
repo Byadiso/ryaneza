@@ -65,9 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const comentContainer = document.createElement('div')
             comentContainer.innerHTML = ` <p>${_id}</p>
            <p>${text}</p>
-           <p>${createdBy}</p>        
-           <p>${created}</p>
-           <button classs="btn-delete">delete</button>
+           <div class="comment_details">
+            <p>Pposted by ${ createdBy }</p>        
+            <p>Comented on ${ created }</p>
+           </div>
+          
+           <button class="btn-delete">delete</button>
            <hr />`
 
             commentsCont.append(comentContainer)
