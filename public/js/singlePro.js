@@ -61,20 +61,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // render my comments
     function renderComments() {
         for (var i = 0; i < comments.length; i++) {
+            let user_loggin  = { ...JSON.parse(localStorage.getItem('user')) }
+            // if (user_loggin._id === createdBy._id )
             const { text, _id, createdBy, created } = comments[i]
             const comentContainer = document.createElement('div')
-            comentContainer.innerHTML = ` <p>${_id}</p>
-            
+            comentContainer.innerHTML = `   
            <p>${text}</p>
            <div class="comment_details">
            <p class="posted_by">Posted by ${ createdBy.name }</p>   
            <p class="date_posted">Comented on ${ created }</p>
            </div>
-          
-           <button class="btn-delete">delete</button>
+           
+            ${user_loggin.user._id == createdBy._id ? `<button class="btn-delete">delete</button>` : ''}
            <hr />`
-
-            commentsCont.append(comentContainer)
+           commentsCont.append(comentContainer)
         }
     }
 // ..................................render property ................................................
@@ -108,7 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
         //   propertyContainer.append(modifyBtn);
         propertyContainer.append(addCartBtn)
         //appending the main container
-        mainSingleDiv.appendChild(propertyContainer)
+        mainSingleDiv.appendChild(propertyContainer);
+
+        // const delteKey = `<button class="btn-delete">delete</button>`
+        //     console.log(delteKey)
     }
 
     //  fetchingSingle();
@@ -155,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             container_related.append(property_related)
 
             mainSingleDiv.appendChild(container_related)
+            
         }
     }
 

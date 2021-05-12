@@ -163,6 +163,11 @@ color: white;
 .date_posted{
   color: black;
 }
+/* 
+for hidding delete comment or uncomment */
+.hide{
+  display: none;
+}
 
   
 /* --------------- Cart ---------------- */
