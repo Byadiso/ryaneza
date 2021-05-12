@@ -52,7 +52,7 @@ comment_input.addEventListener('keyup',(e)=>{
                     body: JSON.stringify( { userId , propertyId, comment: {text: comment_created} })
                 })
                     .then(data => {
-                        // console.log(data)
+                    
                         if(data.status == true){
                           console.log(data.message);
                            let storedData = localStorage.setItem('comment', JSON.stringify(data));  
