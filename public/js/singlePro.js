@@ -66,16 +66,61 @@ document.addEventListener('DOMContentLoaded', () => {
             const { text, _id, createdBy, created } = comments[i]
             const comentContainer = document.createElement('div')
             comentContainer.innerHTML = `   
-           <p>${text}</p>
+           
            <div class="comment_details">
-           <p class="posted_by">Posted by ${ createdBy.name }</p>   
-           <p class="date_posted">Comented on ${ created }</p>
+                <p class="comment" data-comment="${text}">${text}</p>
+                <p class="posted_by">Posted by ${ createdBy.name }</p>   
+                <p class="date_posted">Comented on ${ created }</p>
            </div>
            
             ${user_loggin.user._id == createdBy._id ? `<button class="btn-delete">delete</button>` : ''}
            <hr />`
            commentsCont.append(comentContainer)
         }
+
+        //uncomment 
+        const deleteComment_btn = document.querySelectorAll('.btn-delete');
+        deleteComment_btn.forEach(Btn => {
+
+            const singlePro = document.querySelector('.property_container');
+            // access user and token
+            const user= JSON.parse(localStorage.getItem('user'));
+            const userId = user.user._id;
+            const token = user.token; 
+            let propertyId =_id
+           
+          
+
+         Btn.addEventListener('click', (e)=>{
+            let comment_created = e.target.dataset.comment
+            console.log(comment_created)
+             return fetch(`http://localhost:3000/api/v1/property/uncomment/`, {
+                method: "PUT",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify( { userId , propertyId, comment: {text: comment_created} })
+            })
+                .then(data => {
+                    // console.log(data)
+                    if(data.status == true){
+                      console.log(data.message);                        
+                       success_message.innerHTML = `<h3>Your comment has been successfully removed</h3>`
+                      //  location.reload();
+                      
+                    } 
+                    if(data.status == false){
+                      console.log(data.error)
+                    }         
+                  })
+                .catch(err => console.log(err));  
+               
+                 })
+ 
+               });
+
     }
 // ..................................render property ................................................
 
@@ -104,14 +149,11 @@ document.addEventListener('DOMContentLoaded', () => {
         img.style.height = '400px'
         img.classList.add('imgCreated')
         propertyContainer.append(img)
-        //   propertyContainer.append(deleteBtn);
-        //   propertyContainer.append(modifyBtn);
         propertyContainer.append(addCartBtn)
         //appending the main container
         mainSingleDiv.appendChild(propertyContainer);
 
-        // const delteKey = `<button class="btn-delete">delete</button>`
-        //     console.log(delteKey)
+        
     }
 
     //  fetchingSingle();
