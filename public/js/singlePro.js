@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const deleteComment_btn = document.querySelectorAll('.btn-delete');
         deleteComment_btn.forEach(Btn => {
 
-            const singlePro = document.querySelector('.property_container');
+         
             // access user and token
             const user= JSON.parse(localStorage.getItem('user'));
             const userId = user.user._id;
@@ -92,7 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
           
 
          Btn.addEventListener('click', (e)=>{
-            let comment_created = e.target.dataset.comment
+            // const comments = document.querySelector('.comment')[0];
+            let comment_created = e.target.parentNode.childNode
             console.log(comment_created)
              return fetch(`http://localhost:3000/api/v1/property/uncomment/`, {
                 method: "PUT",
