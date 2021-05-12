@@ -2,7 +2,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     // const ordersMsg = document.getElementById('header-text');
     const mainSingleDiv = document.getElementById('singleProperty')
-    let proId = localStorage.getItem('id')
+    let proId = localStorage.getItem('id');
+    const success_message = document.querySelector('.success_message');
+    const display_error = document.querySelector('.display_error_comment');
     let propertiesItem = { ...JSON.parse(localStorage.getItem('properties')) }
 
     // console.log(properties);
@@ -67,8 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const comentContainer = document.createElement('div')
             comentContainer.innerHTML = `   
            
-           <div class="comment_details">
-                <p class="comment" data-comment="${text}">${text}</p>
+           <div class="comment_details" data-comment="${text}">
+                <p class="comment" >${text}</p>
                 <p class="posted_by">Posted by ${ createdBy.name }</p>   
                 <p class="date_posted">Comented on ${ created }</p>
            </div>
@@ -93,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
          Btn.addEventListener('click', (e)=>{
             // const comments = document.querySelector('.comment')[0];
-            let comment_created = e.target.parentNode.childNode
+            let comment_created = e.target.parentNode.children[0].dataset.comment
             console.log(comment_created)
              return fetch(`http://localhost:3000/api/v1/property/uncomment/`, {
                 method: "PUT",
@@ -107,13 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(data => {
                     // console.log(data)
                     if(data.status == true){
-                      console.log(data.message);                        
+                                          
                        success_message.innerHTML = `<h3>Your comment has been successfully removed</h3>`
                       //  location.reload();
                       
                     } 
                     if(data.status == false){
                       console.log(data.error)
+                      display_error.innerHTML = data.error
                     }         
                   })
                 .catch(err => console.log(err));  

@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
      
 
  
- // ------------------------------CREATE CATEGORY--------------------------------------------------------
+ // ------------------------------CREATE COMMENT--------------------------------------------------------
  
 comment_input.addEventListener('keyup',(e)=>{
   comment_created = e.target.value;
@@ -55,13 +55,15 @@ comment_input.addEventListener('keyup',(e)=>{
                         // console.log(data)
                         if(data.status == true){
                           console.log(data.message);
-                           let storedData = localStorage.setItem('categorycreated', JSON.stringify(data));  
-                           success_message.innerHTML = `<h3>Your comment has been successfully added</h3>`
+                           let storedData = localStorage.setItem('comment', JSON.stringify(data));  
+                           success_message.textContent = `<h3>Your comment has been successfully added</h3>`
                           //  location.reload();
                           
                         } 
                         if(data.status == false){
                           console.log(data.error)
+                          display_error.textContent = data.error
+                          
                         }         
                       })
                     .catch(err => console.log(err));          
