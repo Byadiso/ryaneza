@@ -353,8 +353,7 @@ exports.unlike = (req, res) => {
     );
 };
 
-exports.comment = (req, res) => {
-    
+exports.comment = (req, res) => {    
     let comment = req.body.comment;
     comment.createdBy = req.body.userId;    
 
@@ -389,7 +388,11 @@ exports.uncomment = (req, res) => {
                     error: err
                 });
             } else {
-                res.json(result);
+                res.json({                    
+                    data: result,
+                    status: true,
+                    message:"Your comment has been removed "
+                });
             }
         });
 };
