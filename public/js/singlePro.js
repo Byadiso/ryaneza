@@ -23,11 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
  console.log(findedOne);
  let { description, shipping, reviews, comments, _id } = findedOne;
 
- 
- //define our cart 
-let cart = []
-
-
+ console.log(_id)
 // ..................................render property ................................................
 
     const renderPro = () => {
@@ -42,40 +38,7 @@ let cart = []
         addCartBtn.classList.add('bag-btn')
         addCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> Add to cart`
         addCartBtn.style.margin = '5px 2px 5px 2px'
-        addCartBtn.addEventListener('click', (e) => {
-            // console.log('is being added to the cart');
-            let id = e.target.parentNode.dataset.id;
-            let addedPro = newPro.find((item) => item._id === id);            
-                
-            let cartItem = {...addedPro, amount: 1 };
-                //add product to the cart
-            cart = [...cart, cartItem];
-
-                //save cart to localstorage
-                console.log(cart)
-                localStorage.setItem("cart",JSON.stringify(cart))
-              
-               
-            // let exist = Shopping_cart.includes(to_be_added_to_cart);
-
-            
-            // condition for not adding duplicate in our cart
-
-            // if(exist){
-            //     const btnCart = document.querySelector('.btn_addCart');
-            //     btnCart.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`
-                            
-            // } else {
-            //     Shopping_cart  = [...Shopping_cart, to_be_added_to_cart];
-            //     console.log(Shopping_cart);
-            //     //save cart to localstorage
-            //     let cart = localStorage.setItem('cart', Shopping_cart);
-            // }           
-
-            // location.href = '#'
-
-        })
-
+        
         //for image
         let photoUrl = `http://localhost:3000/api/v1/property/photo/${proId}`
         const img = document.createElement('img')

@@ -30,24 +30,28 @@ getBagButtons(){
         let id = button.dataset.id;
         let inCart = cart.find(item => item._id === id);
         if (inCart){
-            button.innerText = " In cart";
+            button.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`;
             button.disabled = true;
         } 
 
             button.addEventListener('click', event => {
-                event.target.innerText = "In Cart";
+                event.target.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`;
                 event.target.disabled = true;
                 //get product from localStorage
+                
+                // localStorage.setItem('id_cart', JSON.stringify(save_id_to_cart));
+                
                 let proIdCart = localStorage.getItem('id');
                 let propertiesItem = {...JSON.parse(localStorage.getItem('properties'))};
                 let pro =[];
                 pro = [...pro, propertiesItem];
                 
                 let Mypro = pro.find(item => ()=>{
-                   item.Property.id[0]=== proIdCart }
+                   item.properties.id[0]=== proIdCart }
                 )
                 // let newPro = Mypro.Property 
-                let addedPro = Mypro.Property.find(item=> item._id === proIdCart)
+                console.log(Mypro)
+                let addedPro = Mypro.properties.find(item=> item._id === proIdCart)
             
                 
 
@@ -85,11 +89,14 @@ setCartValues(cart){
 }
 addCartItem(cartItem){
     const div = document.createElement('div');
+   
+   
+    let photoUrl = `http://localhost:3000/api/v1/property/photo/${cartItem._id}`
     div.classList.add('cart-item');
     div.innerHTML= `
-    <img src=${cartItem.url} alt="product"/> 
+    <img src=${photoUrl} alt="product"/> 
     <div>
-        <h4>${cartItem.state}</h4>
+        <h4>${cartItem.name}</h4>
         <h5>${cartItem.price}frw </h5>
         <span class="remove-item" data-id=${cartItem._id}>remove</span>
     </div>
