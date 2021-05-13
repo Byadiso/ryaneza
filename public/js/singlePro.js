@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
         item.Property.id[0] === proId
     })
 
-    let newPro = Mypro.properties
-    console.log(newPro)
-    let findedOne = newPro.find((item) => item._id === proId)
+    let newPro = Mypro.properties;
+    console.log(newPro);
+    let findedOne = newPro.find((item) => item._id === proId);
 
-    console.log(findedOne)
-    let { description, shipping, reviews, comments, _id } = findedOne
+    console.log(findedOne);
+    let { description, shipping, reviews, comments, _id } = findedOne;
 
     //for acessing my comments reviews and description
     const descriptionCont = document.querySelector('.description_details')
