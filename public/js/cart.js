@@ -95,10 +95,10 @@ addCartItem(cartItem){
     div.classList.add('cart-item');
     div.innerHTML= `
     <img src=${photoUrl} alt="product"/> 
-    <div>
-        <h4>${cartItem.name}</h4>
-        <h5>${cartItem.price}frw </h5>
-        <span class="remove-item" data-id=${cartItem._id}>remove</span>
+    <div class="cart-item-details">
+        <h5>Description:${ cartItem.name}</h5>
+        <h5>Unit price:${ cartItem.price}frw </h5>
+        <span class="remove-item btn-delete" data-id=${cartItem._id}>Remove</span>
     </div>
     <div>
         <i class="fas fa-chevron-up" data-id=${cartItem._id}></i>
