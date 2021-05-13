@@ -19,93 +19,168 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let newPro = Mypro.properties;
     console.log(newPro);
-    let findedOne = newPro.find((item) => item._id === proId);
+    let findedOne = newPro.find((item) => item._id === proId);    
+ console.log(findedOne);
+ let { description, shipping, reviews, comments, _id } = findedOne;
 
-    console.log(findedOne);
-    let { description, shipping, reviews, comments, _id } = findedOne;
+ 
+ //define our cart 
+let cart = []
 
-    //for acessing my comments reviews and description
-    const descriptionCont = document.querySelector('.description_details')
-    const ShippingCont = document.querySelector('.shipping_details')
-    const reviewsCont = document.querySelector('.reviews_details')
-    const commentsCont = document.querySelector('#comment_details_container')
 
-    // set all content
-    descriptionCont.textContent = description
-    ShippingCont.textContent =
-        shipping == true
-            ? 'Please remember to update your address in order to deliver you product at your door'
-            : 'Sorry this is not delivable product'
-    reviewsCont.textContent =
-        reviews.length == 0
-            ? 'No Reviews found!'
-            : reviews.map((review) => {
-                  const reviewsContainer = document.createElement('div')
-                  reviewsContainer.innerHTML = ` <p>${review}</p>
-    <p>${review.postedBy.name}</p>
-    `
-              })
+// ..................................render property ................................................
 
-    // ...........................comment section......................................................
-    const comment_details_header = document.querySelector(
-        '.comment_details_header'
-    )
-    comment_details_header.textContent = comments.length
+    const renderPro = () => {
+        const singlePro = findedOne
+        const propertyContainer = document.createElement('DIV')
+        propertyContainer.classList.add('property_container')
+        propertyContainer.setAttribute('data-id', _id)
 
-    // condition to for rendering a text if no comments and if there are comments show them
+        //for add to the cart
+        const addCartBtn = document.createElement('BUTTON')
+        addCartBtn.classList.add('btn_addCart')
+        addCartBtn.classList.add('bag-btn')
+        addCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> Add to cart`
+        addCartBtn.style.margin = '5px 2px 5px 2px'
+        addCartBtn.addEventListener('click', (e) => {
+            // console.log('is being added to the cart');
+            let id = e.target.parentNode.dataset.id;
+            let addedPro = newPro.find((item) => item._id === id);            
+                
+            let cartItem = {...addedPro, amount: 1 };
+                //add product to the cart
+            cart = [...cart, cartItem];
 
-    if (comments.length == 0) {
-        return 'No comments to dislay'
-    } else {
-        renderComments()
+                //save cart to localstorage
+                console.log(cart)
+                localStorage.setItem("cart",JSON.stringify(cart))
+              
+               
+            // let exist = Shopping_cart.includes(to_be_added_to_cart);
+
+            
+            // condition for not adding duplicate in our cart
+
+            // if(exist){
+            //     const btnCart = document.querySelector('.btn_addCart');
+            //     btnCart.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`
+                            
+            // } else {
+            //     Shopping_cart  = [...Shopping_cart, to_be_added_to_cart];
+            //     console.log(Shopping_cart);
+            //     //save cart to localstorage
+            //     let cart = localStorage.setItem('cart', Shopping_cart);
+            // }           
+
+            // location.href = '#'
+
+        })
+
+        //for image
+        let photoUrl = `http://localhost:3000/api/v1/property/photo/${proId}`
+        const img = document.createElement('img')
+        img.src = photoUrl
+        img.style.width = '350px'
+        img.style.height = '400px'
+        img.classList.add('imgCreated')
+        propertyContainer.append(img)
+        propertyContainer.append(addCartBtn)
+
+        //appending the main container
+        mainSingleDiv.appendChild(propertyContainer);
+
+        
     }
 
-    // render my comments
-    function renderComments() {
-        for (var i = 0; i < comments.length; i++) {
-            let user_loggin  = { ...JSON.parse(localStorage.getItem('user')) }
-            // if (user_loggin._id === createdBy._id )
-            const { text, _id, createdBy, created } = comments[i]
-            const comentContainer = document.createElement('div')
-            comentContainer.innerHTML = `   
-           
-           <div class="comment_details" data-comment="${text}">
-                <p class="comment" >${text}</p>
-                <p class="posted_by">Posted by ${ createdBy.name }</p>   
-                <p class="date_posted">Comented on ${ created }</p>
-           </div>
-           
-            ${user_loggin.user._id == createdBy._id ? `<button class="btn-delete">delete</button>` : ''}
-           <hr />`
-           commentsCont.append(comentContainer)
-        }
+    //  fetchingSingle();
 
-        //uncomment 
-        const deleteComment_btn = document.querySelectorAll('.btn-delete');
-        deleteComment_btn.forEach(Btn => {
+    renderPro()
+            
 
-         
-            // access user and token
-            const user= JSON.parse(localStorage.getItem('user'));
-            const userId = user.user._id;
-            const token = user.token; 
-            let propertyId =_id
-           
-          
 
-         Btn.addEventListener('click', (e)=>{
-            // const comments = document.querySelector('.comment')[0];
-            let comment_created = e.target.parentNode.children[0].dataset.comment
-            console.log(comment_created)
-             return fetch(`http://localhost:3000/api/v1/property/uncomment/`, {
-                method: "PUT",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`
-                },
-                body: JSON.stringify( { userId , propertyId, comment: {text: comment_created} })
-            })
+ //for acessing my comments reviews and description
+ const descriptionCont = document.querySelector('.description_details')
+ const ShippingCont = document.querySelector('.shipping_details')
+ const reviewsCont = document.querySelector('.reviews_details')
+ const commentsCont = document.querySelector('#comment_details_container')
+
+ // set all content
+ descriptionCont.textContent = description
+ ShippingCont.textContent =
+     shipping == true
+         ? 'Please remember to update your address in order to deliver you product at your door'
+         : 'Sorry this is not delivable product'
+ reviewsCont.textContent =
+     reviews.length == 0
+         ? 'No Reviews found!'
+         : reviews.map((review) => {
+               const reviewsContainer = document.createElement('div')
+               reviewsContainer.innerHTML = ` <p>${review}</p>
+ <p>${review.postedBy.name}</p>
+ `
+           })
+
+ // ...........................comment section......................................................
+ const comment_details_header = document.querySelector(
+     '.comment_details_header'
+ )
+ comment_details_header.textContent = comments.length
+
+ // condition to for rendering a text if no comments and if there are comments show them
+
+ if (comments.length == 0) {
+     return 'No comments to dislay'
+ } else {
+     renderComments()
+ }
+
+ // render my comments
+ function renderComments() {
+     for (var i = 0; i < comments.length; i++) {
+         let user_loggin  = { ...JSON.parse(localStorage.getItem('user')) }
+         // if (user_loggin._id === createdBy._id )
+         const { text, _id, createdBy, created } = comments[i]
+         const comentContainer = document.createElement('div')
+         comentContainer.innerHTML = `   
+        
+        <div class="comment_details" data-comment="${text}">
+             <p class="comment" >${text}</p>
+             <p class="posted_by">Posted by ${ createdBy.name }</p>   
+             <p class="date_posted">Comented on ${ created }</p>
+        </div>
+        
+         ${user_loggin.user._id == createdBy._id ? `<button class="btn-delete">delete</button>` : ''}
+        <hr />`
+        commentsCont.append(comentContainer)
+     }
+
+     
+   // access user and token
+    const user= JSON.parse(localStorage.getItem('user'));
+    const userId = user.user._id;
+    const token = user.token; 
+    let propertyId =_id
+        
+     
+
+
+     //uncomment 
+     const deleteComment_btn = document.querySelectorAll('.btn-delete');
+
+     deleteComment_btn.forEach(Btn => {    
+            Btn.addEventListener('click', (e)=>{
+                        // const comments = document.querySelector('.comment')[0];
+                        let comment_created = e.target.parentNode.children[0].dataset.comment
+                        console.log(comment_created)
+                        return fetch(`http://localhost:3000/api/v1/property/uncomment/`, {
+                            method: "PUT",
+                            headers: {
+                                Accept: "application/json",
+                                "Content-Type": "application/json",
+                                Authorization: `Bearer ${token}`
+                            },
+                            body: JSON.stringify( { userId , propertyId, comment: {text: comment_created} })
+                        })
                 .then(data => {
                     // console.log(data)
                     if(data.status == true){
@@ -126,43 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
                });
 
     }
-// ..................................render property ................................................
-
-    const renderPro = () => {
-        const singlePro = findedOne
-        const propertyContainer = document.createElement('DIV')
-        propertyContainer.classList.add('property_container')
-        propertyContainer.setAttribute('data-id', _id)
-
-        //for add to the cart
-        const addCartBtn = document.createElement('BUTTON')
-        addCartBtn.classList.add('btn_addCart')
-        addCartBtn.classList.add('bag-btn')
-        addCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> Add to cart`
-        addCartBtn.style.margin = '5px 2px 5px 2px'
-        addCartBtn.addEventListener('click', () => {
-            console.log('yes this one is already added')
-            location.href = '#'
-        })
-
-        //for image
-        let photoUrl = `http://localhost:3000/api/v1/property/photo/${proId}`
-        const img = document.createElement('img')
-        img.src = photoUrl
-        img.style.width = '350px'
-        img.style.height = '400px'
-        img.classList.add('imgCreated')
-        propertyContainer.append(img)
-        propertyContainer.append(addCartBtn)
-        //appending the main container
-        mainSingleDiv.appendChild(propertyContainer);
-
-        
-    }
-
-    //  fetchingSingle();
-
-    renderPro()
+    
 
     // ----------------------------------------------------------------------------------
 
@@ -180,14 +219,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderRelated(data) {
         console.log(data)
-
         let properties = data
         console.log(properties)
         const container_related = document.createElement('DIV')
-        container_related.classList.add('property_container')
-        let header_related = document.createElement('h1')
-        header_related.classList.add('header_related')
-        header_related.textContent = 'Related Property'
+        container_related.classList.add('property_container');
+        let header_related = document.createElement('h1');
+        header_related.classList.add('header_related');
+        header_related.textContent = 'Related Property';
 
         // create a header for related property
         container_related.append(header_related)

@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                // for short  notation is the best
                 divprop.innerHTML =`
-                <div class="flip-box" data-id= ${_id}>
+                <div class="flip-box" data-id="${_id}">
                   <div class="flip-box-inner">
                      <div class="flip-box-front">
                            <img src=${photoUrl} class="imgCreated" style="width: 270px; height: 170px;">

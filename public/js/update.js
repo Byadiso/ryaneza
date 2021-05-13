@@ -141,14 +141,14 @@ shipping.addEventListener('change',(e)=>{
   }         
 })
 .catch((err) =>{
-  console.log(err)
-});
+    console.log(err)
+  });
 
   };
 
   });
 
-
+// show message and hide the form 
   function hideForm(message){
     const sub_main = document.querySelector('.login-screen');
     const main = document.querySelector('.login');
@@ -159,7 +159,6 @@ shipping.addEventListener('change',(e)=>{
     successfulMessage.innerHTML= `
     <p>${message}</p>
     `
-
     main.append(successfulMessage);
 
   }

@@ -8,8 +8,8 @@
          <title> PropertyPro LITE</title>
          <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
          <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-         <script src="../js/singlePro.js" defer></script>
-         <script src="../js/comments.js" defer></script>
+
+        
 
 </head>
 <body>
@@ -78,14 +78,15 @@
         <div id="comment_details" class="tabcontent">
                 <h3 >Comments (<span class="comment_details_header">0</span>) </h3>
                 
-                <form class="add_comments control-group create_property" name="comment_form">                    
+                <form class="add_comments control-group create_property" name="comment_form"> 
+                    <p class="display_error_comment"></p>
+                    <p class="success_message"></p>                   
                     <input type="text" name="comments" id="comments_text" placeholder="leave a comment"></input>
                     <input type="submit" value="leave a comment" class="submitBtn_comments">                   
                 
                 </form>
                 
-                <p class="display_error_comment"></p>
-                <p class="success_message"></p>
+              
                 <div id="comment_details_container"></div>
 
                 
@@ -131,10 +132,12 @@
     &copy; 2019  Designed by BYAMUNGU desire || Andela Developer Challenge
 </div> 
 
-
-
 </body>
-<script src="../js/cart.js"></script>
+
+    <script src="../js/singlePro.js" defer></script>
+    <script src="../js/comments.js" defer></script>
+    <script src="../js/cart.js"></script>
+
 <script>
                 
 

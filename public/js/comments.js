@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
       let comment_created 
     // const comment= document.forms['comment_form']['comments'].value ;
 
+
+    // let propertyId= JSON.parse(localStorage.getItem('id'));
   
       let propertyId = singlePro.dataset.id
 
