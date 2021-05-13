@@ -89,9 +89,15 @@ for cart */
   padding:100px;
   float:right;
 }
+.buying_link{
+  text-decoration-style: none;
+}
 
 .cart-item {
   display:flex;
+  margin:20px;
+  border: 1px solid white;
+  padding: 10px;
 }
 .cart-item img{
   width:80px;

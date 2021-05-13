@@ -28,7 +28,9 @@ getBagButtons(){
     buttonsDOM = buttons;
     buttons.forEach(button => {
         let id = button.dataset.id;
+        
         let inCart = cart.find(item => item._id === id);
+       
         if (inCart){
             button.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`;
             button.disabled = true;
@@ -38,7 +40,7 @@ getBagButtons(){
                 event.target.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`;
                 event.target.disabled = true;
                 //get product from localStorage
-                
+                console.log("somthing is wotng ")
                 // localStorage.setItem('id_cart', JSON.stringify(save_id_to_cart));
                 
                 let proIdCart = localStorage.getItem('id');
@@ -88,13 +90,10 @@ setCartValues(cart){
     cartItems.innerText = itemsTotal;
 }
 addCartItem(cartItem){
-    const div = document.createElement('div');
-   
-   
+    const div = document.createElement('div');    
     let photoUrl = `http://localhost:3000/api/v1/property/photo/${cartItem._id}`
     div.classList.add('cart-item');
-    div.innerHTML= `
-    <img src=${photoUrl} alt="product"/> 
+    div.innerHTML= `<img src=${photoUrl} alt="product"/> 
     <div class="cart-item-details">
         <h5>Description:${ cartItem.name}</h5>
         <h5>Unit price:${ cartItem.price}frw </h5>

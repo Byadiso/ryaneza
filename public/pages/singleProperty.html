@@ -104,19 +104,19 @@
     
     
     <!--Cart-->
-    <div class="cart-overlay">
+    <!-- <div class="cart-overlay">
         <div class="cart">
             <span class="close-cart">
                 <i class="fas fa-window-close"></i>
                 <h2>Ibyo ushaka kugura</h2>
                 <div class="cart-content">
-                <!--cart item-->
-                <!-- <div class="cart-item">
+                cart item
+                <div class="cart-item">
                    
-                </div> -->
-                </div>
-                 <!--end of cart item-->
-                 <div class="cart-footer">
+                </div> 
+                </div>-->
+         <!--end of cart item-->
+                 <!-- <div class="cart-footer">
                      <h3>Your total : frw <span class="cart-total">0</span></h3>
                      <button class="btn_addCart banner-btn">Proceed to checkout</button>
                      <button class="clear-cart banner-btn btn-danger">siba ibyo wahisemo</button>
@@ -127,7 +127,7 @@
                
             </span>
         </div>
-    </div>
+    </div>  -->
 
     <!-- End of cart-->
 
@@ -139,7 +139,7 @@
 
     <script src="../js/singlePro.js" defer></script>
     <script src="../js/comments.js" defer></script>
-    <script src="../js/cart.js" defer></script>
+    <!-- <script src="../js/cart.js" defer></script> -->
 
 <script>
                 
@@ -166,6 +166,73 @@ function open_single_tabs(evt, single_tabs) {
     evt.currentTarget.className += " active"; 
 
     }
+
+
+// maming my buttons react to add to cart 
+
+let buttonsDOM = [];
+
+let cart = [];
+
+    function getBagButtons(){
+    const buttons =[...document.querySelectorAll(".bag-btn")];
+    buttonsDOM = buttons;
+    console.log(cart)
+    buttons.forEach(button => {
+        let id = button.dataset.id;
+        
+        let inCart = cart.find(item => item._id === id);
+       
+        if (inCart){
+            button.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`;
+            button.disabled = true;
+        } 
+
+            button.addEventListener('click', event => {
+                event.target.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`;
+                event.target.disabled = true;
+                //get product from localStorage
+                console.log("somthing is wotng s")
+                // localStorage.setItem('id_cart', JSON.stringify(save_id_to_cart));
+                
+                let proIdCart = localStorage.getItem('id');
+                let propertiesItem = {...JSON.parse(localStorage.getItem('properties'))};
+                let pro =[];
+                pro = [...pro, propertiesItem];
+                
+                let Mypro = pro.find(item => ()=>{
+                   item.properties.id[0]=== proIdCart }
+                )
+                // let newPro = Mypro.Property 
+                console.log(Mypro)
+                let addedPro = Mypro.properties.find(item=> item._id === proIdCart)
+            
+                
+
+                let cartItem = {...addedPro, amount: 1 };
+                //add product to the cart
+                 cart = [...cart, cartItem];
+
+                 
+                // save cart in local storage 
+                // Storage.saveCart(cart);
+                // //set cart values
+                // this.setCartValues(cart);
+                // // display cart items
+                // this.addCartItem(cartItem);
+                //  //shown the cart
+                //   console.log(cart)
+ 
+
+            });
+
+    
+       
+    })
+}
+
+getBagButtons();
+
 </script>
 
 </html>

@@ -10,8 +10,7 @@
         <!-- <link rel="stylesheet" href="../css/style.css"> -->
         <title>PropertyPro LITE</title>
         <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
-        <script type="module" src="../js/script.js" defer></script>
-        <script type="module" src="../js/cart.js" defer></script>
+     
         
         
         
@@ -28,10 +27,10 @@
         <div class="topnav">
             <!-- <a class="active"href="../index.html"><strong>PROPERTY FOR RENT</strong></a> -->
 
-            <a href="sell.html"
+            <a href="property.html"
                 ><strong
                     ><span class="admin_createPro"
-                        >SELL A PROPERTY</span
+                        >SHOP</span
                     ></strong
                 ></a
             >
@@ -45,7 +44,7 @@
                         <span class="nav-icon">
                             <i class="fas fa-cart-plus"></i>
                         </span>
-                        <div class="cart-items">0</div> -->
+                        <div class="cart-items">0</div>
                     </a>
 
                     <a class="log-out" href="#"><strong>Sign Out </strong></a>
@@ -80,7 +79,7 @@
                  <div class="cart-footer">
                      <h3>Your total : frw <span class="cart-total">0</span></h3>
                      
-                     <button class="btn_checkout banner-btn">Keep buying</button>
+                     <button class="btn_checkout banner-btn"><a href="./property.html" class="buying_link">Keep buying</a></button>
                      <!-- <button class="clear-cart banner-btn btn-danger">siba ibyo wahisemo</button>                  -->
                  </div>         
         </div>
@@ -101,6 +100,9 @@
             Challenge
         </div>
     </body>
+    
+    <script type="module" src="../js/script.js" defer></script>
+    <script type="module" src="../js/cart.js" defer></script>
 
     <script defer>
         let user = JSON.parse(localStorage.getItem('user'))

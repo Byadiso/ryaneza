@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
  console.log(findedOne);
  let { description, shipping, reviews, comments, _id } = findedOne;
 
- console.log(_id)
+ 
+
 // ..................................render property ................................................
 
     const renderPro = () => {
