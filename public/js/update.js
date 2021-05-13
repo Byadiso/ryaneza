@@ -135,6 +135,9 @@ shipping.addEventListener('change',(e)=>{
   } 
   if(data.status == false){
     console.log(data.error)
+    let failMessage = 'Make sure all field are updated'
+    // hideForm(failMessage);
+    display_error.textContent = failMessage
   }         
 })
 .catch((err) =>{
