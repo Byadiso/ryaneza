@@ -3,8 +3,6 @@ import  formidable from 'formidable';
 import _  from 'lodash';
 import fs from 'fs';
 import Product from "../models/property";
-import { result, orderBy }from "lodash";
-
 
 
 exports.productById = (req,res, next, id ) =>{

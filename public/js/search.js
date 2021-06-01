@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //   get them from localStorage
 let CategoriesStored = JSON.parse(localStorage.getItem('categories'));
-console.log(CategoriesStored);
 
 
 function renderCategory(){      

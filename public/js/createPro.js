@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     const quantity = document.querySelector('#quantity');
     const description = document.querySelector('#description');
     const shipping = document.querySelector('#shipping');
-    const sold = document.querySelector('#sold');
+    // const sold = document.querySelector('#sold');
     const category = document.querySelector('.category');
     const photo = document.querySelector('#fileUpload');
     const submitButton = document.querySelector('#create_pro');
@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
      })
 //for sold thing change 
 
-sold.addEventListener('change',(e)=>{
-    sold.textContent = e.target.value
-})
+// sold.addEventListener('change',(e)=>{
+//     sold.textContent = e.target.value
+// })
 
      ///get categories
 
@@ -82,7 +82,7 @@ selectionCategory.addEventListener('change',(e)=>{
   const myCategorie = e.target.value;
   let datCategorie = categoriesItem.find(item => item.name === myCategorie);
 
-  // categoryVar = myCategorie
+  
   categoryVar = datCategorie._id;
   console.log(datCategorie._id)
 
@@ -116,7 +116,7 @@ shipping.addEventListener('change',(e)=>{
     formData.append('description', description.value);
     formData.append('category', categoryVar);
     formData.append('quantity', quantity.value);
-    formData.append('sold', sold.value);
+    // formData.append('sold', sold.value);
     formData.append('shipping', shippingVar);
 
       fetch(`http://localhost:3000/api/v1/property/create/${id}`, {
