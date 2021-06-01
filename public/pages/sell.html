@@ -2,14 +2,12 @@
 <html>
 
 <head>
-    <meta>
-    <link rel="stylesheet" type="text/css" href="../css/style-signup-signin-sell.css">
-    <title> PropertyPro LITE</title>
-    <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
-    <!-- for-font-awesome -->
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../css/style-property.css"> -->
-
+      <meta>
+      <link rel="stylesheet" type="text/css" href="../css/style-signup-signin-sell.css">
+      <title> PropertyPro LITE</title>
+      <link rel="icon" type="image/ico" href="../image/bar-icon.png" />
+      <!-- for-font-awesome -->
+      <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 
 <body>
@@ -33,7 +31,7 @@
           </a>
 
           <a  class="log-out" href="login.html"><strong>Sign Out </strong></a>
-          <!-- <a  href="../index.html">Home</a> -->
+       
       </form>
 </div>
     </div>
@@ -42,23 +40,19 @@
 
   <div class="login">
     <div class="login-screen">
-      <div class="login-form">
-        
+      <div class="login-form">    
 
         <form id="create_property_form" class="control-group create_property">          
           <h3 class="create_property_header" >Create Your Property</h3>
-
-          <div class="display_error"></div> 
-            
+          <div class="display_error"></div>             
             <input type="text" class="login-field" placeholder="name"  name="name" id="name"> 
             <input type="text" class="login-field"  placeholder="price"  name="price" id="price">
-            <input type="text" class="login-field" placeholder="description"  name="description" id="description">
-  
+            <input type="text" class="login-field" placeholder="description"  name="description" id="description">  
            <select class="login-field category create_select_center " name="category">
-              <option placeholder="category" class="login-field create_select"> Choose category</option>             
+              <option placeholder="category" class="login-field create_select"> Choose category</option>          
              
             </select>
-            <input type="number" class="login-field"  placeholder="sold"  name="sold" id="sold">
+           
             <input type="number" class="login-field"  placeholder="quantity"  name="quantity" id="quantity">
             <select class="login-field create_select_center" name="shipping" id="shipping">
               <option placeholder="Shipping">Choose shipping </option>
@@ -68,17 +62,9 @@
             <input type="file" accept="image/*" class="login-field create_select_center"   name="image" id="fileUpload">          
             <br>
             
-            <input type="submit"  class="submitBtn login-field " id="create_pro"> 
-        </form>
-        <!-- <form id="create_property_form" class="control-group create_category">          
-            <h3 class="create_property_header" >Add category</h3>
-            <div class="display_error"></div>             
-            <input type="text" class="login-field" placeholder="name"  name="name" id="name"> 
-        </form>
-
-        <button id="create_pro" class="submitBtn login-field">Create Category</button> -->
-
-      </div>
+             <input type="submit"  class="submitBtn login-field " id="create_pro"> 
+          </form>
+        </div>
     </div>
   </div>
   </form>
@@ -86,7 +72,7 @@
 
 
   <div id="footer">
-    &copy; 2019 Designed by BYAMUNGU Desire || Andela Developer Challenge
+    &copy; 2021 Designed by BYAMUNGU Desire || Andela Developer Challenge
   </div>
 
 
@@ -94,13 +80,13 @@
 </body>
 <script>
   
-  // let user = JSON.parse(localStorage.getItem('user')); 
-  //   console.log(user);
-  //   const {role, name} = user.user
-  //   if(role == 0 ){
-  //     window.location.href = '../pages/user.html';
-  //   } 
-  //   console.log('Sorry you are not allowed to create aproperty '+ name)   
+  let user = JSON.parse(localStorage.getItem('user')); 
+    console.log(user);
+    const { role, name} = user.user
+    if(role == 0 ){
+      window.location.href = '../pages/user.html';
+    } 
+    console.log('Sorry you are not allowed to create aproperty '+ name)   
 </script>
 <script src="../js/createPro.js"></script>
 
