@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
 document.addEventListener('DOMContentLoaded', () => {
-    // const ordersMsg = document.getElementById('header-text');
+   
     const mainSingleDiv = document.getElementById('singleProperty')
     let proId = localStorage.getItem('id');
     const success_message = document.querySelector('.success_message');
     const display_error = document.querySelector('.display_error_comment');
     let propertiesItem = { ...JSON.parse(localStorage.getItem('properties')) }
 
-    // console.log(properties);
+   
 
     console.log(proId)
     let pro = []
@@ -29,30 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const renderPro = () => {
         const singlePro = findedOne
-        const propertyContainer = document.createElement('DIV')
-        propertyContainer.classList.add('property_container')
-        propertyContainer.setAttribute('data-id', _id)
-
-        //for add to the cart
-        const addCartBtn = document.createElement('BUTTON')
-        addCartBtn.classList.add('btn_addCart')
-        addCartBtn.classList.add('bag-btn')
-        addCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> Add to cart`
-        addCartBtn.style.margin = '5px 2px 5px 2px'
+        const propertyContainer = document.createElement('DIV')        
         
-        //for image
-        let photoUrl = `http://localhost:3000/api/v1/property/photo/${proId}`
-        const img = document.createElement('img')
-        img.src = photoUrl
-        img.style.width = '350px'
-        img.style.height = '400px'
-        img.classList.add('imgCreated')
-        propertyContainer.append(img)
-        propertyContainer.append(addCartBtn)
+        
+        let photoUrl = `http://localhost:3000/api/v1/property/photo/${proId}`     
 
+        propertyContainer.innerHTML =`
+                <div class="property_container" data-id="${_id}">
+                    <img src=${photoUrl} class="imgCreated" style="width: 350px; height: 400px;">
+                    <button class="btn_addCart bag-btn"><i class="fas fa-shopping-cart"></i> Add to cart </button>
+                </div>
+        `
         //appending the main container
         mainSingleDiv.appendChild(propertyContainer);
-
         
     }
 
@@ -101,12 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
  // render my comments
  function renderComments() {
      for (var i = 0; i < comments.length; i++) {
-         let user_loggin  = { ...JSON.parse(localStorage.getItem('user')) }
-         // if (user_loggin._id === createdBy._id )
+         let user_loggin  = { ...JSON.parse(localStorage.getItem('user')) }        
          const { text, _id, createdBy, created } = comments[i]
          const comentContainer = document.createElement('div')
-         comentContainer.innerHTML = `   
-        
+         comentContainer.innerHTML = `        
         <div class="comment_details" data-comment="${text}">
              <p class="comment" >${text}</p>
              <p class="posted_by">Posted by ${ createdBy.name }</p>   
@@ -124,8 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const userId = user.user._id;
     const token = user.token; 
     let propertyId =_id
-        
-     
+             
 
 
      //uncomment 
@@ -200,15 +186,12 @@ document.addEventListener('DOMContentLoaded', () => {
             property_related.classList.add('related_properties')
 
             property_related.innerHTML = `<img scr=http://localhost:3000/api/v1/property/photo/${_id} class="imgCreated" style="width: 100px; height: 50px;">
-         <p id="phone"><strong>name:</strong> ${name}</p>        
+         <p id="phone"><strong>name:</strong> ${name}</p>       
           `
-
             container_related.append(property_related)
-
             mainSingleDiv.appendChild(container_related)
             
         }
     }
-
     fetchingRelated()
 })
