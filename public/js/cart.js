@@ -27,20 +27,18 @@ getBagButtons(){
     const buttons =[...document.querySelectorAll(".bag-btn")];
     buttonsDOM = buttons;
     buttons.forEach(button => {
-        let id = button.dataset.id;
-        
-        let inCart = cart.find(item => item._id === id);
-       
+        let id = button.dataset.id;        
+        let inCart = cart.find(item => item._id === id);       
         if (inCart){
             button.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`;
             button.disabled = true;
         } 
 
-            button.addEventListener('click', event => {
+            button.addEventListener('click', event =>{
                 event.target.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`;
                 event.target.disabled = true;
                 //get product from localStorage
-                console.log("somthing is wotng ")
+                console.log("somthing is wrong")
                 // localStorage.setItem('id_cart', JSON.stringify(save_id_to_cart));
                 
                 let proIdCart = localStorage.getItem('id');

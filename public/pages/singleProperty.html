@@ -170,68 +170,68 @@ function open_single_tabs(evt, single_tabs) {
 
 // maming my buttons react to add to cart 
 
-let buttonsDOM = [];
+// let buttonsDOM = [];
 
-let cart = [];
+// let cart = [];
 
-    function getBagButtons(){
-    const buttons =[...document.querySelectorAll(".bag-btn")];
-    buttonsDOM = buttons;
-    console.log(cart)
-    buttons.forEach(button => {
-        let id = button.dataset.id;
+//     function getBagButtons(){
+//     const buttons =[...document.querySelectorAll(".bag-btn")];
+//     buttonsDOM = buttons;
+//     console.log(cart)
+//     buttons.forEach(button => {
+//         let id = button.dataset.id;
         
-        let inCart = cart.find(item => item._id === id);
+//         let inCart = cart.find(item => item._id === id);
        
-        if (inCart){
-            button.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`;
-            button.disabled = true;
-        } 
+//         if (inCart){
+//             button.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`;
+//             button.disabled = true;
+//         } 
 
-            button.addEventListener('click', event => {
-                event.target.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`;
-                event.target.disabled = true;
-                //get product from localStorage
-                console.log("somthing is wotng s")
-                // localStorage.setItem('id_cart', JSON.stringify(save_id_to_cart));
+//             button.addEventListener('click', event => {
+//                 event.target.innerHTML = `<i class="fas fa-shopping-cart"></i> In cart`;
+//                 event.target.disabled = true;
+//                 //get product from localStorage
+//                 console.log("somthing is wotng s")
+//                 // localStorage.setItem('id_cart', JSON.stringify(save_id_to_cart));
                 
-                let proIdCart = localStorage.getItem('id');
-                let propertiesItem = {...JSON.parse(localStorage.getItem('properties'))};
-                let pro =[];
-                pro = [...pro, propertiesItem];
+//                 let proIdCart = localStorage.getItem('id');
+//                 let propertiesItem = {...JSON.parse(localStorage.getItem('properties'))};
+//                 let pro =[];
+//                 pro = [...pro, propertiesItem];
                 
-                let Mypro = pro.find(item => ()=>{
-                   item.properties.id[0]=== proIdCart }
-                )
-                // let newPro = Mypro.Property 
-                console.log(Mypro)
-                let addedPro = Mypro.properties.find(item=> item._id === proIdCart)
+//                 let Mypro = pro.find(item => ()=>{
+//                    item.properties.id[0]=== proIdCart }
+//                 )
+//                 // let newPro = Mypro.Property 
+//                 console.log(Mypro)
+//                 let addedPro = Mypro.properties.find(item=> item._id === proIdCart)
             
                 
 
-                let cartItem = {...addedPro, amount: 1 };
-                //add product to the cart
-                 cart = [...cart, cartItem];
+//                 let cartItem = {...addedPro, amount: 1 };
+//                 //add product to the cart
+//                  cart = [...cart, cartItem];
 
                  
-                // save cart in local storage 
-                // Storage.saveCart(cart);
-                // //set cart values
-                // this.setCartValues(cart);
-                // // display cart items
-                // this.addCartItem(cartItem);
-                //  //shown the cart
-                //   console.log(cart)
+//                 // save cart in local storage 
+//                 // Storage.saveCart(cart);
+//                 // //set cart values
+//                 // this.setCartValues(cart);
+//                 // // display cart items
+//                 // this.addCartItem(cartItem);
+//                 //  //shown the cart
+//                 //   console.log(cart)
  
 
-            });
+//             });
 
     
        
-    })
-}
+//     })
+// }
 
-getBagButtons();
+// getBagButtons();
 
 </script>
 

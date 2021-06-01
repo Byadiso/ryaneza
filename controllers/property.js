@@ -11,7 +11,7 @@ exports.productById = (req,res, next, id ) =>{
     Product.findById(id)
     .populate('category')
     .populate('comments','text created')
-    .populate('comments.postedBy','_id name')
+    .populate('comments.createdBy','_id name')
     .exec((err, product)=>{
         if(err || !product){
             return res.status(400).json({
