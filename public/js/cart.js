@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     document.body.addEventListener( 'click', function ( event ) {
-        if( event.target.classname == 'btn_addCart' ) {
+        
+        if( event.target.classname === '.btn_addCart' ) {
           console.log("yes")
         };
       } );

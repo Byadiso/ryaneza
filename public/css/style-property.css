@@ -789,6 +789,13 @@ grid-column-end: 3;
   margin: auto;
 }
 
+
+.btn_addCart:hover {
+  cursor: pointer;
+  background-color:#20cc3d; 
+
+}
+
 /* for responsiveness */
 @media screen and (max-width: 600px) {
   .topnav .login-container {
