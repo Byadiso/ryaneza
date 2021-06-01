@@ -2,24 +2,22 @@
 /* eslint-disable prettier/prettier */
 document.addEventListener('DOMContentLoaded', ()=> { 
 
-                  // for accessing only my form to create a property 
+    // for accessing only my form to create a property 
     const name = document.querySelector('#name');
     const price = document.querySelector('#price');
     const quantity = document.querySelector('#quantity');
     const description = document.querySelector('#description');
-    const shipping = document.querySelector('#shipping');
-    // const sold = document.querySelector('#sold');
+    const shipping = document.querySelector('#shipping');  
     const category = document.querySelector('.category');
     const photo = document.querySelector('#fileUpload');
     const submitButton = document.querySelector('#create_pro');
     const selectionCategory = document.querySelector('.category');
     const form = document.querySelector('#create_property_form');
-    const display_error = document.querySelector('.display_error');
-    
+    const display_error = document.querySelector('.display_error');    
 
     let categoryVar
     let shippingVar
-    let photoVar
+
 
     let categoriesItem  = JSON.parse(localStorage.getItem('categories'));
 
@@ -32,14 +30,12 @@ document.addEventListener('DOMContentLoaded', ()=> {
                method: 'GET',
                headers:{
                  'Content-Type':'application/json'
-                      }
-  
+                      } 
          })
        .then(response =>response.json())
-       .then(categories =>{ 
-        let storedCategories = localStorage.setItem('categories', JSON.stringify(categories))
+       .then(categories => localStorage.setItem('categories', JSON.stringify(categories))
      
-       })
+       )
        .catch(err =>console.log(err));
      };
 
@@ -47,79 +43,63 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
      quantity.addEventListener('change',(e)=>{
        quantity.textContent = e.target.value
-     })
-//for sold thing change 
-
-// sold.addEventListener('change',(e)=>{
-//     sold.textContent = e.target.value
-// })
-
-     ///get categories
+     });
 
      function getCategories(){
       fetchCategories();
-
-     for ( var i= 0; i < categoriesItem.length; i++ ){ 
-       
+     for ( var i= 0; i < categoriesItem.length; i++ ){        
         let { name, _id} = categoriesItem[i];
         console.log(name);
         const optionCategorie = document.createElement('option');
         optionCategorie.innerHTML= `<option class="option_tag login-field" data-id=${_id}>${name}</option>`;
-
         selectionCategory.appendChild(optionCategorie);
        
         }        
      }
 
-     getCategories();
-     
-    
+     getCategories();     
 
     
-
 //for selection event 
 selectionCategory.addEventListener('change',(e)=>{
   const myCategorie = e.target.value;
-  let datCategorie = categoriesItem.find(item => item.name === myCategorie);
-
-  
+  let datCategorie = categoriesItem.find(item => item.name === myCategorie);  
   categoryVar = datCategorie._id;
-  console.log(datCategorie._id)
-
+  console.log(datCategorie._id);
 });
 
 //for shipping change event
 shipping.addEventListener('change',(e)=>{
   const myShipping = e.target.value;
   shippingVar = myShipping
-
 })
 
   // --------------------------------------------------------------------------------------
-      const user= JSON.parse(localStorage.getItem('user'));
-      const id = user.user._id;
-      const token = user.token;
+   const user= JSON.parse(localStorage.getItem('user'));
+   const id = user.user._id;
+   const token = user.token;
     
 
   submitButton.addEventListener('click',  (e) => {
     e.preventDefault();     
     if (!name.value.trim() ) {
       display_error.textContent = '* Please fill in all fields';        
-    } else{
+    } 
+    
+    else {
 
-      const formData = new FormData();
-      const fileField = document.querySelector('input[type="file"]');
+    const formData = new FormData();
+    const fileField = document.querySelector('input[type="file"]');
 
     formData.append('name', name.value);
     formData.append('photo', fileField.files[0]);
     formData.append('price', price.value);
     formData.append('description', description.value);
     formData.append('category', categoryVar);
-    formData.append('quantity', quantity.value);
-    // formData.append('sold', sold.value);
+    formData.append('quantity', quantity.value); 
     formData.append('shipping', shippingVar);
 
-      fetch(`http://localhost:3000/api/v1/property/create/${id}`, {
+    fetch(`http://localhost:3000/api/v1/property/create/${id}`, {
         method: 'POST',
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -137,14 +117,11 @@ shipping.addEventListener('change',(e)=>{
      window.location.href = '../pages/property.html'
   } 
   
-  if(data.status == false) console.log(data.error)
-        
+  if(data.status == false) console.log(data.error);        
 })
 .catch(err => console.log(err));
-    }
-      
+}      
       })          
-    
 });
 
 
