@@ -17,7 +17,7 @@
 
 # PROJECT OVERVIEW
 
-**rentowacu**is a platform where people can create and/or search properties for sale or rent. It was built from scratch using javascritpt, node, HTML , CSS.
+**rentowacu**is a platform where people can create and/or search properties for sale or rent. It was built from using javascritpt, node, HTML , CSS.
 
 -   The user interface link : https://byadiso.github.io/rentowacu/
 -   Live app is hosted on heroku : https://rentowacu.herokuapp.com
@@ -30,9 +30,10 @@
 -   user can view specific property
 -   user can view user property
 -   user can delete his property
--   user can mdoifying his own property
--   user can mark his proeprty as booked
--   user can book and pay his apartment  
+-   user can add property to the cart
+-   user can do simple payment
+-   user can modify or mark his property as booked
+-   user can book and pay his apartment
 
 # DEMO
 
@@ -69,7 +70,7 @@
 
 Everything work perfect , However :
 
--   The BACk End hosted on heroku
+-   I am still working on styling css and different features are still in process
 
 # Installation
 
