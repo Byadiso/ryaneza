@@ -198,21 +198,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // add properties in cart 
-document.body.addEventListener( 'click', function ( event ) {        
-        if( event.target && event.target.classList.contains("btn_addCart")){            
+document.body.addEventListener( 'click', function ( event ) {     
+   
+    if( event.target && event.target.matches("..btn_addCart")) {            
         let item_id = event.target.parentNode.dataset.id;
         let buttonAddToCart =  event.target;                     
         addToCart(item_id, buttonAddToCart ); 
        console.log("clicked to be added ")
              
     };
-    // if( event.target && event.target.matches("BUTTON")) {            
-    //     let item_id = event.target.parentNode.dataset.id;
-    //     let buttonAddToCart =  event.target;                     
-    //     addToCart(item_id, buttonAddToCart ); 
-    //    console.log("clicked to be added ")
-             
-    // };
   } );
 
 

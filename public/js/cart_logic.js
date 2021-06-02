@@ -74,7 +74,6 @@ export const removeItem = productId => {
                 cart.splice(i, 1);
             }
         });
-
         localStorage.setItem('cart', JSON.stringify(cart));
     }
     return cart;
