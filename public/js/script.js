@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
              let photoUrl = `http://localhost:3000/api/v1/property/photo/${_id}`
 
                // for short  notation is the best
+               var timestamp= timeDifference(new Date(), new Date(createdAt));
                 divprop.innerHTML =`
                 <div class="flip-box" data-id="${_id}">
                   <div class="flip-box-inner">
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       <div class="flip-box-back">
                           <p id="phone"><strong>name:</strong> ${name}</p>
                           <p id="address"><strong>Description:</strong> ${description}</p>
-                          <p id="dateCreated;"><strong>Date Create:</strong> ${createdAt.toLocaleString()}</p>
+                          <p id="dateCreated;"><strong>Date Create:</strong> ${timestamp}</p>
                       </div>
                   </div>  
                   <button class="btn-view">View</button>
@@ -88,6 +89,48 @@ document.addEventListener('DOMContentLoaded', () => {
               })
               
                listAll();
+
+
+
+
+               function timeDifference(current, previous) {
+
+                var msPerMinute = 60 * 1000;
+                var msPerHour = msPerMinute * 60;
+                var msPerDay = msPerHour * 24;
+                var msPerMonth = msPerDay * 30;
+                var msPerYear = msPerDay * 365;
+            
+                var elapsed = current - previous;
+            
+                if (elapsed < msPerMinute) {
+                    if(elapsed/1000 <30) return "Just now";
+            
+                    return Math.round(elapsed/1000) + ' seconds ago';   
+                }
+            
+                else if (elapsed < msPerHour) {
+                     return Math.round(elapsed/msPerMinute) + ' minutes ago';   
+                }
+            
+                else if (elapsed < msPerDay ) {
+                     return Math.round(elapsed/msPerHour ) + ' hours ago';   
+                }
+            
+                else if (elapsed < msPerMonth) {
+                    return Math.round(elapsed/msPerDay) + ' days ago';   
+                }
+            
+                else if (elapsed < msPerYear) {
+                    return Math.round(elapsed/msPerMonth) + ' months ago';   
+                }
+            
+                else {
+                    return Math.round(elapsed/msPerYear ) + ' years ago';   
+                }
+            }
+
+
       
           })
           
