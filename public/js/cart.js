@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 document.addEventListener('DOMContentLoaded', () => {
    
-    console.log('Welcome to the cart logic')
+    let totalDisplay = document.querySelector('.cart-total');
      
 
     document.body.addEventListener( 'click', function ( event ) {           
@@ -16,52 +16,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function addToCart(item_id, buttonContent){ 
-          let cart=[];         
-        
-
+          let cart=[];     
           let propertiesItem = { ...JSON.parse(localStorage.getItem('properties')) } ;          
             let itemTobeAdded =  propertiesItem.properties.find((item) => () => {
-            item.Property.id[0] === item_id
+            item.Property.id === item_id
         });
             
             console.log("let add to the cart")
             cart =[...cart, itemTobeAdded];    
             localStorage.setItem('cart', JSON.stringify(cart));             
-            buttonContent.innerHTML=`<i class="fas fa-shopping-cart"></i> Added to cart`
+            buttonContent.innerHTML=`<i class="fas fa-shopping-cart"></i>In cart`
             console.log(cart)
             
         }
         
   
-    //   function checkIfInCart(id){
-          
-    // let propertiesItem = { ...JSON.parse(localStorage.getItem('properties')) } ;          
-    // let itemTobeAdded =  propertiesItem.properties.find((item) => () => {
-    //         item.Property.id[0] === id
-    //     });
-
-    // let cartStored = [...JSON.parse(localStorage.getItem('cart')) ]  
-    // console.log(cartStored)      
-    // let isInCart = cartStored.find((item) => () => {
-    //     item._id === itemTobeAdded._id
-    // }); 
-
-    // if(isInCart){
-    //     return "it is in cart"
-    // }
-    // else{
-    //     return "it is not in cart"
-    // }
-
-    //   }
-
     function displayCart(){
-        let cartContiner = document.getElementsByClassName('cart-content');
-
-        let cartStored = [...JSON.parse(localStorage.getItem('cart')) ] 
+        let cartContiner = document.querySelector('.cart-content');
+        let cartStored = [...JSON.parse(localStorage.getItem('cart')) ];
+        let productInCart = document.createElement('DIV');
         cartStored.forEach(item =>{
-            console.log(item)
-        })    
+            let {_id, name, price, quantity} = item
+            let photoUrl = `http://localhost:3000/api/v1/property/photo/${_id}` ;
+            
+            productInCart.innerHTML=`
+            <div class="product_in_cart_container" data-id="${_id}">
+                <div class="product_in_cart_image">
+                    <img src=${photoUrl} class="imgCreated" style="width: 50px; height: 50px;">
+                </div>
+                <div class="product_in_cart_name">
+                     <span>${name}</span>
+                </div>
+                <div class="product_in_cart_price">
+                <span>${price}</span>
+                </div>
+               
+            </div>
+            `
+        cartContiner.appendChild(productInCart);
+        calculatePrice(price,1);
+
+        });
+        
+        //for calculation
+        function calculatePrice(price,quantity){
+            let total = 0
+            let product= parseInt(quantity*price);
+            total += product
+            console.log(total)
+            totalDisplay.textContent = total
+        }
     }
 
     displayCart();
