@@ -41,8 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
        
         //appending the main container
         mainSingleDiv.appendChild(propertyContainer);
-        checkIfInCart(proId);
-        
+        // checkIfInCart(proId);        
     }
 
     //  fetchingSingle();
@@ -196,20 +195,63 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchingRelated();
 
 
- //check property in cart
- function checkIfInCart (id){
-    let storedInCarrt = JSON.parse(localStorage.getItem('cart'))
-    let cart = document.querySelectorAll(".cart-items")[0];
-    cart.textContent = storedInCarrt.length;
 
-    let isInCart= storedInCarrt.find(item =>item._id == id);
-    if(isInCart){
-        
-        let button = document.querySelector('.btn_addCart');
-        button.innerHTML=`<i class="fas fa-shopping-cart"></i> In cart`;
-        button.setAttribute('disabled',true);
- }
+
+// add properties in cart 
+document.body.addEventListener( 'click', function ( event ) {        
+        if( event.target && event.target.classList.contains("btn_addCart")){            
+        let item_id = event.target.parentNode.dataset.id;
+        let buttonAddToCart =  event.target;                     
+        addToCart(item_id, buttonAddToCart ); 
+       console.log("clicked to be added ")
+             
+    };
+    // if( event.target && event.target.matches("BUTTON")) {            
+    //     let item_id = event.target.parentNode.dataset.id;
+    //     let buttonAddToCart =  event.target;                     
+    //     addToCart(item_id, buttonAddToCart ); 
+    //    console.log("clicked to be added ")
+             
+    // };
+  } );
+
+
+function addToCart(item_id, buttonContent){ 
+    let cart=[];     
+    let propertiesItem = { ...JSON.parse(localStorage.getItem('properties')) } ;          
+        let itemTobeAdded =  propertiesItem.properties.find((item) => () => {
+        item.Property.id === item_id
+    });            
+    console.log("let add to the cart");            
+    cart.push({
+        ...itemTobeAdded,
+        count: 1
+    });   
+    localStorage.setItem('cart', JSON.stringify(cart));             
+    buttonContent.innerHTML=`<i class="fas fa-shopping-cart"></i>In cart`
+    console.log(cart);  
+    
 }
+
+
+
+//  //check property in cart
+//  function checkIfInCart (id){
+//     let storedInCarrt = JSON.parse(localStorage.getItem('cart'))
+//     let cart = document.querySelectorAll(".cart-items")[0];
+//     if(){
+
+//     }
+//     cart.textContent = storedInCarrt.length;
+
+//     let isInCart= storedInCarrt.find(item =>item._id == id);
+//     if(isInCart){
+        
+//         let button = document.querySelector('.btn_addCart');
+//         button.innerHTML=`<i class="fas fa-shopping-cart"></i> In cart`;
+//         button.setAttribute('disabled',true);
+//  }
+// }
 
 
 })

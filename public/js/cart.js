@@ -4,35 +4,35 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalDisplay = document.querySelector('.cart-total');
      
 
-    document.body.addEventListener( 'click', function ( event ) {           
-            if( event.target && event.target.matches(".btn_addCart")) {            
-                let item_id = event.target.parentNode.dataset.id;
-                let buttonAddToCart =  event.target;                     
-                addToCart(item_id, buttonAddToCart ); 
-                // checkIfInCart(item_id) 
+    // document.body.addEventListener( 'click', function ( event ) {           
+    //         if( event.target && event.target.matches(".btn_addCart")) {            
+    //             let item_id = event.target.parentNode.dataset.id;
+    //             let buttonAddToCart =  event.target;                     
+    //             addToCart(item_id, buttonAddToCart ); 
+    //             // checkIfInCart(item_id) 
                      
-            };
-          } );
+    //         };
+    //       } );
 
 
-    function addToCart(item_id, buttonContent){ 
-            let cart=[];     
-            let propertiesItem = { ...JSON.parse(localStorage.getItem('properties')) } ;          
-                let itemTobeAdded =  propertiesItem.properties.find((item) => () => {
-                item.Property.id === item_id
-            });            
-            console.log("let add to the cart");            
-            cart.push({
-                ...itemTobeAdded,
-                count: 1
-            });   
-            localStorage.setItem('cart', JSON.stringify(cart));             
-            buttonContent.innerHTML=`<i class="fas fa-shopping-cart"></i>In cart`
-            console.log(cart)
+    // function addToCart(item_id, buttonContent){ 
+    //         let cart=[];     
+    //         let propertiesItem = { ...JSON.parse(localStorage.getItem('properties')) } ;          
+    //             let itemTobeAdded =  propertiesItem.properties.find((item) => () => {
+    //             item.Property.id === item_id
+    //         });            
+    //         console.log("let add to the cart");            
+    //         cart.push({
+    //             ...itemTobeAdded,
+    //             count: 1
+    //         });   
+    //         localStorage.setItem('cart', JSON.stringify(cart));             
+    //         buttonContent.innerHTML=`<i class="fas fa-shopping-cart"></i>In cart`
+    //         console.log(cart);  
             
-        }
+    //     }
         
-  
+          
     function displayCart(){
         let cartContiner = document.querySelector('.cart-content');
         let cartStored = [...JSON.parse(localStorage.getItem('cart')) ];
