@@ -116,23 +116,16 @@
     </body>
 
     <script defer>
-        let user = JSON.parse(localStorage.getItem('user'))
-        console.log(user)
+        let user = JSON.parse(localStorage.getItem('user'));      
         if (user == null) {
             window.location.href = './login.html'
         }
 
-        // for laoding feature
-        // document.onreadystatechange = function() {
-        // if (document.readyState !== "complete") {
-        //         document.querySelector("body").style.visibility = "hidden";
-        //         document.querySelector("#loader").style.visibility = "visible";
-        //         console.log('its is not yet complete')
-        // } else {
-        //         document.querySelector("#loader").style.display = "none";
-        //         document.querySelector("body").style.visibility = "visible";
-        //         console.log('Godd complete ')
-        //    }
-        // };
+         // cart logic
+        let storedInCarrt = JSON.parse(localStorage.getItem('cart'))
+        let cart = document.querySelectorAll(".cart-items")[0];
+        cart.textContent = storedInCarrt.length
+       
+
     </script>
 </html>

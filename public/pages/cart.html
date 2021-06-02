@@ -103,5 +103,11 @@
             window.location.href = './login.html'
         }
 
+        // cart logic
+        let storedInCarrt = JSON.parse(localStorage.getItem('cart'))
+        let cart = document.querySelectorAll(".cart-items")[0];
+        cart.textContent = storedInCarrt.length;
+       
+
     </script>
 </html>

@@ -27,11 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ..................................render property ................................................
 
-    const renderPro = () => {
-        const singlePro = findedOne
-        const propertyContainer = document.createElement('DIV')        
-        
-        
+    const renderPro = () => {       
+        const propertyContainer = document.createElement('DIV');       
         let photoUrl = `http://localhost:3000/api/v1/property/photo/${proId}`     
 
         propertyContainer.innerHTML =`
@@ -40,8 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button class="btn_addCart bag-btn"><i class="fas fa-shopping-cart"></i> Add to cart </button>
                 </div>
         `
+        
+       
         //appending the main container
         mainSingleDiv.appendChild(propertyContainer);
+        checkIfInCart(proId);
         
     }
 
@@ -193,5 +193,23 @@ document.addEventListener('DOMContentLoaded', () => {
             
         }
     }
-    fetchingRelated()
+    fetchingRelated();
+
+
+ //check property in cart
+ function checkIfInCart (id){
+    let storedInCarrt = JSON.parse(localStorage.getItem('cart'))
+    let cart = document.querySelectorAll(".cart-items")[0];
+    cart.textContent = storedInCarrt.length;
+
+    let isInCart= storedInCarrt.find(item =>item._id == id);
+    if(isInCart){
+        
+        let button = document.querySelector('.btn_addCart');
+        button.innerHTML=`<i class="fas fa-shopping-cart"></i> In cart`;
+        button.setAttribute('disabled',true);
+ }
+}
+
+
 })
