@@ -90,9 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
               
                listAll();
 
-
-
-
                function timeDifference(current, previous) {
 
                 var msPerMinute = 60 * 1000;

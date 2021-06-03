@@ -34,31 +34,35 @@ document.addEventListener('DOMContentLoaded', () => {
         
           
     function displayCart(){
-        let cartContiner = document.querySelector('.cart-content');
-        let cartStored = [...JSON.parse(localStorage.getItem('cart')) ];
-        let productInCart = document.createElement('DIV');
-        cartStored.forEach(item =>{
-            let {_id, name, price, count } = item
-            let photoUrl = `http://localhost:3000/api/v1/property/photo/${_id}` ;
-            
-            productInCart.innerHTML=`
-            <div class="product_in_cart_container" data-id="${_id}">
-                <div class="product_in_cart_image">
-                    <img src=${photoUrl} class="imgCreated" style="width: 50px; height: 50px;">
-                </div>
-                <div class="product_in_cart_name">
-                     <span>${name}</span>
-                </div>
-                <div class="product_in_cart_price">
-                <span>${price}</span>
-                </div>
+        if (typeof window !== 'undefined') {
+            if (localStorage.getItem('cart')) {            
                
-            </div>
-            `
-        cartContiner.appendChild(productInCart);
-        calculatePrice(price,count);
-
-        });
+                let cartContiner = document.querySelector('.cart-content');
+                let cartStored = [...JSON.parse(localStorage.getItem('cart')) ];
+                let productInCart = document.createElement('DIV');
+                cartStored.forEach(item =>{
+                    let {_id, name, price, count } = item
+                    let photoUrl = `http://localhost:3000/api/v1/property/photo/${_id}` ;
+                    
+                    productInCart.innerHTML=`
+                    <div class="product_in_cart_container" data-id="${_id}">
+                        <div class="product_in_cart_image">
+                            <img src=${photoUrl} class="imgCreated" style="width: 50px; height: 50px;">
+                        </div>
+                        <div class="product_in_cart_name">
+                            <span>${name}</span>
+                        </div>
+                        <div class="product_in_cart_price">
+                        <span>${price}</span>
+                        </div>
+                    
+                    </div>
+                    `
+                cartContiner.appendChild(productInCart);
+                calculatePrice(price,count);
+                })
+            }
+        };
         
         //for calculation
         function calculatePrice(price,quantity){
