@@ -57,31 +57,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function addToCart(item_id, buttonContent){
-                //  console.log(item_id);
-                // console.log(buttonContent); 
-
+                
             let cart=[];     
-            let propertiesItem = {...JSON.parse(localStorage.getItem('properties'))};  
-            
-        
-
-
+            let propertiesItem = {...JSON.parse(localStorage.getItem('properties'))};           
             let newPro = propertiesItem.properties;            
-            let itemTobeAdded = newPro.find((item) => item._id === proId);            
+            let itemTobeAdded = newPro.find((item) => item._id === item_id);            
                         
             console.log("let add to the cart");            
-            cart=[...cart,{itemTobeAdded,
-                count: 1}]
              
+            
+            if (typeof window !== 'undefined') {
+                if (localStorage.getItem('cart')) {
+                    cart = JSON.parse(localStorage.getItem('cart'));
+                }
+                cart.push({
+                    ...itemTobeAdded,
+                    count: 1
+                });  
+        
+                // remove duplicates
+                // build an Array from new Set and turn it back into array using Array.from
+                // so that later we can re-map it
+                // new set will only allow unique values in it
+                // so pass the ids of each object/product
+                // If the loop tries to add the same value again, it'll get ignored
+                // ...with the array of ids we got on when first map() was used
+                // run map() on it again and return the actual product from the cart
+        
+                cart = Array.from(new Set(cart.map(p => p._id))).map(id => {
+                    return cart.find(p => p._id === id);
+                });
              
-            localStorage.setItem('cart', JSON.stringify(cart));             
-            buttonContent.innerHTML=`<i class="fas fa-shopping-cart"></i>In cart`
-            console.log(cart);  
+                localStorage.setItem('cart', JSON.stringify(cart));  
+                           
+                buttonContent.innerHTML=`<i class="fas fa-shopping-cart"></i>In cart`
+                console.log(cart);  
             
         }
 
 
 
+        }
     }
 
     //  fetchingSingle();

@@ -3,15 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
    
     let totalDisplay = document.querySelector('.cart-total');    
 
-    document.body.addEventListener( 'click', function ( event ) {           
-            if( event.target && event.target.matches(".btn_addCart")) {            
-                let item_id = event.target.parentNode.dataset.id;
-                let buttonAddToCart =  event.target;                     
-                addToCart(item_id, buttonAddToCart ); 
-                console.log("yes it works")
+    // document.body.addEventListener( 'click', function ( event ) {           
+    //         if( event.target && event.target.matches(".btn_addCart")) {            
+    //             let item_id = event.target.parentNode.dataset.id;
+    //             let buttonAddToCart =  event.target;                     
+    //             addToCart(item_id, buttonAddToCart ); 
+    //             // checkIfInCart(item_id) 
                      
-            };
-          } );
+    //         };
+    //       } );
 
 
     // function addToCart(item_id, buttonContent){ 
