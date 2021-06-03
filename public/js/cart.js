@@ -1,8 +1,7 @@
 /* eslint-disable prettier/prettier */
 document.addEventListener('DOMContentLoaded', () => {
    
-    let totalDisplay = document.querySelector('.cart-total');
-     
+    let totalDisplay = document.querySelector('.cart-total');    
 
     // document.body.addEventListener( 'click', function ( event ) {           
     //         if( event.target && event.target.matches(".btn_addCart")) {            
