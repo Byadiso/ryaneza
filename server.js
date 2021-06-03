@@ -29,7 +29,7 @@ app.use((req, res, next) => {
   });
 
 //db
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://byadiso:Uwineza3010@cluster0.kbaby.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' ,  {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://byadiso:Uwineza3010@cluster0.kbaby.mongodb.net/kodesha?retryWrites=true&w=majority' ,  {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true

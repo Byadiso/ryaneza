@@ -1,3 +1,5 @@
+
+
 /* eslint-disable prettier/prettier */
 document.addEventListener('DOMContentLoaded', () => {
    
@@ -37,6 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button class="btn_addCart bag-btn"><i class="fas fa-shopping-cart"></i> Add to cart </button>
                 </div>
         `
+
+        let btns = document.querySelectorAll('.btn_addCart');
+
+        btns.forEach((btn)=>{
+            btn.addEventListener('click', (e)=>{
+                if(e.target.matches('.btn_addCart')){
+                    console.log("add somthing")
+                }
+              
+            })
+        })
         
        
         //appending the main container

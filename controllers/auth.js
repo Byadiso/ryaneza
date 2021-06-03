@@ -13,6 +13,7 @@ import {errorHandler} from '../helper/dbErroHandler';
         if(err) {
             return res.status(400).json({
                 err:errorHandler(err),
+                // err:err,
                 status: false,
                 message: 'Email already exist!'
             });
