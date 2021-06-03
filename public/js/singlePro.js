@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let proId = localStorage.getItem('id');
     const success_message = document.querySelector('.success_message');
     const display_error = document.querySelector('.display_error_comment');
-    let propertiesItem = { ...JSON.parse(localStorage.getItem('properties')) }
+    let propertiesItem = { ...JSON.parse(localStorage.getItem('properties')) };
 
-   
+
 
     console.log(proId)
     let pro = []
@@ -36,22 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
         propertyContainer.innerHTML =`
                 <div class="property_container" data-id="${_id}">
                     <img src=${photoUrl} class="imgCreated" style="width: 350px; height: 400px;">
-                    <button class="btn_addCart bag-btn"><i class="fas fa-shopping-cart"></i> Add to cart </button>
+                    <button class="btn_addCart"> <i class="fas fa-shopping-cart"></i> Add to cart </button>
                 </div>
         `
 
-        let btns = document.querySelectorAll('.btn_addCart');
+        // trying to addToCart butto a even listenenre
+        const btns = document.querySelectorAll('.btn_addCart');
 
         btns.forEach((btn)=>{
-            btn.addEventListener('click', (e)=>{
-                if(e.target.matches('.btn_addCart')){
-                    console.log("add somthing")
-                }
+            btn.addEventListener('click', (e)=>{                
+                    console.log("add somthing")              
               
             })
         })
         
-       
         //appending the main container
         mainSingleDiv.appendChild(propertyContainer);
         // checkIfInCart(proId);        
