@@ -34,25 +34,54 @@ document.addEventListener('DOMContentLoaded', () => {
         let photoUrl = `http://localhost:3000/api/v1/property/photo/${proId}`     
 
         propertyContainer.innerHTML =`
-                <div class="property_container" data-id="${_id}">
+                <div class="property_container" data-toadd="${_id}">
                     <img src=${photoUrl} class="imgCreated" style="width: 350px; height: 400px;">
                     <button class="btn_addCart"> <i class="fas fa-shopping-cart"></i> Add to cart </button>
                 </div>
-        `
-
-        // trying to addToCart butto a even listenenre
-        const btns = document.querySelectorAll('.btn_addCart');
-
-        btns.forEach((btn)=>{
-            btn.addEventListener('click', (e)=>{                
-                    console.log("add somthing")              
-              
-            })
-        })
+                 `       
         
         //appending the main container
         mainSingleDiv.appendChild(propertyContainer);
-        // checkIfInCart(proId);        
+
+        //  trying to addToCart butto a even listenenre
+         const btns = document.querySelectorAll('.btn_addCart');
+         btns.forEach((btn)=>{
+             btn.addEventListener('click', (event)=>{  
+                let item_id = event.target.parentNode.dataset.toadd;
+                let buttonAddToCart =  event.target;               
+                addToCart(item_id, buttonAddToCart );                      
+             });
+         });
+      
+        
+
+
+    function addToCart(item_id, buttonContent){
+                //  console.log(item_id);
+                // console.log(buttonContent); 
+
+            let cart=[];     
+            let propertiesItem = {...JSON.parse(localStorage.getItem('properties'))};  
+            
+        
+
+
+            let newPro = propertiesItem.properties;            
+            let itemTobeAdded = newPro.find((item) => item._id === proId);            
+                        
+            console.log("let add to the cart");            
+            cart=[...cart,{itemTobeAdded,
+                count: 1}]
+             
+             
+            localStorage.setItem('cart', JSON.stringify(cart));             
+            buttonContent.innerHTML=`<i class="fas fa-shopping-cart"></i>In cart`
+            console.log(cart);  
+            
+        }
+
+
+
     }
 
     //  fetchingSingle();
