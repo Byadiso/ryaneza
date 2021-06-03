@@ -227,6 +227,7 @@ const  fetchAllUsers = ( () => {
   
       let user_container_manager = document.createElement('div');
        user_container_manager.classList.add('dashboard_manager');
+       var timestamp= timeDifference(new Date(), new Date(createdAt));
     //    let photoUrl = `http://localhost:3000/api/v1/user/photo/${_id}`
     
        user_container_manager.innerHTML = 
@@ -237,7 +238,7 @@ const  fetchAllUsers = ( () => {
          <p id="role"><strong>${" "} Role:</strong> ${role == 1 ? role ="Admin" : role ="Normal"}</p>            
          <p id="time_joined"><strong>Followers:</strong> ${followers.length}</p>
          <p id="time_joined"><strong>Following:</strong> ${following.length}</p> 
-         <p id="time_joined"><strong>Joined:</strong> ${createdAt}</p> 
+         <p id="time_joined"><strong>Joined:</strong> ${timestamp}</p> 
     </div>
         
       `
@@ -251,6 +252,42 @@ const  fetchAllUsers = ( () => {
   fetchAllUsers();
 
 
+  function timeDifference(current, previous) {
+
+    var msPerMinute = 60 * 1000;
+    var msPerHour = msPerMinute * 60;
+    var msPerDay = msPerHour * 24;
+    var msPerMonth = msPerDay * 30;
+    var msPerYear = msPerDay * 365;
+
+    var elapsed = current - previous;
+
+    if (elapsed < msPerMinute) {
+        if(elapsed/1000 <30) return "Just now";
+
+        return Math.round(elapsed/1000) + ' seconds ago';   
+    }
+
+    else if (elapsed < msPerHour) {
+         return Math.round(elapsed/msPerMinute) + ' minutes ago';   
+    }
+
+    else if (elapsed < msPerDay ) {
+         return Math.round(elapsed/msPerHour ) + ' hours ago';   
+    }
+
+    else if (elapsed < msPerMonth) {
+        return Math.round(elapsed/msPerDay) + ' days ago';   
+    }
+
+    else if (elapsed < msPerYear) {
+        return Math.round(elapsed/msPerMonth) + ' months ago';   
+    }
+
+    else {
+        return Math.round(elapsed/msPerYear ) + ' years ago';   
+    }
+}
   
   });
   

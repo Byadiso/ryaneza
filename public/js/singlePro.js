@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 cart.push({
                     ...itemTobeAdded,
-                    count: 1
+                    amount: 1
                 });  
         
                 // remove duplicates
