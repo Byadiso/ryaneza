@@ -5,18 +5,25 @@ document.addEventListener('DOMContentLoaded', () => {
     let cartContainer = document.querySelector('.cart-content');  
     let numberHeaderToBuy = document.querySelector('.total_to_buy');    
           
-    function displayCart(){
+function displayCart(){
         if (typeof window !== 'undefined') {
             if (localStorage.getItem('cart')) {     
                 
                 let cartStored = [...JSON.parse(localStorage.getItem('cart')) ];              
                 numberHeaderToBuy.textContent = cartStored.length;
 
-                for ( var i= 0; i < cartStored.length; i++ ) {   
+                if(cartStored.length == 0){
+                    cartContainer.innerHTML= "Ops Your cart is empty!!"
+                    console.log("Ops Your cart is empty!!")
+                    }
+
+
+                for ( var i= 0; i < cartStored.length; i++ ) {               
+                    
+
                     let elements = document.createElement('DIV');
                     elements.classList.add("items_to_buy");                 
-                    let {_id, name, price, count } = cartStored[i];
-                    console.log(cartStored[i]);                    
+                    let {_id, name, price, count } = cartStored[i];                                   
 
                     let photoUrl = `http://localhost:3000/api/v1/property/photo/${_id}` ;
                     
@@ -31,49 +38,45 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="product_in_cart_price">
                                     <span>${price}</span>
                                 </div> 
-                                <div class="removeToCart_container">
+                                <div class="removeToCart_container" data-id="${_id}">
                                     <button class="removeToCart_btn">X</button>
                                 </div>                           
                             </div>
                         `
                     cartContainer.appendChild(elements);    
-                    calculatePrice(cartStored);
-
-
-                    //add remove from cart functionality
-                    const removeToCartBtns = document.querySelectorAll(".removeToCart_btn");
-                    removeToCartBtns.forEach((btn)=>{
-                        btn.addEventListener("click", ()=>{
-                            removeFromCart(_id) 
-                          })
-                        
-                     });
-                }           
+                    calculatePrice(cartStored);                    
+                }     
+                //add remove from cart functionality
+                const removeToCartBtns = document.querySelectorAll(".removeToCart_btn");
+                removeToCartBtns.forEach((btn)=>{
+                    btn.addEventListener("click", (event)=>{
+                        let id = event.target.parentNode.dataset.id;                      
+                        removeFromCart(id);
+                        updateCartDispaly(); 
+                        calculatePrice(cartStored);
+                      })
+                    
+                 });      
                }
         };       
     }
-
-    displayCart();
-
-
+    
      //for calculation
-     function calculatePrice(cart){
-        console.log(cart)
+function calculatePrice(cart){
+       
         let tempTotal = 0 ;
         let itemsTotal = 0;
         cart.map(item => {
             console.item
             tempTotal += parseInt(item.price * item.count) ;
             itemsTotal += parseInt(item.count);           
-        });
-
-        
+        });        
         totalDisplay.textContent = parseFloat(tempTotal.toFixed(2))
+        return tempTotal
      }
 
       //remove form the cart
-      function removeFromCart(propertyId){
-        //   console.log("we are ready to remove form the car"+ propertyId)
+function removeFromCart(propertyId){          
         let cart = [];
         if (typeof window !== 'undefined') {
             if (localStorage.getItem('cart')) {
@@ -84,9 +87,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     cart.splice(i, 1);
                 }
             });
-            
             localStorage.setItem('cart', JSON.stringify(cart));
         }
         return cart;
+    };
+
+displayCart();
+
+// for display update
+function updateCartDispaly(){       
+       let cart  
+        if (typeof window !== 'undefined') { 
+            if (localStorage.getItem('cart')) {
+                 cart = JSON.parse(localStorage.getItem('cart'));
+                 displayCart();
+                 calculatePrice(cart)
+                 
+            }
+        }
+       
     }
+
 })

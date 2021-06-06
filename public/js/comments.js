@@ -15,18 +15,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
       const user= JSON.parse(localStorage.getItem('user'));
       const userId = user.user._id;
       const token = user.token; 
-      // const comment = comment_input.value;
-      let comment_created 
-    // const comment= document.forms['comment_form']['comments'].value ;
-
-
-    // let propertyId= JSON.parse(localStorage.getItem('id'));
+      let comment_created;   
   
-      let propertyId = singlePro.dataset.id
-
-      console.log(userId)
-
-     
+      let propertyId = singlePro.dataset.id       
 
  
  // ------------------------------CREATE COMMENT--------------------------------------------------------
@@ -53,13 +44,11 @@ comment_input.addEventListener('keyup',(e)=>{
                     },
                     body: JSON.stringify( { userId , propertyId, comment: {text: comment_created} })
                 })
-                    .then(data => {
-                    
+                    .then(data => {                    
                         if(data.status == true){
                           console.log(data.message);
                            let storedData = localStorage.setItem('comment', JSON.stringify(data));  
-                           success_message.textContent = `<h3>Your comment has been successfully added</h3>`
-                          //  location.reload();
+                           success_message.textContent = `<h3>Your comment has been successfully added</h3>`                         
                           
                         } 
                         if(data.status == false){
@@ -70,9 +59,7 @@ comment_input.addEventListener('keyup',(e)=>{
                       })
                     .catch(err => console.log(err));          
         };     
-});
-
-
+  });
 });
 
 

@@ -8,13 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const success_message = document.querySelector('.success_message');
     const display_error = document.querySelector('.display_error_comment');
     let propertiesItem = { ...JSON.parse(localStorage.getItem('properties')) };
-
-
     let cart_items = 1;
-
-
-
-    console.log(proId)
     let pro = []
     pro = [...pro, propertiesItem]
 
@@ -22,11 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
         item.Property.id[0] === proId
     })
 
-    let newPro = Mypro.properties;
-    console.log(newPro);
-    let findedOne = newPro.find((item) => item._id === proId);    
- console.log(findedOne);
- let { description, shipping, reviews, comments, _id } = findedOne;
+    let newPro = Mypro.properties;    
+    let findedOne = newPro.find((item) => item._id === proId);
+    let { description, shipping, reviews, comments, _id } = findedOne;
 
  
 
@@ -41,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
        
         
 
-        propertyContainer.innerHTML =`
+    propertyContainer.innerHTML =`
                 <div class="property_container" data-toadd="${_id}">
                     <img src=${photoUrl} class="imgCreated" style="width: 350px; height: 400px;">
                     <button class="btn_addCart"><i class="fas fa-shopping-cart"></i>${isIncart ? "In Cart": "Add to cart"}</button>
@@ -51,43 +43,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 
         
         //appending the main container
-        mainSingleDiv.appendChild(propertyContainer);
-
-        //check if it is in cart 
-         console.log(checkInCart(_id))
-        // checkInCart(_id, isIncart)
-         
-       
+        mainSingleDiv.appendChild(propertyContainer);       
 
         //  trying to addToCart butto a even listenenre
-         const btns = document.querySelectorAll('.btn_addCart');
-
-         
+         const btns = document.querySelectorAll('.btn_addCart');         
          btns.forEach((btn)=>{
               //disable add to cart button
-              isIncart ? btn.setAttribute('disabled', true) : btn.setAttribute('disabled', false);
-              
-              // add event listener
+              isIncart ?  btn.setAttribute('disabled', false) : btn.removeAttribute('disabled');          
 
+              // add event listener
              btn.addEventListener('click', (event)=>{  
                 let item_id = event.target.parentNode.dataset.toadd;
                 let buttonAddToCart =  event.target;               
-                addToCart(item_id, buttonAddToCart ); 
-
-               
-                                    
+                addToCart(item_id, buttonAddToCart );                    
              });
          });
       
         
 
 
-    function addToCart(item_id, buttonContent){
-                
+    function addToCart(item_id, buttonContent){                
             let cart=[];     
             let propertiesItem = {...JSON.parse(localStorage.getItem('properties'))};           
             let newPro = propertiesItem.properties;            
-            let itemTobeAdded = newPro.find((item) => item._id === item_id);            
+            let itemTobeAdded = newPro.find((item) => item._id === item_id);           
                         
    
             if (typeof window !== 'undefined') {
@@ -120,16 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 cart_items_container.forEach((cart_item_number)=>{
                     cart_item_number.textContent = cart.length + cart_items
-                });  
-                
-              
-                   
+                });                                             
           }
         }
+        
 
 
          //check in cartlogic
-         function checkInCart(id) {
+    function checkInCart(id) {
              let stateInCart = false ;
             if (typeof window !== 'undefined') {
                 if (localStorage.getItem('cart')) {
@@ -145,8 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         return stateInCart
                        }
                        return ;                   
-                   })  
-                console.log(stateInCart)       
+                   })                      
     
                 }
             }
