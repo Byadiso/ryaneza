@@ -36,8 +36,8 @@
             <div class="bannerContainer">
                 <div class="login-container">
                     <form action="post">
-                        <a class="cart-btn">
-                            <span class="nav-icon">
+                        <a class="cart-btn" href="./cart.html">
+                            <span class="nav-icon" >
                                 <i class="fas fa-cart-plus"></i>
                             </span>
                             <div class="cart-items">0</div>
@@ -155,6 +155,25 @@
                 document.getElementById(menu_dashboard).style.display = 'block'
                 evt.currentTarget.className += ' active'
             }
+
+
+            // to show properties in cart
+            let user = JSON.parse(localStorage.getItem('user'));      
+                    if (user == null) {
+                        window.location.href = './login.html'
+                    }
+
+                    // cart logic
+                    if (typeof window !== 'undefined') {
+                    if (localStorage.getItem('cart')) {            
+                        let storedInCarrt = JSON.parse(localStorage.getItem('cart'))
+                        let cart = document.querySelectorAll(".cart-items")[0];
+                        cart.textContent = storedInCarrt.length
+                    }
+
+                }
+
+
         </script>
     </body>
 </html>

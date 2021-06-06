@@ -138,6 +138,23 @@ function open_single_tabs(evt, single_tabs) {
     }
 
 
+    // // to show properties in cart
+    let user = JSON.parse(localStorage.getItem('user'));      
+        if (user == null) {
+            window.location.href = './login.html'
+        }
+
+         // cart logic
+        if (typeof window !== 'undefined') {
+        if (localStorage.getItem('cart')) {            
+            let storedInCarrt = JSON.parse(localStorage.getItem('cart'))
+            let cart = document.querySelectorAll(".cart-items")[0];
+            cart.textContent = storedInCarrt.length
+        }
+
+    }
+
+
 
 </script>
 

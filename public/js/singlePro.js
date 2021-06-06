@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let propertiesItem = { ...JSON.parse(localStorage.getItem('properties')) };
 
 
+    let cart_items = 1;
+
+
 
     console.log(proId)
     let pro = []
@@ -31,25 +34,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const renderPro = () => {       
         const propertyContainer = document.createElement('DIV');       
-        let photoUrl = `http://localhost:3000/api/v1/property/photo/${proId}`     
+        let photoUrl = `http://localhost:3000/api/v1/property/photo/${proId}`;     
+       let isIncart = checkInCart(_id);
+
+      
+       
+        
 
         propertyContainer.innerHTML =`
                 <div class="property_container" data-toadd="${_id}">
                     <img src=${photoUrl} class="imgCreated" style="width: 350px; height: 400px;">
-                    <button class="btn_addCart"> <i class="fas fa-shopping-cart"></i> Add to cart </button>
+                    <button class="btn_addCart"><i class="fas fa-shopping-cart"></i>${isIncart ? "In Cart": "Add to cart"}</button>
                 </div>
-                 `       
+                 `  
+                 
+                
         
         //appending the main container
         mainSingleDiv.appendChild(propertyContainer);
 
+        //check if it is in cart 
+         console.log(checkInCart(_id))
+        // checkInCart(_id, isIncart)
+         
+       
+
         //  trying to addToCart butto a even listenenre
          const btns = document.querySelectorAll('.btn_addCart');
+
+         
          btns.forEach((btn)=>{
+              //disable add to cart button
+              isIncart ? btn.setAttribute('disabled', true) : btn.setAttribute('disabled', false);
+              
+              // add event listener
+
              btn.addEventListener('click', (event)=>{  
                 let item_id = event.target.parentNode.dataset.toadd;
                 let buttonAddToCart =  event.target;               
-                addToCart(item_id, buttonAddToCart );                      
+                addToCart(item_id, buttonAddToCart ); 
+
+               
+                                    
              });
          });
       
@@ -63,16 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
             let newPro = propertiesItem.properties;            
             let itemTobeAdded = newPro.find((item) => item._id === item_id);            
                         
-            console.log("let add to the cart");            
-             
-            
+   
             if (typeof window !== 'undefined') {
                 if (localStorage.getItem('cart')) {
                     cart = JSON.parse(localStorage.getItem('cart'));
                 }
                 cart.push({
                     ...itemTobeAdded,
-                    amount: 1
+                    count: 1
                 });  
         
                 // remove duplicates
@@ -88,16 +112,48 @@ document.addEventListener('DOMContentLoaded', () => {
                     return cart.find(p => p._id === id);
                 });
              
-                localStorage.setItem('cart', JSON.stringify(cart));  
-                           
-                buttonContent.innerHTML=`<i class="fas fa-shopping-cart"></i>In cart`
-                console.log(cart);  
-            
+                localStorage.setItem('cart', JSON.stringify(cart));                             
+                buttonContent.innerHTML=`<i class="fas fa-shopping-cart"></i>In cart`;
+               
+               
+                const cart_items_container = document.querySelectorAll(".cart-items");
+
+                cart_items_container.forEach((cart_item_number)=>{
+                    cart_item_number.textContent = cart.length + cart_items
+                });  
+                
+              
+                   
+          }
         }
 
 
+         //check in cartlogic
+         function checkInCart(id) {
+             let stateInCart = false ;
+            if (typeof window !== 'undefined') {
+                if (localStorage.getItem('cart')) {
+                  let cartIn = [...JSON.parse(localStorage.getItem('cart'))];
+                   
+                  let cartArray = []
+                   cartArray = [...cartArray,cartIn]
+                 
+                 let newCart = cartArray[0]
+                 newCart.forEach((item)=>{
+                       if(item._id === id){
+                        stateInCart = true;
+                        return stateInCart
+                       }
+                       return ;                   
+                   })  
+                console.log(stateInCart)       
+    
+                }
+            }
 
-        }
+            return stateInCart
+
+        }    
     }
 
     //  fetchingSingle();

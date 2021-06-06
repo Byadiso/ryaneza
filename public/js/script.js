@@ -62,7 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
         divprop.setAttribute("class",'column-grid-Property')
 
           // to append my whole create section    
-          mainDiv.append(divprop);        
+          mainDiv.append(divprop);   
+               
               }   
               
                    

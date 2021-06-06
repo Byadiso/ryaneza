@@ -30,17 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
                                 </div>
                                 <div class="product_in_cart_price">
                                     <span>${price}</span>
-                                </div>                            
+                                </div> 
+                                <div class="removeToCart_container">
+                                    <button class="removeToCart_btn">X</button>
+                                </div>                           
                             </div>
                         `
                     cartContainer.appendChild(elements);    
                     calculatePrice(cartStored);
-                }
-              
-            }
-        };
-        
-       
+
+
+                    //add remove from cart functionality
+                    const removeToCartBtns = document.querySelectorAll(".removeToCart_btn");
+                    removeToCartBtns.forEach((btn)=>{
+                        btn.addEventListener("click", ()=>{
+                            removeFromCart(_id) 
+                          })
+                        
+                     });
+                }           
+               }
+        };       
     }
 
     displayCart();
@@ -59,12 +69,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         
         totalDisplay.textContent = parseFloat(tempTotal.toFixed(2))
-     
+     }
 
-         
-        // let total 
-        // let product = parseInt(quantity*price);
-        // total += product        
-        // totalDisplay.textContent = total
+      //remove form the cart
+      function removeFromCart(propertyId){
+        //   console.log("we are ready to remove form the car"+ propertyId)
+        let cart = [];
+        if (typeof window !== 'undefined') {
+            if (localStorage.getItem('cart')) {
+                cart = JSON.parse(localStorage.getItem('cart'));
+            }    
+            cart.map((product, i) => {
+                if (product._id === propertyId) {
+                    cart.splice(i, 1);
+                }
+            });
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        return cart;
     }
 })

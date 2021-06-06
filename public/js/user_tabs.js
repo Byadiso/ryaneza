@@ -251,7 +251,6 @@ const  fetchAllUsers = ( () => {
   
   fetchAllUsers();
 
-
   function timeDifference(current, previous) {
 
     var msPerMinute = 60 * 1000;
@@ -261,17 +260,14 @@ const  fetchAllUsers = ( () => {
     var msPerYear = msPerDay * 365;
 
     var elapsed = current - previous;
-
     if (elapsed < msPerMinute) {
         if(elapsed/1000 <30) return "Just now";
-
         return Math.round(elapsed/1000) + ' seconds ago';   
     }
 
     else if (elapsed < msPerHour) {
          return Math.round(elapsed/msPerMinute) + ' minutes ago';   
     }
-
     else if (elapsed < msPerDay ) {
          return Math.round(elapsed/msPerHour ) + ' hours ago';   
     }
@@ -283,12 +279,10 @@ const  fetchAllUsers = ( () => {
     else if (elapsed < msPerYear) {
         return Math.round(elapsed/msPerMonth) + ' months ago';   
     }
-
     else {
         return Math.round(elapsed/msPerYear ) + ' years ago';   
-    }
-}
-  
+      }
+  }  
   });
   
                  
