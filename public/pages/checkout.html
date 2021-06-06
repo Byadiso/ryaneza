@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../css/style-property.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../css/order_checkout.css"
+        />
+        
+        <title>PropertyPro LITE</title>
+        <link rel="icon" type="image/ico" href="../image/bar-icon.png" />           
+        
+        
+        <link
+            rel="stylesheet"
+            href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+        />
+        
+        <script src="https://js.braintreegateway.com/web/dropin/1.29.0/js/dropin.min.js"></script>
+
+
+        
+
+    </head>
+    <body>
+        <a class="sell" href="http://localhost:3000/public/pages/property.html"
+            ><img src="../image/header.png" height="80px" width="200px"
+        /></a>
+
+        <div class="topnav">
+           <a href="property.html"
+                ><strong
+                    ><span class="admin_createPro"
+                        >SHOP</span
+                    ></strong
+                ></a>
+
+            
+            <a href="./user.html"><strong>My Dashboard</strong></a>
+
+            <div class="login-container">
+                <form action="post">
+                    <a class="cart-btn">
+                        <span class="nav-icon">
+                            <i class="fas fa-cart-plus"></i>
+                        </span>
+                        <div class="cart-items">0</div>
+                    </a>
+
+                    <a class="log-out" href="#"><strong>Sign Out </strong></a>
+                 
+                </form>
+            </div>
+        </div>
+        <div>
+            <img
+                id="banner"
+                src="../image/banner.png"
+                height="20%"
+                width="100%"
+            />
+        </div>
+
+
+
+
+    
+    <!--checkout-->
+    <div class="ckeckout_container">
+        <div class="ckeckout"> 
+            <div id="#checkout-message"></div>
+            <h2>Your Cart summary</h2>
+            <h3>Total: <span class="total_to_pay"> 0</span></h3>
+
+            <form class="delivery_address">
+                <label> Delivery address :</label>
+                <input type="text" name="address" id="address_delivery">
+            </form>           
+            
+        </div>
+        <div id="payment_method"> 
+                          
+                        
+       
+           
+            
+        </div>
+        <div id="dropin-container"></div>
+        <button id="submit-button">Request payment method</button>
+
+        <button class="pay_button">Pay</button>
+
+    </div>
+
+    <!-- End of checkout-->
+
+
+    <div id="footer">
+            &copy; 2019 Designed by BYAMUNGU desire || Andela Developer
+            Challenge
+    </div>
+    </body>
+    
+    
+    <script type="module" src="../js/checkout.js" defer></script>
+    <script src="https://js.braintreegateway.com/web/dropin/1.29.0/js/dropin.min.js"></script>
+
+    <script defer>
+        let user = JSON.parse(localStorage.getItem('user'))
+        console.log(user)
+        if (user == null) {
+            window.location.href = './login.html'
+        }   
+
+        var button = document.querySelector('#submit-button');
+        var hiddenNonceInput = document.querySelector('#dropin-container');
+        
+        braintree.dropin.create({
+            authorization: 'CLIENT_AUTHORIZATION',
+            container: '#dropin-container'
+            }, function (createErr, instance) {
+            button.addEventListener('click', function () {
+                instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
+                // Submit payload.nonce to your server
+                        if (err) {
+                               // handle error
+                         return;
+                              }
+                        hiddenNonceInput.value = payload.nonce;
+                            });
+                        });
+            });
+        
+       
+
+    </script>
+</html>

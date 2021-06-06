@@ -107,15 +107,4 @@ function updateCartDispaly(){
     }
 
 
-// place order when clcik on checkout 
-checkoutBtn.addEventListener("click", ()=>{
-    console.log("yes wa ready to go to checkout ")
-    order();
-
-})
-
-//order function
-function order(){
-    console.log("this is order ayou place hear ");
-    }
-})
+        })
