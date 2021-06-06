@@ -116,8 +116,6 @@ checkoutBtn.addEventListener("click", ()=>{
 
 //order function
 function order(){
-    console.log("this is order ayou place hear ")
-}
-
-
+    console.log("this is order ayou place hear ");
+    }
 })
