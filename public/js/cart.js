@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
    
     let totalDisplay = document.querySelector('.cart-total');  
     let cartContainer = document.querySelector('.cart-content');  
-    let numberHeaderToBuy = document.querySelector('.total_to_buy');    
+    let numberHeaderToBuy = document.querySelector('.total_to_buy');  
+    let checkoutBtn  = document.querySelector('#btn_checkout');  
           
 function displayCart(){
         if (typeof window !== 'undefined') {
@@ -17,10 +18,8 @@ function displayCart(){
                     console.log("Ops Your cart is empty!!")
                     }
 
-
-                for ( var i= 0; i < cartStored.length; i++ ) {               
+                for ( var i= 0; i < cartStored.length; i++ ) {            
                     
-
                     let elements = document.createElement('DIV');
                     elements.classList.add("items_to_buy");                 
                     let {_id, name, price, count } = cartStored[i];                                   
@@ -101,11 +100,24 @@ function updateCartDispaly(){
             if (localStorage.getItem('cart')) {
                  cart = JSON.parse(localStorage.getItem('cart'));
                  displayCart();
-                 calculatePrice(cart)
-                 
+                 calculatePrice(cart);                 
             }
         }
        
     }
+
+
+// place order when clcik on checkout 
+checkoutBtn.addEventListener("click", ()=>{
+    console.log("yes wa ready to go to checkout ")
+    order();
+
+})
+
+//order function
+function order(){
+    console.log("this is order ayou place hear ")
+}
+
 
 })
