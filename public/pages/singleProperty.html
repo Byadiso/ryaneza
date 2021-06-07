@@ -42,61 +42,79 @@
 </div>
 
 </div> 
-     
+
+<div id="singleProperty">
 
 </div>
 
-    <div id="singleProperty">
+<div class="main_admin">
+
+     
+            <!-- 
+            .....................................implementing tab content on single property ................................... -->
+           
+
+    
+    <div class="tab">
+        <button class="tablinks" onclick="open_single_tabs(event, 'description_details')">Description</button>
+        <button class="tablinks" onclick="open_single_tabs(event, 'shipping_details')">Shipping & Location</button>
+        <button class="tablinks" onclick="open_single_tabs(event, 'reviews_details')">Reviews</button>
+        <button class="tablinks" onclick="open_single_tabs(event, 'comment_details')">Comments</button>      
+        
+    
+    </div>
+
+
+    <div class="content_tab_main">                       
+
+        <!-- Tab content -->
+                 <div id="description_details" class="tabcontent">
+
+                    <h3>Welcome Description <span class="description_details_header"></span>  </h3>
+                    <p class="description_details"></p>
+                </div>
+
+                <div id="reviews_details" class="tabcontent">
+                    <h3>Reviews (<span class="reviews_details_header">0</span>)</h3>
+                    <p class="reviews_details"></p>        
+                </div>
+
+                <div id="comment_details" class="tabcontent">
+                        <h3 >Comments (<span class="comment_details_header">0</span>) </h3>
+                        
+                        <form class="add_comments control-group create_property" name="comment_form"> 
+                            <p class="display_error_comment"></p>
+                            <p class="success_message"></p>                   
+                            <input type="text" name="comments" id="comments_text" placeholder="leave a comment"></input>
+                            <input type="submit" value="leave a comment" class="submitBtn_comments">                   
+                        
+                        </form>
+                        
+                    
+                        <div id="comment_details_container"></div>
+
+                        
+                </div>
+                <div id="shipping_details" class="tabcontent">
+                    <h3 >Shipping & Location<span class="all_user_header"></span> users on the website </h3>
+                    <p class="shipping_details"></p>
+                 </div>        
 
     </div>
 
 
-<!-- 
-    .....................................implementing tab content on single property ................................... -->
- <div>
 
-        <div class="tab">
-            <button class="tablinks" onclick="open_single_tabs(event, 'description_details')">Description</button>
-            <button class="tablinks" onclick="open_single_tabs(event, 'shipping_details')">Shipping & Location</button>
-            <button class="tablinks" onclick="open_single_tabs(event, 'reviews_details')">Reviews</button>
-            <button class="tablinks" onclick="open_single_tabs(event, 'comment_details')">Comments</button>      
-            
-           
-         </div>
+ </div>
 
-        <!-- Tab content -->
-        <div id="description_details" class="tabcontent">
-         <h3>Welcome Description <span class="description_details_header"></span>  </h3>
-         <p class="description_details"></p>
-        </div>
+               
 
-        <div id="reviews_details" class="tabcontent">
-            <h3>Reviews (<span class="reviews_details_header">0</span>)</h3>
-            <p class="reviews_details"></p>        
-        </div>
 
-        <div id="comment_details" class="tabcontent">
-                <h3 >Comments (<span class="comment_details_header">0</span>) </h3>
-                
-                <form class="add_comments control-group create_property" name="comment_form"> 
-                    <p class="display_error_comment"></p>
-                    <p class="success_message"></p>                   
-                    <input type="text" name="comments" id="comments_text" placeholder="leave a comment"></input>
-                    <input type="submit" value="leave a comment" class="submitBtn_comments">                   
-                
-                </form>
-                
-              
-                <div id="comment_details_container"></div>
 
-                
-         </div>
-         <div id="shipping_details" class="tabcontent">
-            <h3 >Shipping & Location<span class="all_user_header"></span> users on the website </h3>
-            <p class="shipping_details"></p>
-     </div>
 
- </div>   
+
+
+     
+
     
     
     <!-- End of cart-->
