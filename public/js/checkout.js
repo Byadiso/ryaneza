@@ -11,7 +11,29 @@ document.addEventListener('DOMContentLoaded', () => {
     let userId = user.user._id;
     let token = user.token;
     
-    
+   
+    function displayDropIn(){
+        var button = document.querySelector('#submit-button');
+
+        braintree.dropin.create({
+        authorization: 'sandbox_hcv6n9tt_ms7fg4fvg27n4wfx',
+        selector: '#dropin-container'
+        }, function (err, instance) {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            instance.requestPaymentMethod(function (err, payload) {
+            // Submit payload.nonce to your server
+            if (err) {
+                  console.log("Error",err)
+                return;
+                  }
+            document.querySelector("#nonce").value= payload.nonce;
+            // button.submit();
+            console.log("we are ready to pay")
+            });
+        })
+        });
+    }
     
     
 
@@ -176,7 +198,9 @@ const getTotal = () => {
     }, 0);
 };
 
- const getBraintreeClientToken = (userId, token) => {
+
+
+const getBraintreeClientToken = (userId, token) => {
     return fetch(`${API}/braintree/getToken/${userId}`, {
         method: "GET",
         headers: {
@@ -194,6 +218,8 @@ const getTotal = () => {
         .catch(err => console.log(err));
 };
 
-getBraintreeClientToken(userId,token )
+getBraintreeClientToken(userId,token);
+
+displayDropIn();
  
 })
