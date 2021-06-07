@@ -74,7 +74,7 @@
                     <div class="ckeckout"> 
                         <div id="#checkout-message"></div>
                         <h2>Your Cart summary</h2>
-                        <h3>Total: <span class="total_to_pay" id="nonce"> 0</span></h3>
+                        <h3>Total: <span class="total_to_pay" id="nonce"> 0</span>FRW</h3>
             
                         <form class="delivery_address">
                             <label> Delivery address :</label>
@@ -109,37 +109,23 @@
 
     
     <script>
+
         let user = JSON.parse(localStorage.getItem('user'))
         console.log(user)
         if (user == null) {
             window.location.href = './login.html'
         }  
-                
-        //dropin 
+        
+        // cart logic
+        if (typeof window !== 'undefined') {
+            if (localStorage.getItem('cart')) {            
+                let storedInCarrt = JSON.parse(localStorage.getItem('cart'))
+                let cart = document.querySelectorAll(".cart-items")[0];
+                cart.textContent = storedInCarrt.length
+            }
 
-        // var button = document.querySelector('#submit-button');
-
-        // braintree.dropin.create({
-        // authorization: 'sandbox_hcv6n9tt_ms7fg4fvg27n4wfx',
-        // selector: '#dropin-container'
-        // }, function (err, instance) {
-        // button.addEventListener('click', function () {
-        //     instance.requestPaymentMethod(function (err, payload) {
-        //     // Submit payload.nonce to your server
-        //     if (err) {
-        //           console.log("Error",err)
-        //         return;
-        //           }
-        //     document.querySelector("#nonce").value= payload.nonce;
-        //     button.submit();
-        //     });
-        // })
-        // });
-
-       
-
-
-
+        }
+   
     </script>
  
 </html>

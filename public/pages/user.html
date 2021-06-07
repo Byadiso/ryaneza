@@ -50,80 +50,107 @@
                     </form>
                 </div>
             </div>
-        </div>
-
-        <div class="tab">
-            <button
-                class="tablinks"
-                onclick="open_menu_dashboard(event, 'admin_details')"
-            >
-                Personal Details
-            </button>
-            <button
-                class="tablinks"
-                onclick="open_menu_dashboard(event, 'manager_property')"
-            >
-                Manager Property
-            </button>
-            <button
-                class="tablinks"
-                onclick="open_menu_dashboard(event, 'manager_category')"
-            >
-                Manager Category
-            </button>
-            <button
-                class="tablinks"
-                onclick="open_menu_dashboard(event, 'all_user')"
-            >
-                All user
-            </button>
-        </div>
-
-        <!-- Tab content -->
-        <div id="admin_details" class="tabcontent admin_details">
-            <h5>Welcome <span class="all_admin_header"></span></h5>
-        </div>
-
-        <div id="manager_property" class="tabcontent manager_property">
-            <h3>
-                Manager all your
-                <span class="all_property_header"></span> properties
-            </h3>
-        </div>
-
-        <div id="all_user" class="tabcontent all_user">
-            <h3>
-                All <span class="all_user_header"></span> users on the website
-            </h3>
-        </div>
-        <div id="manager_category" class="tabcontent manager_category">
-            <h3>All <span class="all_category_header"></span> Categories</h3>
-
-            <div class="create_category_form">
-                <form
-                    id="create_category_form"
-                    class="control-group create_category"
-                >
-                    <div class="display_error_category"></div>
-                    <input
-                        type="text"
-                        class="category-field"
-                        placeholder="name"
-                        name="name"
-                        id="name"
-                    />
-                    <button
-                        class="submitBtn submitBtn_category category-field create_category_btn"
-                        id="submitBtn_category"
-                    >
-                        Add Category
-                    </button>
-                </form>
-
-                <div class="success_message"></div>
-                <div class="all_categories"></div>
+            <div>
+                <img
+                    id="banner"
+                    src="../image/banner.png"
+                    height="20%"
+                    width="100%"
+                />
             </div>
         </div>
+
+    <!--  main admin dashboard -->
+    
+        <div class="main_admin">
+
+            <div class="tab">
+                <button
+                    class="tablinks"
+                    onclick="open_menu_dashboard(event, 'admin_details')"
+                >
+                    Personal Details
+                </button>
+                <button
+                    class="tablinks"
+                    onclick="open_menu_dashboard(event, 'manager_property')"
+                >
+                    Manager Property
+                </button>
+                <button
+                    class="tablinks"
+                    onclick="open_menu_dashboard(event, 'manager_category')"
+                >
+                    Manager Category
+                </button>
+                <button
+                    class="tablinks"
+                    onclick="open_menu_dashboard(event, 'all_user')"
+                >
+                    All user
+                </button>
+            </div>
+    
+    
+            <div class="content_tab_main">
+                    <!-- Tab content -->
+                    <div id="admin_details" class="tabcontent admin_details">
+                        <h5>Welcome <span class="all_admin_header"></span></h5>
+                    </div>
+    
+                    <div id="manager_property" class="tabcontent manager_property">
+                        <h3>
+                            Manager all your
+                            <span class="all_property_header"></span> properties
+                        </h3>
+                    </div>
+    
+                    <div id="all_user" class="tabcontent all_user">
+                        <h3>
+                            All <span class="all_user_header"></span> users on the website
+                        </h3>
+                    </div>
+                    <div id="manager_category" class="tabcontent manager_category">
+                        <h3>All <span class="all_category_header"></span> Categories</h3>
+    
+                        <div class="create_category_form">
+                            <form
+                                id="create_category_form"
+                                class="control-group create_category"
+                            >
+                                <div class="display_error_category"></div>
+                                <input
+                                    type="text"
+                                    class="category-field"
+                                    placeholder="name"
+                                    name="name"
+                                    id="name"
+                                />
+                                <button
+                                    class="submitBtn submitBtn_category category-field create_category_btn"
+                                    id="submitBtn_category"
+                                >
+                                    Add Category
+                                </button>
+                            </form>
+    
+                            <div class="success_message"></div>
+                            <div class="all_categories"></div>
+                        </div>
+                    </div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+
+       
+
 
         <div id="footer">
             &copy; 2019 Designed by BYAMUNGU desire || Andela Developer

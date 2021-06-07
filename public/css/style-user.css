@@ -126,6 +126,7 @@ for hidding post feature for non admin users */
   display: flex;
   justify-content: center;
   border-bottom: 1px solid  blanchedalmond;
+  float: left;
 }
 
 .category_item:last-of-type{
@@ -522,8 +523,7 @@ box-shadow: none;
   display: flex;
   background-color:rgba(222,222,222, 0.4);
   color: black;
-  padding-left: 20px;
-  width: 900px;
+  padding-left: 20px;  
   border-bottom: 1px solid rgb(20, 98, 172);
 
 }

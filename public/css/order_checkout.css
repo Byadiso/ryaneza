@@ -70,3 +70,10 @@ for dropin from sandbox */
     background-color: #8bdda8;
     color: white;
   }
+
+
+  #payment-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

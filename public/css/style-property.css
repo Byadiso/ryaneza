@@ -69,14 +69,14 @@ font-weight: 200;
 for cart */
 .cart_container{
   display: flex;
-  background-color: #5ec1f0;
+  justify-content:center;
+  align-items:center;
   color: black; 
   margin: 20px;
   margin-right:100px;
   padding-right:20px;
-  justify-content: center;
-  border: 1px solid white;
-  border-radius: 40px;
+ 
+  
 }
 .cart{
   float: left;
@@ -112,22 +112,33 @@ for cart */
 }
 
 .btn_checkout{
-  border: 2px solid white;
+  border:none;
   background: rgba(50, 80, 163, 0.459);
-  color: #ffffff;
+  color: #181010;
   font-size: 17px;
-  line-height: 25px;
-  text-decoration: none;
+  line-height: 25px;   
   text-shadow: none;
   border-radius: 3px;
   box-shadow: none;
   transition: 0.25s;
-  display: inline;
-  width:250px; 
+  display: inline; 
   margin: 30px;
   margin-left:5px;  
   cursor: pointer;
 }
+
+.btn_checkout a {
+  text-decoration: none;
+  color: #ffffff;
+}
+#btn_checkout{
+  outline: none;
+  background-color: #64d18a;
+  border-color: #64d18a;
+  color: white;
+  transition: all 200ms ease;
+}
+
 
 .cart-btn {
   position: relative;
@@ -579,10 +590,31 @@ display:none
 ..................................................................................... */
 
 /* Style the tab */
+
+
+.main_admin {
+  display:flex;    
+  flex:1 ;  
+ 
+}
 .tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column; 
+  border: 1px solid #5ec1f0;;
+  float: right;
   background-color: #f1f1f1;
+  margin-top: 20px;
+  margin-right: 70px;
+  width: 20%;
+  height: 300px;
+  padding-top:30px;
+}
+.content_tab_main{
+  display: flex;
+  flex-direction: column;    
+  width: 50%;
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -598,19 +630,20 @@ display:none
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+  background-color: #2980B9;
+  color: white;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+  background-color: #2980B9;
+  color: white;
 }
 
 /* Style the tab content */
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid #ccc;
   border-top: none;
 }
 /* 
@@ -731,7 +764,7 @@ grid-column-end: 3;
 
 .header_sell,.header_arrival {
     display: block;
-    color: red;
+    color: black;
   }
 
   
@@ -744,12 +777,12 @@ grid-column-end: 3;
 
   .property_by_arrival_content p,.property_by_sell_content p {
     margin-left: 20px;
-    color: blue;
+    color: black;
   }
   
   .filterCheck, .filters {
     display: flex;
-    /* grid-template-columns: auto auto; */
+    
   }
   .check_item{
     display: flex;
@@ -800,15 +833,23 @@ grid-column-end: 3;
   flex-direction: column;
 }
 .product_in_cart_container{
-  display: flex;
-   flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-left: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 10px;
+    background: white;
+    border-bottom: 1px solid black;
   
 }
+
+
+
+.product_in_cart_container:last-of-type{
+  border-bottom: none;  
+} 
+
+
 .product_in_cart_container .product_in_cart_image,
  .product_in_cart_container .product_in_cart_name, 
  .product_in_cart_container .product_in_cart_price{
@@ -822,7 +863,7 @@ grid-column-end: 3;
 }
 
 .removeToCart_btn{
-  background-color:red;
+  background-color:rgb(241, 97, 97);
   text-decoration:none;
   border:none;
   color:white;

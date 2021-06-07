@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
    
     let checkoutDisplay = document.querySelector('.ckeckout_container');  
     let payBtn = document.querySelector('.pay_button'); 
-    let payment_method = document.querySelector('#payment_method'); 
+    let total_to_pay = document.querySelector('.total_to_pay'); 
+    
     let products = JSON.parse(localStorage.getItem('cart'));
     let address = document.querySelector('#address_delivery');     
     let deliveryAddress
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let user = JSON.parse(localStorage.getItem('user'));   
     let userId = user.user._id;
     let token = user.token;
+
     
    
     function displayDropIn(){
@@ -53,9 +55,8 @@ address.addEventListener('keyup', (event)=>{
 
 
 
-const payBill = (nonce) => {
-    
-    console.log("we are paying at" + deliveryAddress)   
+const payBill = (nonce) => {    
+     
     const paymentData = {
                 paymentMethodNonce: nonce,
                 amount: getTotal(products)                                                        
@@ -126,6 +127,10 @@ const getTotal = () => {
 };
 
 
+ //show total to pay at the top to the client 
+total_to_pay.textContent= getTotal(products);
+
+
 
 const getBraintreeClientToken = (userId, token) => {
     return fetch(`${API}/braintree/getToken/${userId}`, {
@@ -144,8 +149,6 @@ const getBraintreeClientToken = (userId, token) => {
         })
         .catch(err => console.log(err));
 };
-
-
 
 displayDropIn();
  
