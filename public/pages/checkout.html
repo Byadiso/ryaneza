@@ -20,8 +20,7 @@
         <link
             rel="stylesheet"
             href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
-        />
-        
+        />    
         
 
 
@@ -65,37 +64,8 @@
                 height="20%"
                 width="100%"
             />
-        </div>
-
-
-
-
+        </div>  
     
-    <!-- checkout
-    <div class="ckeckout_container">
-        <div class="ckeckout"> 
-            <div id="#checkout-message"></div>
-            <h2>Your Cart summary</h2>
-            <h3>Total: <span class="total_to_pay"> 0</span></h3>
-
-            <form class="delivery_address">
-                <label> Delivery address :</label>
-                <input type="text" name="address" id="address_delivery">
-            </form>           
-            
-        </div>
-        <div id="payment_method">                          
-                              
-           
-            
-        </div>
-
-        <div id="dropin-container"> </div>
-
-        <button id="submit-button" class="pay_button">Request payment method</button>
-       
-
-    </div> -->
 
     <form method="post" asp-action="Index" id="payment-form">
         <div class="wrapper">
@@ -136,7 +106,9 @@
     
 
     <script src="https://js.braintreegateway.com/web/dropin/1.29.0/js/dropin.min.js"></script>
+    <script src="../js/checkout.js"></script>
 
+    
     <script>
         let user = JSON.parse(localStorage.getItem('user'))
         console.log(user)

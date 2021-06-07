@@ -5,95 +5,100 @@ document.addEventListener('DOMContentLoaded', () => {
     let payBtn = document.querySelector('.pay_button'); 
     let payment_method = document.querySelector('#payment_method'); 
     let products = JSON.parse(localStorage.getItem('cart'));
+
+    let API = "http://localhost:3000/api";
+    let user = JSON.parse(localStorage.getItem('user'));   
+    let userId = user.user._id;
+    let token = user.token;
     
     
     
     
 
     
-// place order when clcik on checkout 
-payBtn.addEventListener("click", ()=>{
+// // place order when clcik on checkout 
+// payBtn.addEventListener("click", ()=>{
 
-    console.log("yes we are ready to go to checkout")
-    buy()
-//     let user = JSON.parse(localStorage.getItem('user'));   
-//     let userId = user.user._id;
-//     let token = user.token;
-//     let deliveryAddress = user.user.address;
+//     console.log("yes we are ready to go to checkout")
+//     buy()
+// //     let user = JSON.parse(localStorage.getItem('user'));   
+// //     let userId = user.user._id;
+// //     let token = user.token;
+// //     let deliveryAddress = user.user.address;
 
-//     let order = JSON.parse(localStorage.getItem('cart'));
-//    orderToCheckout(products, userId, token, deliveryAddress);
-})
-
-
+// //     let order = JSON.parse(localStorage.getItem('cart'));
+// //    orderToCheckout(products, userId, token, deliveryAddress);
+// })
 
 
-// //
 
-// let deliveryAddress = data.address;
 
-const buy = () => {
-    let instance ={};
+// // //
+
+// // let deliveryAddress = data.address;
+
+// const buy = () => {
+//     let instance ={};
   
-    // send the nonce to your server
-    // nonce = data.instance.requestPaymentMethod()
-    let nonce;
-    let getNonce =instance
-        .requestPaymentMethod()
-        .then(data => {
-            // console.log(data);
-            nonce = data.nonce;
-            // once you have nonce (card type, card number) send nonce as 'paymentMethodNonce'
-            // and also total to be charged
-            // console.log(
-            //     "send nonce and total to process: ",
-            //     nonce,
-            //     getTotal(products)
-            // );
-            const paymentData = {
-                paymentMethodNonce: nonce,
-                amount: getTotal(products)                                                        
-            };
+//     // send the nonce to your server
+//     // nonce = data.instance.requestPaymentMethod()
+//     let nonce;
+//     let getNonce =instance
+//         .requestPaymentMethod()
+//         .then(data => {
+//             // console.log(data);
+//             nonce = data.nonce;
+//             // once you have nonce (card type, card number) send nonce as 'paymentMethodNonce'
+//             // and also total to be charged
+//             // console.log(
+//             //     "send nonce and total to process: ",
+//             //     nonce,
+//             //     getTotal(products)
+//             // );
+//             const paymentData = {
+//                 paymentMethodNonce: nonce,
+//                 amount: getTotal(products)                                                        
+//             };
 
-            processPayment(userId, token, paymentData)
-                .then(response => {
-                    console.log(response);
-                    // empty cart
-                    // create order
+//             processPayment(userId, token, paymentData)
+//                 .then(response => {
+//                     console.log(response);
+//                     // empty cart
+//                     // create order
 
-                        const createOrderData = {
-                            products: products,
-                            transaction_id: response.transaction.id,
-                            amount: response.transaction.amount,
-                            address: deliveryAddress
-                        };
+//                         const createOrderData = {
+//                             products: products,
+//                             transaction_id: response.transaction.id,
+//                             amount: response.transaction.amount,
+//                             address: deliveryAddress
+//                         };
 
-                    createOrder(userId, token, createOrderData)
-                        .then(response => {
-                            emptyCart(() => {
-                                setRun(!run); // run useEffect in parent Cart
-                                console.log('payment success and empty cart');
-                                setData({
-                                    loading: false,
-                                    success: true
-                                });
-                            });
-                        })
-                        .catch(error => {
-                            console.log(error);
-                            setData({ loading: false });
-                        });
-                })
-                .catch(error => {
-                    console.log(error);
-                    setData({ loading: false });
-                });
-        })
-        .catch(error => {
-            // console.log("dropin error: ", error);
-           console.log(error)
-        });
-};
+//                     createOrder(userId, token, createOrderData)
+//                         .then(response => {
+//                             emptyCart(() => {
+//                                 setRun(!run); // run useEffect in parent Cart
+//                                 console.log('payment success and empty cart');
+//                                 setData({
+//                                     loading: false,
+//                                     success: true
+//                                 });
+//                             });
+//                         })
+//                         .catch(error => {
+//                             console.log(error);
+//                             setData({ loading: false });
+//                         });
+//                 })
+//                 .catch(error => {
+//                     console.log(error);
+//                     setData({ loading: false });
+//                 });
+//         })
+//         .catch(error => {
+//             // console.log("dropin error: ", error);
+//            console.log(error)
+//         });
+// };
 
 // //order function
 // function orderToCheckout(products ,userId, token, deliveryAddress ){
@@ -170,5 +175,25 @@ const getTotal = () => {
         return currentValue + nextValue.count * nextValue.price;
     }, 0);
 };
+
+ const getBraintreeClientToken = (userId, token) => {
+    return fetch(`${API}/braintree/getToken/${userId}`, {
+        method: "GET",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        }
+    })
+        .then(response => {            
+            return response.json();
+        })
+        .then(data =>{
+            console.log(data)
+        })
+        .catch(err => console.log(err));
+};
+
+getBraintreeClientToken(userId,token )
  
 })
