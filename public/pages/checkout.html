@@ -22,7 +22,7 @@
             href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
         />
         
-        <script src="https://js.braintreegateway.com/web/dropin/1.29.0/js/dropin.min.js"></script>
+        
 
 
         
@@ -71,7 +71,7 @@
 
 
     
-    <!--checkout-->
+    <!-- checkout
     <div class="ckeckout_container">
         <div class="ckeckout"> 
             <div id="#checkout-message"></div>
@@ -84,60 +84,92 @@
             </form>           
             
         </div>
-        <div id="payment_method"> 
-                          
-                        
-       
+        <div id="payment_method">                          
+                              
            
             
         </div>
-        <div id="dropin-container"></div>
-        <button id="submit-button">Request payment method</button>
 
-        <button class="pay_button">Pay</button>
+        <div id="dropin-container"> </div>
 
-    </div>
+        <button id="submit-button" class="pay_button">Request payment method</button>
+       
+
+    </div> -->
+
+    <form method="post" asp-action="Index" id="payment-form">
+        <div class="wrapper">
+            <div class="checkout container">
+                <header>
+                    <div class="ckeckout"> 
+                        <div id="#checkout-message"></div>
+                        <h2>Your Cart summary</h2>
+                        <h3>Total: <span class="total_to_pay" id="nonce"> 0</span></h3>
+            
+                        <form class="delivery_address">
+                            <label> Delivery address :</label>
+                            <textarea type="text" name="address" id="address_delivery"></textarea>                        </form>           
+
+                    </div>
+                </header>
+                <section>
+                    <div class="bt-drop-in-wrapper">
+                        <div id="dropin-container"></div>
+                    </div>
+                </section>
+                
+                <button id="submit-button" class="button button--small button--green" ><span>Pay</span></button>
+            </div>
+
+        </div>
+
+
+    </form>
 
     <!-- End of checkout-->
-
 
     <div id="footer">
             &copy; 2019 Designed by BYAMUNGU desire || Andela Developer
             Challenge
     </div>
-    </body>
+    </body>     
     
-    
-    <script type="module" src="../js/checkout.js" defer></script>
+
     <script src="https://js.braintreegateway.com/web/dropin/1.29.0/js/dropin.min.js"></script>
 
-    <script defer>
+    <script>
         let user = JSON.parse(localStorage.getItem('user'))
         console.log(user)
         if (user == null) {
             window.location.href = './login.html'
-        }   
+        }  
+        
+        
+        //dropin 
 
         var button = document.querySelector('#submit-button');
-        var hiddenNonceInput = document.querySelector('#dropin-container');
-        
+
         braintree.dropin.create({
-            authorization: 'CLIENT_AUTHORIZATION',
-            container: '#dropin-container'
-            }, function (createErr, instance) {
-            button.addEventListener('click', function () {
-                instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
-                // Submit payload.nonce to your server
-                        if (err) {
-                               // handle error
-                         return;
-                              }
-                        hiddenNonceInput.value = payload.nonce;
-                            });
-                        });
+        authorization: 'sandbox_hcv6n9tt_ms7fg4fvg27n4wfx',
+        selector: '#dropin-container'
+        }, function (err, instance) {
+        button.addEventListener('click', function () {
+            instance.requestPaymentMethod(function (err, payload) {
+            // Submit payload.nonce to your server
+            if (err) {
+                  console.log("Error",err)
+                return;
+                  }
+            document.querySelector("#nonce").value= payload.nonce;
+            button.submit();
             });
-        
+        })
+        });
+
        
 
+
+
     </script>
+ 
 </html>
