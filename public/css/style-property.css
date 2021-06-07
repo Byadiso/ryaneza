@@ -65,6 +65,17 @@ font-weight: 200;
 .topnav .login-container {
   float: right;
 }
+/* 
+for the whole body for my fruits and  vegetables */
+
+.main_container_fruits{
+  background: rgb(61, 134, 61);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  
+}
+
 /*  
 for cart */
 .cart_container{
@@ -571,7 +582,7 @@ transform: rotateY(180deg);
 
 /* Style the back side */
 .flip-box-back {
-  background-color: #5ec1f0;
+  background-color: rgb(50, 179, 50);
   color: white;
   display: block;
   justify-content: center;

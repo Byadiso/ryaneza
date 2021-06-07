@@ -71,9 +71,11 @@ for dropin from sandbox */
     color: white;
   }
 
-
   #payment-form {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgb(61, 134, 61);
+    color: white;
+    margin: 0;
   }

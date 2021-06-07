@@ -41,22 +41,22 @@ font-weight: 200;
 }
 
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: rgb(50, 179, 50);
   color: black;
 }
 
 .topnav a.active {
-  background-color: #555;
+  background-color: rgb(50, 179, 50);
   color: white;
 }
 
 .topnav a.register {
-  background-color: grey;
+  background-color: rgb(50, 179, 50);
   color: white;
 }
 
 .topnav a.sign_in{
-  background-color: grey;
+  background-color: rgb(50, 179, 50);
   color: white;
 }
 

@@ -33,7 +33,7 @@
             <a href="sell.html"
                 ><strong
                     ><span class="admin_createPro"
-                        >SELL A PROPERTY</span
+                        >SELL A FRUIT OR VEGETABLE</span
                     ></strong
                 ></a
             >
@@ -62,52 +62,58 @@
                 width="100%"
             />
         </div>
+   
+<div class="main_container_fruits">
 
-        <h2 id="header-text">Properties</h2>
-        <div class="filters">
-            <div class="filterCheck"></div>
-            <form class="searchBar" id="input_search">
-                <input
-                    type="text"
-                    name="search"
-                    id="searchBar"
-                    class="input_search"
-                    placeholder="search for a propery"
-                />
-                <button class="btnSearch">search</button>
-            </form>
+    <h2 id="header-text">Fruits and Vegetables</h2>
+    <div class="filters">
+        <div class="filterCheck"></div>
+        <form class="searchBar" id="input_search">
+            <input
+                type="text"
+                name="search"
+                id="searchBar"
+                class="input_search"
+                placeholder="search for a propery"
+            />
+            <button class="btnSearch">search</button>
+        </form>
+    </div>
+
+    <!-- Searched products -->
+    <div class="search_container">
+        <div>
+            <h2 class="search_title"></h2>
         </div>
+        <div id="searched_content"></div>
+    </div>
+    <!--
+            I want to put my data here from my backend                
+            -->
 
-        <!-- Searched products -->
-        <div class="search_container">
-            <div>
-                <h2 class="search_title"></h2>
+    <div class="main_properties">
+        <div id="myProperties"></div>
+        <div id="forSingleElement"></div>
+
+        <!-- at bottom for sell and arrival -->
+        <div id="sell_and_arrival">
+            <div id="property_by_sell">
+                <h1 class="header_sell"></h1>
             </div>
-            <div id="searched_content"></div>
-        </div>
-        <!--
-                I want to put my data here from my backend                
-                -->
 
-        <div class="main_properties">
-            <div id="myProperties"></div>
-            <div id="forSingleElement"></div>
-
-            <!-- at bottom for sell and arrival -->
-            <div id="sell_and_arrival">
-                <div id="property_by_sell">
-                    <h1 class="header_sell"></h1>
-                </div>
-
-                <div id="property_by_arrival">
-                    <h1 class="header_arrival"></h1>
-                </div>
+            <div id="property_by_arrival">
+                <h1 class="header_arrival"></h1>
             </div>
         </div>
-        <!--  implementation of loading spin  -->
-        <div id="loader-wrapper">
-            <div id="loader"></div>
-        </div>
+    </div>
+    <!--  implementation of loading spin  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+    </div>
+
+
+</div>
+
 
         <div id="footer">
             &copy; 2021 Designed by BYAMUNGU desire || Andela Developer
