@@ -64,22 +64,16 @@ margin:0;
 
 
 
-.btn_addCart {
-  border: 2px solid white;
+.btn_addCart { 
   background: rgba(49, 228, 88, 0.671);
-  color: #ffffff;
-  font-size: 17px;
-  line-height: 25px;
-  padding: 7px 7px 7px 7px;
-  text-decoration: none;
-  text-shadow: none;
-  border-radius: 3px;
-  box-shadow: none;
-  transition: 0.25s;
-  display: inline;
-  width:auto;
-  margin: 0 auto;
+  color: #ffffff;   
+  margin-top: 20px ;
 }
+.btn_addCart i{
+  margin-right: 10px;
+}
+
+
 
 /* 
 ..................................................................................... */
