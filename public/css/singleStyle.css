@@ -7,7 +7,7 @@ box-sizing: border-box;
 }
 body {
 font-family: Arial;
-background-color: #3498DB;
+background-color: #64f06b;
 padding: 50px;
 background-image: url("../image/nganatech.jpg");
 background-position: center;
@@ -105,13 +105,13 @@ margin:0;
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #2980B9;
+  background-color: #64f06b;
   color: white;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #2980B9;
+  background-color: #64f06b;
   color: white;
 }
 

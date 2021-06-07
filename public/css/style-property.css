@@ -7,7 +7,7 @@ box-sizing: border-box;
 }
 body {
 font-family: Arial;
-background-color: #3498DB;
+background-color: #64f06b;
 padding: 50px;
 background-image: url("../image/nganatech.jpg");
 background-position: center;
@@ -133,7 +133,7 @@ for cart */
 }
 #btn_checkout{
   outline: none;
-  background-color: #64d18a;
+  background-color: #64f06b;
   border-color: #64d18a;
   color: white;
   transition: all 200ms ease;
@@ -150,7 +150,7 @@ for cart */
   position: absolute;
   top: 4px;
   right: -6px;
-  background: #f09d51;
+  background: #64f06b;
   padding: 0 5px;
   border-radius: 30%;
   color: #fff;
@@ -197,7 +197,7 @@ margin-bottom: 10px;
 
 .btn {
   border: 2px solid transparent;
-  background: #3498DB;
+  background: #64f06b;
   color: #ffffff;
   font-size: 16px;
   line-height: 25px; 
@@ -212,7 +212,7 @@ margin-bottom: 10px;
 }
 
 .btn:hover {
-  background-color: #2980B9;
+  background-color: #64f06b;
 }
 
 
@@ -224,7 +224,7 @@ margin-bottom: 10px;
 /* property page*/
 
 .register-property{
-  background: blue;
+  background: 64f06b;
 }
 
 /* Clear floats after the columns */
@@ -320,7 +320,7 @@ margin-bottom: 10px;
 
 .btn-view{
   border: 2px solid white;
-  background: rgba(50, 80, 163, 0.459);
+  background: #64f06b;
   color: #ffffff;
   font-size: 17px;
   line-height: 25px;
@@ -337,7 +337,7 @@ margin-bottom: 10px;
 }
 .btnSearch{
   border: 2px solid white;
-  background: rgba(50, 80, 163, 0.459);
+  background: #64f06b;
   color: #ffffff;
   font-size: 17px;
   line-height: 25px;
@@ -447,7 +447,7 @@ margin-bottom: 10px;
 }
 
 .switch-field input:checked + label {
-	background-color: #a5dc86;
+	background-color: #64f06b;
 	box-shadow: none;
 }
 
@@ -600,7 +600,7 @@ display:none
 .tab {
   display: flex;
   flex-direction: column; 
-  border: 1px solid #5ec1f0;;
+  border: 1px solid #64f06b;;
   float: right;
   background-color: #f1f1f1;
   margin-top: 20px;
@@ -630,13 +630,13 @@ display:none
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #2980B9;
+  background-color: #64f06b;
   color: white;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #2980B9;
+  background-color: #64f06b;
   color: white;
 }
 
