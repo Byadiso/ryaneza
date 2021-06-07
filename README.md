@@ -17,23 +17,24 @@
 
 # PROJECT OVERVIEW
 
-**rentowacu**is a platform where people can create and/or search properties for sale or rent. It was built from using javascritpt, node, HTML , CSS.
+**ryaneza** is a platform where people can search fruits and vegetables for buying or get a delivery at door. It was built from using javascritpt, node, HTML , CSS.
 
--   The user interface link : https://byadiso.github.io/rentowacu/
--   Live app is hosted on heroku : https://rentowacu.herokuapp.com
+-   The user interface link : https://byadiso.github.io/ryaneza/
+-   Live app is hosted on heroku : https://ryaneza.herokuapp.com
 
 # FEATURES
 
 -   user can Sign in
 -   user can login
 -   user can view
--   user can view specific property
--   user can view user property
--   user can delete his property
+-   user can view specific fruit or vegetable
+-   user can view user fruit or vegetable
+-   user admin can delete his fruit or vegetable
 -   user can add property to the cart
 -   user can do simple payment
--   user can modify or mark his property as booked
--   user can book and pay his apartment
+-   user can modify or mark his fruit or vegetable as bought
+-   user can view purchase history
+-   user can return bad good (fruits or vegetables)
 
 # DEMO
 
@@ -70,11 +71,11 @@
 
 Everything work perfect , However :
 
--   I am still working on styling css and different features are still in process
+-   I am still improving styling css
 
 # Installation
 
--   \$ git clone https://github.com/Byadiso/rentowacu.git
+-   \$ git clone https://github.com/Byadiso/ryaneza.git
 -   \$ cd UI
 -   \$ npm i, to install depencies
 -   \$ npm start ,to start the server
