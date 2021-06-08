@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 properties= dataPro.properties;                  
               for ( var i= 0; i < properties.length; i++ ){            
                 let  divprop= document.createElement("DIV"); 
-                const { _id,photo,name,description,createdAt} = properties[i];        
+                const { _id,price,name,description,createdAt} = properties[i];        
                  
 
             
@@ -39,19 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
                // for short  notation is the best
                var timestamp= timeDifference(new Date(), new Date(createdAt));
                 divprop.innerHTML =`
-                <div class="flip-box" data-id="${_id}">
-                  <div class="flip-box-inner">
-                     <div class="flip-box-front">
-                           <img src=${photoUrl} class="imgCreated" style="width: 270px; height: 170px;">
-                           
-                      </div>
-                      
-                      <div class="flip-box-back">
-                          <p id="phone"><strong>name:</strong> ${name}</p>
-                          <p id="address"><strong>Description:</strong> ${description}</p>
-                          <p id="dateCreated;"><strong>Date Create:</strong> ${timestamp}</p>
-                      </div>
-                  </div>  
+                <div class="main_container_fruits" data-id="${_id}">
+                    <div  class="image_fruit">                     
+                            <img src=${photoUrl} class="imgCreated" style="width: 270px; height: 170px;">        
+                    </div>  
+                    <div class="details_fruits">
+                      <p class="name_fruit">${name}</p>
+                      <p class="price_fruit">${price} FRW</p>                  
+                    </div>
                   <button class="btn-view">View</button>
                 </div>`
                 

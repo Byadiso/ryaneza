@@ -65,7 +65,6 @@ const propertySchema = new mongoose.Schema(
                 }
             ],  
 
-
     },
       { timestamps: true }
 );

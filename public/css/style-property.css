@@ -1,3 +1,23 @@
+:root{
+  --greenBackground:rgb(50, 179, 50);
+  --greenBackgroundLight:rgb(125, 196, 125);
+  --blueLight:#9BD1F9;
+  --blueBackground: rgba(212, 237, 255, 0.6);
+  --buttonHoverBg:  #d4edff;
+  --lightGrey: rgb(230, 236, 240);
+  --spacing: 15px;
+  --greyText: rgb(101, 119, 134);
+  --greyButtonText: rgba(0, 0, 0, 0.34);
+  --red: rgb(226,34, 94);
+  --redBackground: rgba(226,34, 94, 0.1);
+  --green: rgb(23, 191, 99);
+ 
+  
+}
+
+
+
+
 * {
   box-sizing: border-box;
   }
@@ -33,7 +53,7 @@
   .topnav a {
     float: left;
     display: block;
-    color: black;
+    color: var(--greenBackground);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -41,17 +61,17 @@
   }
   
   .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: var(--greenBackgroundLight);
+    color: white;
   }
   
   .topnav a.active {
-    background-color: #555;
+    background-color: var(--greenBackground);
     color: white;
   }
   
   .topnav a.register {
-    background-color: grey;
+    background-color:var(--greenBackground);
     color: white;
   }
   
@@ -71,8 +91,8 @@
   .main_container_fruits{
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    background-color: var(--greenBackground);
+    /* padding: 10px; */
+    margin-bottom: var(--spacing);
   }
   
   /*  
@@ -175,9 +195,8 @@
   }
   
   #header-text{
-    color:black;
-    text-align: center;
-    margin-right: 500px;
+    color:white;    
+    text-align: center;    
   } 
   
   /*for login    */
@@ -329,8 +348,8 @@
   }
   
   .btn-view{
-    border: 2px solid white;
-    background: #64f06b;
+   border:1px solid var(--greenBackgroundLight);
+    background: var(--greenBackground);
     color: #ffffff;
     font-size: 17px;
     line-height: 25px;
@@ -340,9 +359,8 @@
     box-shadow: none;
     transition: 0.25s;
     display: inline;
-    width:250px; 
-    margin: 30px;
-    margin-left:5px;  
+    width:200px; 
+    margin: 5px;      
     cursor: pointer;
   }
   .btnSearch{
@@ -491,9 +509,10 @@
   
     /* user property */
     #myProperties{
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       display: grid;
       grid-template-columns: auto auto auto ;
+    
     }
   
     .column-grid{
@@ -502,17 +521,15 @@
       padding: 5px;
       
     }
-    .column-grid-Property{      
+    .column-grid-Property{
       width:300px;
-      height: auto;     
-      /* float: left;   */
+      height: auto;
       padding: 20px;
       border-radius: 5px;
       border: 1px solid white;
-      margin-left:10px;
-      margin-bottom: 100px;
+      margin-left:var(--spacing);
+      margin-bottom: 10px;
       background-color:rgba(222,222,222, 0.4);
-     
     }
     .grid-property{
       background-color:rgba(222,222,222, 0.4) ;
@@ -530,68 +547,20 @@
     margin-right:20px;
     margin-bottom: 20px;
     margin-top: 20px;
-    background-color:white;
-    border: 5px solid grey; 
-    border-radius: 20px;
+    background-color:white;     
+    border-radius: 50px;
     
   }
   /* for my updated list from selling property 
    */
   
-  .imgCreated{
-    width :'350px';
-    height :'400px';
-    display: block;
-    border: 1px solid white;
-    border-radius: 20px;
-    width: 20%;
+  .imgCreated{ 
+    width :'150px';
+    height :'100px';    
+    border-radius:20px;    
+    padding-right:50px
   }
    
-  /* do a flip horizontall wshen  image is hover*/
-  
-  /* Image flip */
-  .flip-box{
-    background-color: transparent;
-    width: 100%;
-    height: 200px;
-    perspective: 1000px;
-    grid-template-columns: auto auto auto ;
-  }
-  .flip-box-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  /* Do a horizontal flip when you move the mouse over the flip box container */
-  .flip-box:hover .flip-box-inner {
-  transform: rotateY(180deg);
-  }
-  
-  /* Position the front and back side */
-  .flip-box-front, .flip-box-back {
-    position: absolute;
-    width: 250px;
-    height: 160px;
-    backface-visibility: hidden;
-  }
-  
-  
-  /* Style the back side */
-  .flip-box-back {
-    background-color: rgb(50, 179, 50);
-    color: white;
-    display: block;
-    justify-content: center;
-    border: 1px solid white;
-    border-radius: 40px;
-    transform: rotateY(180deg);
-  }
-  .flip-box-back:hover{
-    cursor: pointer;
-  }
   
   .hide{
   display:none
@@ -741,7 +710,45 @@
   .searchBar{ 
     display: flex;
   }
+  .details_fruits{
+    display:flex;
+
+  }
+
+  .name_fruit{
+    background-color:var(--greenBackground);
+    color:white;
+    border-radius:50px;
+    align-items:center;
+    justify-content:center;
+    padding-left:30px;
+    padding-top:2px;
+    width:120px; 
     
+    
+  }
+
+   .price_fruit{
+    background-color:white;
+    color:var(--greenBackground);
+    border-radius:50px;
+    align-items:center;
+    justify-content:center;
+    padding-left:10px;
+    padding-top:5px;
+    margin-left:-10px;
+    width:100px;
+    height:25px;
+    position:relative;
+    
+        
+  }
+    
+    .image_fruit {
+    background-color:white;    
+    border-radius:20px;  
+      
+  } 
   /* 
   ............................................................... */
   
@@ -792,6 +799,8 @@
     
     .filterCheck, .filters {
       display: flex;
+      color:white;
+      padding-left:var(--spacing)
       
     }
     .check_item{
