@@ -11,6 +11,7 @@
   --red: rgb(226,34, 94);
   --redBackground: rgba(226,34, 94, 0.1);
   --green: rgb(23, 191, 99);
+  --greenBackgroundlessIntense: #c6e6c696;
  
   
 }
@@ -574,18 +575,20 @@
   
   .main_admin {
     display:flex;    
-    flex:1 ;  
+    flex:1 ; 
+  
    
   }
   .tab {
     display: flex;
     flex-direction: column; 
-    border: 1px solid #64f06b;;
+    border: none;
     float: right;
+    color:var(--greyText);
     background-color: #f1f1f1;
     margin-top: 20px;
     margin-right: 70px;
-    width: 20%;
+    width: 25%;
     height: 300px;
     padding-top:30px;
   }
@@ -610,13 +613,13 @@
   
   /* Change background color of buttons on hover */
   .tab button:hover {
-    background-color: #64f06b;
+    background-color: var(--greenBackgroundLight);
     color: white;
   }
   
   /* Create an active/current tablink class */
   .tab button.active {
-    background-color: #64f06b;
+    background-color: var(--greenBackground);
     color: white;
   }
   
@@ -625,6 +628,70 @@
     display: none;
     padding: 6px 12px;
     border-top: none;
+  }
+
+  
+
+  #all_user{
+    background-color:white;
+    border-radius:50px;
+    color:var(--greenBackground);
+    padding-left:55px;
+    margin-top:50px;
+  }
+
+  #admin_details{
+    background-color:white;
+    border-radius:50px;
+    color:black;
+    padding-left:55px;
+    margin-top:50px;
+  }
+  #admin_details h5{
+    color:var(--greenBackground);
+    font-size:20px;
+  }
+
+  #manager_purchase_history{
+    color:var(--greenBackground);
+    font-size:20px;
+    background-color:white;
+    padding-left:55px;
+    margin-top:50px;
+  }
+
+  .manager_purchase_history_item{
+   border-bottom: 10px solid var(--greyText);
+  
+  }
+
+
+
+#create_category_form{
+  border-bottom:10px solid var(--greenBackgroundlessIntense);
+  padding-bottom:20px;
+
+}
+  #manager_category{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background-color:white;
+    border-radius:50px;
+    color:var(--greenBackground);
+    padding-left:55px;
+    padding:30px;   
+    
+  }
+
+  #manager_property{
+    background-color:white;
+    border-radius:50px;
+    color:var(--greenBackground);
+    padding-left:55px;
+    padding:30px;  
+    width:500px 
+    
   }
   /* 
   putted there to resolve dislaying properties on one block */

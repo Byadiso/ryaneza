@@ -62,7 +62,7 @@
 
     <!--  main admin dashboard -->
     
-        <div class="main_admin">
+        <div class="main_admin" id="menu_dashboard">
 
             <div class="tab">
                 <button
@@ -89,6 +89,12 @@
                 >
                     All user
                 </button>
+                <button
+                    class="tablinks"
+                    onclick="open_menu_dashboard(event, 'manager_purchase_history')"
+                >
+                    My Purchase History
+                </button>
             </div>
     
     
@@ -102,6 +108,12 @@
                         <h3>
                             Manager all your
                             <span class="all_property_header"></span> properties
+                        </h3>
+                    </div>
+                    <div id="manager_purchase_history" class="tabcontent manager_purchase_history">
+                        <h3>
+                            My Purchase History
+                            <span class="purchase_history_header"></span> products
                         </h3>
                     </div>
     

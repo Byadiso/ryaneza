@@ -1,5 +1,6 @@
 
 
+
 /* eslint-disable prettier/prettier */
 document.addEventListener('DOMContentLoaded', ()=>{ 
             
@@ -7,10 +8,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const allMyProperty= document.querySelector('.manager_property');
     const admin= document.querySelector('.admin_details');
     const allUser = document.querySelector('.all_user');
-    const for_admin_only = document.querySelector('.for_admin_only');
+    const purchaseHistory = document.querySelector('.manager_purchase_history');
 
-
-    
+    const for_admin_only = document.querySelector('.for_admin_only');  
     
   
    
@@ -198,7 +198,7 @@ admin.append(userContainer);
 
 //   ............................................................................................
 
-// fethcing all users
+// fetching all users
 
 const  fetchAllUsers = ( () => {
     fetch( `http://localhost:3000/api/v1/users/`,
@@ -248,6 +248,83 @@ const  fetchAllUsers = ( () => {
   }
   
   fetchAllUsers();
+
+
+  
+//   .....................................show user purchase history.......................................................
+
+// show user purchase history
+
+const  fetchAllUsersPurchaseHistory = ( () => {
+  let userId= id
+  fetch( `http://localhost:3000/api/order/list/${userId}`,
+  {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+  }
+    )
+  .then((res) => res.json())
+  .then(data => renderUsersPurchaseHistory(data)
+     )    
+});
+
+function renderUsersPurchaseHistory(data){
+  console.log(data)
+  
+  const headerUser =document.querySelector('.purchase_history_header');
+  headerUser.textContent = data.length;
+ //  console.log(properties)
+   for ( var i= 0; i < data.length; i++ ){ 
+     
+     let {_id,address,amount,products,status,transaction_id,user,createdAt} = data[i];
+ 
+     let user_container_purchase_history = document.createElement('div');
+     user_container_purchase_history.classList.add('manager_purchase_history_item');
+      var timestamp= timeDifference(new Date(), new Date(createdAt));
+   //    let photoUrl = `http://localhost:3000/api/v1/user/photo/${_id}`
+    
+
+   
+
+  
+    
+
+    
+   
+   user_container_purchase_history.innerHTML =         
+   `    
+   <div>
+        <h2 id="order_title">Order ${_id} </h2>
+        <p id="amount"><strong>Paid amount:</strong> ${amount} RWF </p>
+        <p id="name"><strong>Client name:</strong> ${user.name + " "} </p>
+        <p id="products"><strong>Items:</strong> ${products.length > 1  ? products.length  : products[0].name } </p>
+        
+        <p id="address"><strong>Deliverying address:</strong> ${address} </p>
+        <p id="status"><strong>status:</strong> ${status} </p>
+        <p id="transaction_id"><strong>transaction id:</strong> ${transaction_id} </p>
+                   
+       <p id="time_joined"><strong>Purchased:</strong> ${timestamp}</p> 
+   </div>
+       
+     `
+     // console.log(user_container_purchase_history)
+     
+     purchaseHistory.appendChild(user_container_purchase_history);
+     
+     }
+ }
+
+
+ fetchAllUsersPurchaseHistory();
+
+
+
+//   .....................................changing time.......................................................
+
+
 
   function timeDifference(current, previous) {
 
