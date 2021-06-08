@@ -285,37 +285,33 @@ function renderUsersPurchaseHistory(data){
      user_container_purchase_history.classList.add('manager_purchase_history_item');
       var timestamp= timeDifference(new Date(), new Date(createdAt));
    //    let photoUrl = `http://localhost:3000/api/v1/user/photo/${_id}`
-    
 
    
-
   
-    
-
-    
-   
    user_container_purchase_history.innerHTML =         
    `    
    <div>
         <h2 id="order_title">Order ${_id} </h2>
         <p id="amount"><strong>Paid amount:</strong> ${amount} RWF </p>
         <p id="name"><strong>Client name:</strong> ${user.name + " "} </p>
-        <p id="products"><strong>Items:</strong> ${products.length > 1  ? products.length  : products[0].name } </p>
+        <p id="products"><strong>Items:</strong> ${products.length}</p>
         
         <p id="address"><strong>Deliverying address:</strong> ${address} </p>
         <p id="status"><strong>status:</strong> ${status} </p>
         <p id="transaction_id"><strong>transaction id:</strong> ${transaction_id} </p>
                    
        <p id="time_joined"><strong>Purchased:</strong> ${timestamp}</p> 
-   </div>
-       
+   </div>     
      `
-     // console.log(user_container_purchase_history)
+     
      
      purchaseHistory.appendChild(user_container_purchase_history);
-     
+
+         
      }
  }
+
+
 
 
  fetchAllUsersPurchaseHistory();
@@ -359,5 +355,6 @@ function renderUsersPurchaseHistory(data){
       }
   }  
   });
+
   
                  
