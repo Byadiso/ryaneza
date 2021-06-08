@@ -196,7 +196,8 @@
   
   #header-text{
     color:white;    
-    text-align: center;    
+    text-align: center;  
+    margin-bottom:30px;  
   } 
   
   /*for login    */
@@ -638,7 +639,7 @@
   }
   
   #searched_content{
-      margin-bottom: 100px;  
+      margin-bottom: 10px;  
       display: grid;
       grid-template-columns: auto auto auto auto;
       
@@ -754,23 +755,26 @@
   
   #sell_and_arrival {
     display: flex;
+    flex:1;
     width: 100%;
+    color:var(--greenBackground);
     border-top: 1px solid white;
     border-bottom: 1px solid white;
     /* background-color: rgba(255, 255, 255, 0.479); */
-    padding: .4rem;  
+    padding: .4rem;
+    background-color:white;
+    flex-direction: row;
   }
   
   
   #property_by_arrival, #property_by_sell{
     display: grid;
-    width: 30%;
-    grid-template-columns: auto auto
+    width: 50%;
+    grid-template-columns: auto auto;
   }
-  #property_by_arrival{
-    float: left;
+  #property_by_arrival{    
     color: green;
-    margin-left: 300px;
+   
   }
   #property_by_arrival h1, #property_by_sell h1{
   grid-column-start: 1;
@@ -781,20 +785,24 @@
   
   .header_sell,.header_arrival {
       display: block;
-      color: black;
+      background-color:var(--greenBackground);
+      color: white;
+      margin-left:20px;
+      padding-left:100px;
+      border-radius:50px
     }
   
     
     .property_by_arrival_content, .property_by_sell_content{        
-      background-color: rgba(255, 255, 255, 0.479);
-      margin: .7rem;
-      padding: .7rem;
-      display: flex;    
+      background-color: var(--greenBackgroundLight);
+      margin: .6rem;
+      padding: .6rem;
+        
     }
   
     .property_by_arrival_content p,.property_by_sell_content p {
       margin-left: 20px;
-      color: black;
+     
     }
     
     .filterCheck, .filters {
@@ -802,6 +810,10 @@
       color:white;
       padding-left:var(--spacing)
       
+    }
+
+    .filters{
+      padding-top:40px;
     }
     .check_item{
       display: flex;

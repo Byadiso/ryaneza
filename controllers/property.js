@@ -47,7 +47,7 @@ exports.list = (req, res )=>{
                 }
         res.status(200).json({
             properties: data,
-            message: 'all properties',
+            message: 'ALL FRUITS AND VEGETABLE AVAILABLE ON OUR MARKET',
             status: true
         })
     })
