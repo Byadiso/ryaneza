@@ -236,9 +236,7 @@ const  fetchAllUsers = ( () => {
     <div>
          <p id="name"><strong>Name:</strong> ${name + " "} </p>
          <p id="role"><strong>${" "} Role:</strong> ${role == 1 ? role ="Admin" : role ="Normal"}</p>            
-         <p id="time_joined"><strong>Followers:</strong> ${followers.length}</p>
-         <p id="time_joined"><strong>Following:</strong> ${following.length}</p> 
-         <p id="time_joined"><strong>Joined:</strong> ${timestamp}</p> 
+        <p id="time_joined"><strong>Joined:</strong> ${timestamp}</p> 
     </div>
         
       `
