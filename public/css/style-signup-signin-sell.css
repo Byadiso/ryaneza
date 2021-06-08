@@ -1,5 +1,6 @@
 :root{
   --greenBackground:rgb(50, 179, 50);
+  --greenBackgroundLight:rgb(125, 196, 125);
   --blueLight:#9BD1F9;
   --blueBackground: rgba(212, 237, 255, 0.6);
   --buttonHoverBg:  #d4edff;
@@ -25,7 +26,6 @@ box-sizing: border-box;
 }
 body {
 font-family: Arial;
-background-color: #3498DB;
 padding: 50px;
 background-image: url("../image/nganatech.jpg");
 background-position: center;
@@ -51,7 +51,7 @@ font-weight: 200;
 .topnav a {
   float: left;
   display: block;
-  color: black;
+  color: var(--greenBackground);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -59,8 +59,8 @@ font-weight: 200;
 }
 
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: var(--greenBackgroundLight);
+  color: white;
 }
 
 .topnav a.active {
@@ -85,30 +85,35 @@ font-weight: 200;
 #banner{
   border-bottom: 30px solid white;
 }
-#post{
-  
-  margin: 10px;
+#post{  
+  margin: var(--spacing);
 }
 
 
 .login {
-margin: 20px auto;
-width: 600px;
+margin: var(--spacing) auto;
+width: 400px;
 }
 .login-screen {
 background-color: #FFF;
 padding-bottom: 70px;
-padding-top: 10px;
-border-radius: 5px;
-height: 100%;
+padding-top:  var(--spacing);
+border-radius: 50px;
+height: auto%;
 }
 
-.app-title {
+.login_title {
 text-align: center;
-color: #777;
+color: var(--greenBackground);
 font-size: 15px;
 }
 
+.need_account_text{
+  text-align: center;
+  color: var(--greenBackground);
+  font-size: 15px;
+  
+}
 .login-form {
 text-align: center;
 }
@@ -130,36 +135,49 @@ transition: border .5s;
 }
 
 input:focus {
-border: 2px solid #3498DB;
+border: 2px solid var(--greenBackground);
 box-shadow: none;
 }
 
 .btn {
   border: 2px solid transparent;
-  background: #3498DB;
+  background: var(--greenBackgroundLight);
   color: #ffffff;
   font-size: 16px;
   line-height: 25px;
-  padding: 10px 0;
+  padding: 5px 0;
   text-decoration: none;
   text-shadow: none;
   border-radius: 3px;
   box-shadow: none;
   transition: 0.25s;
   display: block;
-  width: 250px;
-  margin: 0 auto;
+  width: 150px;
+  margin: 10px auto ;
 }
 
 .btn:hover {
-  background-color: #2980B9;
+  background-color: var(--greenBackground);
+  cursor:pointer;
 }
+
+.btn_register{
+  background-color: var(--greenBackgroundLight);
+  color: white;
+}
+
+
+.btn_login{
+  background-color: var(--greenBackgroundLight);
+  color: white;
+}
+
 
 .login-link {
   font-size: 12px;
   color: #444;
   display: block;
-   margin-top: 12px;
+   margin-top:  var(--spacing);
 }
 
 
@@ -185,12 +203,21 @@ box-shadow: none;
 }
 
 .login-link {
-  font-size: 12px;
-  color: #444;
+  font-size: 15px;
+  color: white;
   display: block;
-    margin-top: 12px;
+  margin-top: 12px;
 }
 
+.word_below_in_login_register{
+  color: var(--greyText);
+  
+}
+
+.admin_confirm{
+  color: var(--greenBackground);
+  font-size: 15px;
+}
 
 .create_property_header{
   color:#2980B9 ;
@@ -213,7 +240,7 @@ for cart */
 .cart-btn {
   position: relative;
   cursor: pointer;
-  margin-right: 20px;
+  margin-right:  var(--spacing);
 }
 .cart-items {
   position: absolute;
@@ -251,7 +278,7 @@ for cart */
 
   .submitBtn{
     margin-left: 150px;
-    margin-bottom: 20px;
+    margin-bottom:  var(--spacing);
     padding: 7px;
     display: block;
     text-align: center;

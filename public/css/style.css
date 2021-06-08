@@ -1,3 +1,21 @@
+:root{
+  --greenBackground:rgb(50, 179, 50);
+  --greenBackgroundLight:rgb(125, 196, 125);
+  --blueLight:#9BD1F9;
+  --blueBackground: rgba(212, 237, 255, 0.6);
+  --buttonHoverBg:  #d4edff;
+  --lightGrey: rgb(230, 236, 240);
+  --spacing: 15px;
+  --greyText: rgb(101, 119, 134);
+  --greyButtonText: rgba(0, 0, 0, 0.34);
+  --red: rgb(226,34, 94);
+  --redBackground: rgba(226,34, 94, 0.1);
+  --green: rgb(23, 191, 99);
+ 
+  
+}
+
+
 * {
 box-sizing: border-box;
 }
@@ -7,7 +25,7 @@ box-sizing: border-box;
 }
 body {
 font-family: Arial;
-background-color: #3498DB;
+background-color: var(--greenBackground);
 padding: 50px;
 background-image: url("../image/nganatech.jpg");
 background-position: center;
@@ -33,7 +51,7 @@ font-weight: 200;
 .topnav a {
   float: left;
   display: block;
-  color: black;
+  color: var(--greenBackground);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -41,8 +59,8 @@ font-weight: 200;
 }
 
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: var(--greenBackgroundLight);
+  color: white;
 }
 
 .topnav a.active {
@@ -50,10 +68,6 @@ font-weight: 200;
   color: white;
 }
 
-.topnav a.register {
-  background-color: rgb(50, 179, 50);
-  color: white;
-}
 
 .topnav a.sign_in{
   background-color: rgb(50, 179, 50);
@@ -463,15 +477,17 @@ h3{
 
 
 /******* Slideshow ********/
-.mySlides {display: none;}
+.mySlides {
+	display: none;
+	}
 img {
 	vertical-align: middle;
-	max-height: 300px;    
+	max-height: 200px;    
 }
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 700px;
+  max-width: 400px;
   position: relative;
   margin: auto;
 }
@@ -482,6 +498,7 @@ img {
   text-shadow: 2px 2px 4px #000000;
   font-size: 25px;
   padding: 8px 12px;
+  margin-top:var(--spacing)
   position: absolute;
   bottom: 18px;
   width: 100%;
@@ -490,11 +507,13 @@ img {
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
+  background-color:var(--greenBackground);
+  border-radius:50px;
+  color: white;
+  font-size: 20px;
+  padding: 18px 12px;
   position: absolute;
-  top: 0;
+  
 }
 
 /* The dots/bullets/indicators */
@@ -502,14 +521,14 @@ img {
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: var(--greenBackgroundLight);
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 
 .active {
-  background-color: goldenrod;
+  background-color: var(--greenBackground);
 }
 
 /* Fading animation */
@@ -541,7 +560,7 @@ img {
 
 .fa-4x {
     color: #212121;
-    border: 2px solid goldenrod;
+    border: 2px solid var(--greenBackground);
     border-radius: 100%;
     padding: 15px;
     margin-bottom :5px;
@@ -551,5 +570,6 @@ img {
   display: grid;
   justify-content: center;
   color: white;
-  text-shadow: #555;
+  margin-top:50px;
+  text-shadow: var(--greenBackgroundLight);
 }

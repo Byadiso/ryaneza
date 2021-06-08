@@ -13,17 +13,10 @@
 
 <body>
 
-
-
-  <a class="sell" href="sell.html"><img src="../image/header.png" height="80px" width="200px"></a>
-
-
   <div class="topnav">
 
 
     <a href="../index.html"><strong>HOME</strong></a>
-
-    <!-- <a class="register" href="sell.html"><strong>SELL A PROPERTY</strong></a> -->
 
 
     <div class="login-container">
@@ -35,10 +28,13 @@
     </div>
   </div>
 
+  <div >
+    <img  id="banner" src="../image/banner.png" height="20%" width="100%">
+  </div>
 
   <div class="login">
     <div class="login-screen">
-      <div class="app-title">
+      <div class="login_title">
         <h1 id="header_signUp">Create an account</h1>
       </div>
       <!-- i want to make a background full the space near the form -->
@@ -66,16 +62,20 @@
                   <input type="password" class="login-field"  placeholder="Confirm passsword" 
                   name="password2" id="password2">
                  
-                <p>Are you admin?<p>
+                     <p class="word_below_in_login_register"> Are you admin?<p>
+                  <div class="admin_confirm">
                     <input type="radio" id="radio-six" name="notaswitch-one" value="yes" checked />
                     <label for="radio-six">No</label>
                     <input type="radio" id="radio-seven" name="notaswitch-one" value="maybe" />
                     <label for="radio-seven">Yes</label>
+
+                  </div>
+                   
                     <br>
-                    <!-- <input id="signupBtn" type="submit"> -->
+                
                     
-                    <button id="signupBtn" type="button">Create Account</button>
-                    <p>Already have an account,<a class="login-link" href="./login.html">Log In</a></p>
+                    <button id="signupBtn" type="button" class="btn btn_register">Create Account</button>
+                    <p><span class="need_account_text">Already have an account ?</span><a class="login-link btn btn_login" href="./login.html">Log In</a></p>
               </form>
           </div>
           <div id="succes_message" class="login-form" >

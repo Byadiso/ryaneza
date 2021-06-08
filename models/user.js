@@ -30,9 +30,7 @@
         about:{
             type:String,
             trim:true
-        },
-        following: [{ type: ObjectId, ref: "USer" }],
-        followers: [{ type: ObjectId, ref: "USer" }],
+        },        
         salt: String,
         role:{
             type: Number,
