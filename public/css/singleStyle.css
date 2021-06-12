@@ -1,268 +1,292 @@
+:root{
+  --greenBackground:rgb(50, 179, 50);
+  --greenBackgroundLight:rgb(125, 196, 125);
+  --blueLight:#9BD1F9;
+  --blueBackground: rgba(212, 237, 255, 0.6);
+  --buttonHoverBg:  #d4edff;
+  --lightGrey: rgb(230, 236, 240);
+  --spacing: 15px;
+  --greyText: rgb(101, 119, 134);
+  --greyButtonText: rgba(0, 0, 0, 0.34);
+  --red: rgb(226,34, 94);
+  --redBackground: rgba(226,34, 94, 0.1);
+  --green: rgb(23, 191, 99);
+  --greenBackgroundlessIntense: #c6e6c696;
+ 
+  
+}
+
+
+
 * {
-box-sizing: border-box;
-}
-
-*:focus {
-    outline: none;
-}
-body {
-font-family: Arial;
-background-color: #64f06b;
-padding: 50px;
-background-image: url("../image/nganatech.jpg");
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-margin:0;
-}
-/* 
-#singleProperty{
-  
-  align-items: center;
-  margin-top: 80px;
-  margin-bottom: 40px;
-  margin-left: 350px;
-  display: block;
-  
-} */
-
-#singleProperty{
-  display: flex;
-  grid-template-columns: 2 ;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  padding: 20px;
- 
- 
-}
-
-.property_container{
-  float: left;
-  margin: 30px;
-  width: 100%;
-  height: 100%;
-  
-}
-.related_properties{
- background-color: rgba(255, 255, 255, 0.096);
- display: flex;
-}
-
-.header_related{
-  background-color: white;
-}
-
-.single-img-created{
-  margin: 20px;
-  border-radius: 5px;
-}
-
-.imgCreated{
-  width: 150px;
-  width: 100px;
-}
-
-
-
-.btn_addCart { 
-  background: rgba(49, 228, 88, 0.671);
-  color: #ffffff;   
-  margin-top: 20px ;
-}
-.btn_addCart i{
-  margin-right: 10px;
-}
-
-
-
-/* 
-..................................................................................... */
-
-/* Style the tab */
-.tab {
-  display: flex;
-  flex-direction: column; 
-  border: 1px solid #5ec1f0;;
-  float: right;
-  background-color: #f1f1f1;
-  margin-top: 20px;
-  margin-right: 70px;
-  width: 20%;
-  height: 300px;
-  padding-top:30px;
-}
-
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #64f06b;
-  color: white;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #64f06b;
-  color: white;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px; 
-  border-top: none;
-}
-
-/* 
-for comments */
-
-.submitBtn_comments{
-  display: block; 
-  margin-top: 20px;
-  padding: 7px;
-  text-align: center;  
-  background-color: #2980B9;
-  color: white;
-}
-/* .add_comments{
- 
-} */
-
-#comments{
-  display: block;
-  width: 300px;
-  height: 150px;
-  
-}
-
-.display_error_comment{
-  color: red;
-}
-
-.btn-delete{
-  background-color: red;
-}
-.comment_details{
-  display: flex;
-  flex-direction: column;
-  margin: 5px
-}
-
-.posted_by{
-color: white;
-}
-
-.date_posted{
-  color: black;
-}
-/* 
-for hidding delete comment or uncomment */
-.hide{
-  display: none;
-}
-
-  
-/* --------------- Cart ---------------- */
-.cart-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  transition: var(--mainTransition);
-  background: rgb(240, 157, 81, 0.5);
-  z-index: 2;
-  visibility: hidden;
-}
-.cart {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
-  z-index: 3;
-  background: rgb(231, 226, 221);
-  padding: 1.5rem;
-  transition: var(--mainTransition);
-  transform: translateX(100%);
-}
-.showCart {
-  transform: translateX(0);
-}
-.transparentBcg {
-  visibility: visible;
-}
-@media screen and (min-width: 768px) {
-  .cart {
-    width: 30vw;
-    min-width: 450px;
+  box-sizing: border-box;
   }
-}
-
-.close-cart {
-  font-size: 1.7rem;
-  cursor: pointer;
-}
-.cart h2 {
-  text-transform: capitalize;
-  text-align: center;
-  letter-spacing: var(--mainSpacing);
-  margin-bottom: 2rem;
-}
-
-/*---------- Cart Item -------------------- */
-.cart-item {
-  display: grid;
-  align-items: center;
-  grid-template-columns: auto 1fr auto;
-  grid-column-gap: 1.5rem;
-  margin: 1.5rem 0;
-}
-.cart-item img {
-  width: 75px;
-  height: 75px;
-}
-.cart-item h4 {
-  font-size: 0.85rem;
-  text-transform: capitalize;
-  letter-spacing: var(--mainSpacing);
-}
-.cart-item h5 {
-  margin: 0.5rem 0;
-  letter-spacing: var(--mainSpacing);
-}
-.item-amount {
-  text-align: center;
-}
-.remove-item {
-  color: grey;
-  cursor: pointer;
-}
-.fa-chevron-up,
-.fa-chevron-down {
-  color: var(--primaryColor);
-  cursor: pointer;
-}
-/*---------- End of Cart Item -------------------- */
-
-.cart-footer {
-  margin-top: 2rem;
-  letter-spacing: var(--mainSpacing);
-  text-align: center;
-}
-.cart-footer h3 {
-  text-transform: capitalize;
-  margin-bottom: 1rem;
-}
-
-/* --------------- End of Cart ---------------- */
+  
+  *:focus {
+      outline: none;
+  }
+  body {
+  font-family: Arial;
+  background-color: #64f06b;
+  padding: 50px;
+  background-image: url("../image/nganatech.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin:0;
+  }
+  /* 
+  #singleProperty{
+    
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    margin-left: 350px;
+    display: block;
+    
+  } */
+  
+  #singleProperty{
+    display: flex;
+    grid-template-columns: 2 ;
+    margin-top: 0px;
+    margin-bottom: 40px;
+    padding: 20px;
+   
+   background-color:#ffffff5c;
+   
+  }
+  
+  .property_container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center; 
+    width: 100%;
+    
+    
+  }
+  .related_properties{
+   background-color: rgba(255, 255, 255, 0.096);
+   display: flex;
+  }
+  
+  .header_related{
+    background-color: white;
+  }
+  
+  .single-img-created{
+    margin: 20px;
+    border-radius: 5px;
+  }
+  
+  .imgCreated{
+    width: 150px;
+    width: 100px;
+  }
+  
+  
+  
+  .btn_addCart { 
+    background: rgba(49, 228, 88, 0.671);
+    color: #ffffff;   
+    margin-top: 20px ;
+  }
+  .btn_addCart i{
+    margin-right: 10px;
+  }
+  
+  
+  
+  /* 
+  ..................................................................................... */
+  
+  /* Style the tab */
+  .tab {
+    display: flex;
+    flex-direction: column; 
+    border: 1px solid #5ec1f0;;
+    float: right;
+    background-color: #f1f1f1;
+    margin-top: 20px;
+    margin-right: 70px;
+    width: 20%;
+    height: 300px;
+    padding-top:30px;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #64f06b;
+    color: white;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #64f06b;
+    color: white;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px; 
+    border-top: none;
+  }
+  
+  /* 
+  for comments */
+  
+  .submitBtn_comments{
+    display: block; 
+    margin-top: 20px;
+    padding: 7px;
+    width:50%;
+    text-align: center;  
+    background-color:var(--greenBackground);
+    color: white;
+  }
+  /* .add_comments{
+   
+  } */
+  
+  #comments{
+    display: block;
+    width: 300px;
+    height: 150px;
+    
+  }
+  
+  .display_error_comment{
+    color: red;
+  }
+  
+  .btn-delete{
+    background-color: red;
+  }
+  .comment_details{
+    display: flex;
+    flex-direction: column;
+    margin: 5px
+  }
+  
+  .posted_by{
+  color: white;
+  }
+  
+  .date_posted{
+    color: black;
+  }
+  /* 
+  for hidding delete comment or uncomment */
+  .hide{
+    display: none;
+  }
+  
+    
+  /* --------------- Cart ---------------- */
+  .cart-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transition: var(--mainTransition);
+    background: rgb(240, 157, 81, 0.5);
+    z-index: 2;
+    visibility: hidden;
+  }
+  .cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    z-index: 3;
+    background: rgb(231, 226, 221);
+    padding: 1.5rem;
+    transition: var(--mainTransition);
+    transform: translateX(100%);
+  }
+  .showCart {
+    transform: translateX(0);
+  }
+  .transparentBcg {
+    visibility: visible;
+  }
+  @media screen and (min-width: 768px) {
+    .cart {
+      width: 30vw;
+      min-width: 450px;
+    }
+  }
+  
+  .close-cart {
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
+  .cart h2 {
+    text-transform: capitalize;
+    text-align: center;
+    letter-spacing: var(--mainSpacing);
+    margin-bottom: 2rem;
+  }
+  
+  /*---------- Cart Item -------------------- */
+  .cart-item {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr auto;
+    grid-column-gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .cart-item img {
+    width: 75px;
+    height: 75px;
+  }
+  .cart-item h4 {
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    letter-spacing: var(--mainSpacing);
+  }
+  .cart-item h5 {
+    margin: 0.5rem 0;
+    letter-spacing: var(--mainSpacing);
+  }
+  .item-amount {
+    text-align: center;
+  }
+  .remove-item {
+    color: grey;
+    cursor: pointer;
+  }
+  .fa-chevron-up,
+  .fa-chevron-down {
+    color: var(--primaryColor);
+    cursor: pointer;
+  }
+  /*---------- End of Cart Item -------------------- */
+  
+  .cart-footer {
+    margin-top: 2rem;
+    letter-spacing: var(--mainSpacing);
+    text-align: center;
+  }
+  .cart-footer h3 {
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+  }
+  
+  /* --------------- End of Cart ---------------- */

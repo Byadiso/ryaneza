@@ -28,9 +28,7 @@
 
     </head>
     <body>
-        <!-- <a class="sell" href="http://localhost:3000/public/pages/property.html"
-            ><img src="../image/header.png" height="80px" width="200px"
-        /></a> -->
+        
 
         <div class="topnav">
            <a href="property.html"
@@ -66,12 +64,17 @@
             />
         </div>  
     
+    <div class="payment_message hide">
+         <p> Your payment was successfull ,Thank you for shopping with us</p>                            
+    </div>
+
 
     <form method="post" asp-action="Index" id="payment-form">
         <div class="wrapper">
             <div class="checkout container">
                 <header>
                     <div class="ckeckout"> 
+                        
                         <div id="#checkout-message"></div>
                         <h2>Your Cart summary</h2>
                         <h3>Total: <span class="total_to_pay" id="nonce"> 0</span>FRW</h3>

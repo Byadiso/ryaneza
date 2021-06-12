@@ -28,13 +28,13 @@ function displayCart(){
                     
                     elements.innerHTML= `
                             <div class="product_in_cart_container" data-id="${_id}">
-                                <div class="product_in_cart_image">
-                                    <img src=${photoUrl} class="imgCreated" style="width: 50px; height: 50px;">
+                                <div class="product_in_cart_image image_fruit">
+                                    <img src=${photoUrl} class="imgCreated" style="width: 100px; height: 100px;">
                                 </div>
-                                <div class="product_in_cart_name">
+                                <div class="product_in_cart_name name_fruit">
                                     <span>${name}</span>
                                 </div>
-                                <div class="product_in_cart_price">
+                                <div class="product_in_cart_price price_fruit">
                                     <span>${price}</span>
                                 </div> 
                                 <div class="removeToCart_container" data-id="${_id}">

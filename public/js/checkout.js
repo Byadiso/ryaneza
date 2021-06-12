@@ -4,9 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let checkoutDisplay = document.querySelector('.ckeckout_container');  
     let payBtn = document.querySelector('.pay_button'); 
     let total_to_pay = document.querySelector('.total_to_pay'); 
+    let cartIn = document.querySelector('.cart-items');
     
     let products = JSON.parse(localStorage.getItem('cart'));
-    let address = document.querySelector('#address_delivery');     
+    let address = document.querySelector('#address_delivery'); 
+    let payment_message = document.querySelector('.payment_message');   
+    let paymentform = document.querySelector('.wrapper') ;
+
     let deliveryAddress
     
 
@@ -74,7 +78,11 @@ const payBill = (nonce) => {
 
                     createOrder(userId, token, createOrderData)
                         .then(response => {
-                            console.log(response)
+                            console.log(response);
+                            // payment_sucess
+                            payment_message.classList.remove('hide'); 
+                            paymentform.classList.add('hide');
+                            resetCart();
                         })
                         .catch(error => {
                             console.log(error);                         
@@ -151,5 +159,28 @@ const getBraintreeClientToken = (userId, token) => {
 };
 
 displayDropIn();
+
+function resetCart(){
+
+    // cart logic
+    let emptyCart = 0 
+  
+    if (typeof window !== 'undefined') {
+        if (localStorage.getItem('cart')) { 
+
+        //remove thing in cart after buying them 
+            localStorage.removeItem('cart');
+            if( localStorage.removeItem('cart')){
+                cartIn.textContent = emptyCart;
+
+            }
+            
+           
+
+
+        }
+    }
+}
+
  
 })

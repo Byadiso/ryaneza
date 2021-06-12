@@ -135,6 +135,7 @@ margin: 2px;
 padding: 10px 0;
 width: 300px;
 transition: border .5s;
+color:var(--greyText);
 }
 
 input:focus {
@@ -291,14 +292,13 @@ for cart */
   }
 
   .submitBtn{
-    margin-left: 150px;
+    margin-left: 90px;
     margin-bottom:  var(--spacing);
     padding: 7px;
     display: block;
     text-align: center;
     align-items: center;
-    float: left;
-    background-color: #2980B9;
+    background-color: var(--greenBackground);
     color: white;
   }
 /* 
