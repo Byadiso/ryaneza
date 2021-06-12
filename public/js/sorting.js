@@ -58,7 +58,7 @@ function renderPropertyBySell(data){
         content_by_sell.innerHTML = 
        
          `<div class="image_fruit">
-                 <img scr=http://localhost:3000/api/v1/property/photo/${_id} class="imgCreated" style="width: 100px; height: 50px;">
+                 <img src=http://localhost:3000/api/v1/property/photo/${_id} class="imgCreated" style="width: 100px; height: 50px;">
          </div>
             
             <p class="name_fruit"><strong> ${name} </strong></p> 
@@ -110,8 +110,8 @@ function renderPropertyByArrival(data){
 
         content_by_arrival.innerHTML = 
          `
-         <div  class="name_fruit">
-            <img scr=http://localhost:3000/api/v1/property/photo/${_id} class="imgCreated" style="width: 100px; height: 50px;">
+         <div  class="image_fruit">
+            <img src=http://localhost:3000/api/v1/property/photo/${_id} class="imgCreated" style="width: 100px; height: 50px;">
             
          </div>
             

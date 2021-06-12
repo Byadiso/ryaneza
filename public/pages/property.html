@@ -92,7 +92,7 @@
             -->
     <h2 id="header-text">ALL FRUITS AND VEGETABLE AVAILABLE ON OUR MARKET</h2>
     
-    <div class="main_properties">
+    <div class="main_properties hide">
 
         <div id="myProperties"></div>
         <div id="forSingleElement"></div>
@@ -136,8 +136,24 @@
             let cart = document.querySelectorAll(".cart-items")[0];
             cart.textContent = storedInCarrt.length
         }
-
     }
+
+        // removeing the loading 
+     
+       
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+        //the event occurred
+         const main_container = document.querySelector(".main_properties");
+         const loadingSpinner = document.querySelector('#loader');
+         
+         main_container.classList.remove('hide');
+        loadingSpinner.classList.add('hide');
+              
+
+        })
+
+   
        
 
     </script>

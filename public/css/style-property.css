@@ -670,6 +670,12 @@
   
   }
 
+  .manager_purchase_history_item:last-of-type{
+    border-bottom:none;
+  }
+
+
+
 
 
 #create_category_form{
@@ -829,7 +835,11 @@
     
     .image_fruit {
     background-color:white;    
-    border-radius:20px;  
+    border-radius:20px;
+    padding-left:20px; 
+    align-items:center;
+    justify-content:center;
+    display:flex; 
       
   } 
   /* 
@@ -911,14 +921,24 @@
   
   
   ....................................................... */
+
+   #loader-wrapper{
+     justify-content:center;
+    display:flex;
+    align-items:center;
+  }
+  
   #loader {
+   
     border: 5px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 5px solid #444444;
-    width: 40px;
-    height: 40px;
+    border-top: 5px solid var(--greenBackground);
+    width: 80px;
+    height: 80px;
     animation: spin 1s linear infinite;
   }
+
+ 
   
   @keyframes spin {
     100% {
