@@ -291,10 +291,11 @@ function renderUsersPurchaseHistory(data){
    user_container_purchase_history.innerHTML =         
    `    
    <div>
-        <h2 id="order_title">Order ${_id} </h2>
+        <h3 id="order_title">Order ${_id} </h3>
         <p id="amount"><strong>Paid amount:</strong> ${amount} RWF </p>
         <p id="name"><strong>Client name:</strong> ${user.name + " "} </p>
         <p id="products"><strong>Items:</strong> ${products.length}</p>
+        <p id="products"><strong>Product bought:</strong> ${listProducts(products)}</p>
         
         <p id="address"><strong>Deliverying address:</strong> ${address} </p>
         <p id="status"><strong>status:</strong> ${status} </p>
@@ -303,14 +304,22 @@ function renderUsersPurchaseHistory(data){
        <p id="time_joined"><strong>Purchased:</strong> ${timestamp}</p> 
    </div>     
      `
-     
-     
+  
+  
      purchaseHistory.appendChild(user_container_purchase_history);
 
          
      }
  }
 
+// return function products ater fetching them 
+function listProducts(products){
+  let prodList=[] ;
+  
+  products.forEach(product =>prodList.push(product.name )) ;
+  
+  return prodList
+}
 
 
 

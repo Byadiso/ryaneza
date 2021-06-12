@@ -66,10 +66,10 @@ signupBtn.onmouseover = () => {
 signupBtn.onclick = (e) => {
   e.preventDefault();
   if (emailErr.innerHTML !== '' || passwordErr.innerHTML !== '' || password2Err.innerHTML !== '') {
-    emailErr.innerHTML = 'Please correct the errors in red below';
+    emailErr.innerHTML = '*Please correct errors in red below!!';
   }  else if (password.value === ''|| email.value === '' ){
 
-    emailErr.innerHTML = 'plz enter the required field ';
+    emailErr.innerHTML = '*Please enter all field!!';
   }
   else {   
   fetch('http://localhost:3000/api/v1/signup', {
@@ -87,11 +87,10 @@ signupBtn.onclick = (e) => {
         .then((user) => {  
               console.log(user);    
               if (user.status == true) {
-                // window.location.href = '../pages/user.html';
-                // let userLogged =  localStorage.setItem('user',JSON.stringify(user)); 
+               
                 SignupForm.innerHTML = `<p>Hey, <span class="registered_name"><strong>${user.user.name}</strong></span> Your account has been created successfull!</p>
                 <p><a href="./login.html">Please login !</a></p>`;
-                header_signUp.innerHTML = "Account created";
+                header_signUp.innerHTML = "Account Created";
                 header_signUp.classList.add('success');            
                 } 
                 if(user.status == false){
