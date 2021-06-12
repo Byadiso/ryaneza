@@ -93,6 +93,9 @@ font-weight: 200;
 .login {
 margin: var(--spacing) auto;
 width: 400px;
+background-color:white;
+padding:20px;
+border-radius:20px;
 }
 .login-screen {
 background-color: #FFF;
@@ -172,6 +175,11 @@ box-shadow: none;
   color: white;
 }
 
+.register_container{
+  background-color:#ffffff8f;
+  margin-top:-20px;
+  padding:40px
+}
 
 .login-link {
   font-size: 12px;
@@ -212,6 +220,12 @@ box-shadow: none;
 .word_below_in_login_register{
   color: var(--greyText);
   
+}
+
+.login_container{
+  background-color:#ffffff8f;
+  margin-top:-18px;
+  padding:20px;
 }
 
 .admin_confirm{

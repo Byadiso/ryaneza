@@ -160,7 +160,7 @@ border-radius: 3px;
 font-size: 16px;
 font-weight: 200;
 padding: 10px 0;
-width: 250px;
+width: 40px;
 transition: border .5s;
 }
 
@@ -572,4 +572,27 @@ img {
   color: white;
   margin-top:50px;
   text-shadow: var(--greenBackgroundLight);
+}
+
+
+.home_container{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex:1;
+	background-color:#ffffff8f;
+	padding:50px;
+	/* margin:var(--spacing); */
+	width: 100%;
+}
+
+.home_item welcome_slide{
+	width: 100px;
+}
+
+
+.home_item login{
+	width: 100px;
+	display:flex;
+	flex-direction:column;
 }

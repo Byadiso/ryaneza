@@ -31,60 +31,59 @@
   <div >
     <img  id="banner" src="../image/banner.png" height="20%" width="100%">
   </div>
+<div class="register_container">
+      <div class="login">
+        <div class="login-screen">
+          <div class="login_title">
+            <h1 id="header_signUp">Create an account</h1>
+          </div>
+      
 
-  <div class="login">
-    <div class="login-screen">
-      <div class="login_title">
-        <h1 id="header_signUp">Create an account</h1>
-      </div>
-      <!-- i want to make a background full the space near the form -->
-      <!-- <div class="welcome_page">Here the full width </div>  --> 
+          <div class="login-form" id="signUpForm">
+          
+                  <form id="sign_up" class="control-group">
+                    <div id="passwordErr"></div>
+                    <div id="password2Err"></div>
+                    <div id="emailErr" ></div>
+                  
+                    <input type="text" class="login-field" placeholder="Email" name="email" id="email">
 
-      <div class="login-form" id="signUpForm">
-       
-              <form id="sign_up" class="control-group">
-                <div id="passwordErr"></div>
-                <div id="password2Err"></div>
-                <div id="emailErr" ></div>
-              
-                <input type="text" class="login-field" placeholder="Email" name="email" id="email">
-
-                <!-- <input type="text" class="login-field"  placeholder="Name"  name="firstname"
-                  id="firstname"> -->
-                  <input type="text" class="login-field"  placeholder="Name"  name="name"
-                  id="name">
-                <!-- <input type="text" class="login-field"  placeholder="Second name"  name="lastname"
-                  id="lastname"> -->
-                
-                <input type="password" class="login-field"  placeholder="set passsword" 
-                  name="password" id="password">
-                
-                  <input type="password" class="login-field"  placeholder="Confirm passsword" 
-                  name="password2" id="password2">
-                 
-                     <p class="word_below_in_login_register"> Are you admin?<p>
-                  <div class="admin_confirm">
-                    <input type="radio" id="radio-six" name="notaswitch-one" value="yes" checked />
-                    <label for="radio-six">No</label>
-                    <input type="radio" id="radio-seven" name="notaswitch-one" value="maybe" />
-                    <label for="radio-seven">Yes</label>
-
-                  </div>
-                   
-                    <br>
-                
+                    <!-- <input type="text" class="login-field"  placeholder="Name"  name="firstname"
+                      id="firstname"> -->
+                      <input type="text" class="login-field"  placeholder="Name"  name="name"
+                      id="name">
+                    <!-- <input type="text" class="login-field"  placeholder="Second name"  name="lastname"
+                      id="lastname"> -->
                     
-                    <button id="signupBtn" type="button" class="btn btn_register">Create Account</button>
-                    <p><span class="need_account_text">Already have an account ?</span><a class="login-link btn btn_login" href="./login.html">Log In</a></p>
-              </form>
+                    <input type="password" class="login-field"  placeholder="set passsword" 
+                      name="password" id="password">
+                    
+                      <input type="password" class="login-field"  placeholder="Confirm passsword" 
+                      name="password2" id="password2">
+                    
+                        <p class="word_below_in_login_register"> Are you admin?<p>
+                      <div class="admin_confirm">
+                        <input type="radio" id="radio-six" name="notaswitch-one" value="yes" checked />
+                        <label for="radio-six">No</label>
+                        <input type="radio" id="radio-seven" name="notaswitch-one" value="maybe" />
+                        <label for="radio-seven">Yes</label>
+
+                      </div>
+                      
+                        <br>
+                    
+                        
+                        <button id="signupBtn" type="button" class="btn btn_register">Create Account</button>
+                        <p><span class="need_account_text">Already have an account ?</span><a class="login-link btn btn_login" href="./login.html">Log In</a></p>
+                  </form>
+              </div>
+                <div id="succes_message" class="login-form" >
+              
+              </div>
           </div>
-          <div id="succes_message" class="login-form" >
-            <!-- <p>Hey, <span class="registered_name"></span> Your account has been created successfull!</p>
-            <p>Please <a href="./login.html">login</a></p> -->
-          </div>
-      </div>
-     </div>
-  </div>
+        </div>
+   </div>
+  
 
       <!-- footer section -->
 

@@ -3,6 +3,7 @@
 <head>
  <meta name="viewport" content="width=device-width, initial-scale=1">
          <link rel="stylesheet" type="text/css" href="./css/style.css">
+         <link rel="stylesheet" type="text/css" href="./css/style-signup-signin-sell.css">
          <title> PropertyPro LITE</title>
          <link rel="icon" type="image/ico" href="./image/bar-icon.png" />
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,73 +18,127 @@
 
   
    <a class="active" href="./index.html"><strong>HOME</strong></a>
+<!-- 
+   i dont login menu and sign menu here -->
 
-  
+        <!--    
+        <div class="login-container">
+            <form action="post">
 
-   
-<div class="login-container">
-    <form action="post">
+             <a  class="register" href="./pages/login.html">Sign In </a> -->
+            <!-- <a  href="./pages/sign_up.html">Sign up</a> -->
+            <!-- </form> -->
+        <!-- </div> -->
+        
 
-      <a  class="register" href="./pages/login.html">Sign In </a>
-      <a  href="./pages/sign_up.html">Sign up</a>
-    </form>
-  </div>
 </div>
 
 
-<div >
+<div class="banne_image">
       <img  id="banner" src="./image/banner.png" height="20%" width="100%">
 </div>
 
-<div class="welcome">
-    <h1 class="welcome-words">Welcome to RyaNeza!</h1><br>
-    <!-- <h2><i>"We give the comfort you deserve"</i></h2> -->
+<div class="home_container">
+    <div class="home_item welcome_slide">
+                    
+            <div class="welcome">
+                <h1 class="welcome-words">Welcome to RyaNeza!</h1><br>    
+                
+            </div>
+
+
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 6</div>
+                    <img src="./image/fruit1.png" style="width:100%">
+                    <div class="text">Eat healthy Eat fruits!</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 6</div>
+                    <img src="./image/fruit2.png" style="width:100%">
+                    <div class="text">Eat healthy Eat fruits!</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 6</div>
+                    <img src="./image/fruit3.png" style="width:100%">
+                    <div class="text">Eat healthy Eat fruits!</div>
+                </div>          
+                <div class="mySlides fade">
+                    <div class="numbertext">4 / 6</div>
+                    <img src="./image/fruit4.png" style="width:100%">
+                    <div class="text">Eat healthy Eat fruits!</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">5 / 6</div>
+                    <img src="./image/fruit5.png" style="width:100%">
+                    <div class="text">Eat healthy Eat fruits!</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">6 / 6</div>
+                    <img src="./image/fruit6.png" style="width:100%">
+                    <div class="text">Eat healthy Eat fruits!</div>
+                </div>
+            </div>
+            <br>
+            <div style="text-align:center">
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+            </div>
+
+    </div>
+    <div class="home_item login">
+
+
+        <div class="login">
+            <div class="login-screen">
+                <div class="login_title">
+                    <h1 >Login</h1>
+                </div>
     
+    
+                <!-- <form action="/api/v1/login" method="POST" id="formLogin"> -->
+                <form id="formLogin">
+                 
+                   <div class="login-form">
+                    <div id="password2Err"></div>
+                      <div id="usernameErr"></div>
+                        <div class="control-group">
+                          <input type="text" class="login-field"  placeholder="Email" name="email" id="email">
+                         
+                         </div>
+                    <div id="emailErr"></div>
+                    <div class="control-group">
+                       <input type="password" class="login-field" placeholder="Password" name="password"  id="password">
+                    </div>
+                    <div id="passwordErr"></div>
+                    
+                    <div class="word_below_in_login_register"><input type="checkbox" id="checkbox" onclick="togglePassword()" >Show Password</div>
+                       
+    
+                  
+                   <div id="incorrectServer"> </div>
+                    
+                </form>
+                <button id="loginBtn" class="btn btn_login" >login</button>
+               
+                    <a class="login-link word_below_in_login_register" href="#">Forgot your password?</a> <p><span class="need_account_text">or need an account,</span><a class="login-link btn btn_register" href="../public/pages/sign_up.html    ">Register Now</a></p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
 </div>
 
-<div class="slideshow-container">
 
-    <div class="mySlides fade">
-        <div class="numbertext">1 / 6</div>
-        <img src="./image/fruit1.png" style="width:100%">
-        <div class="text">Eat healthy Eat fruits!</div>
-    </div>
-    <div class="mySlides fade">
-        <div class="numbertext">2 / 6</div>
-        <img src="./image/fruit2.png" style="width:100%">
-        <div class="text">Eat healthy Eat fruits!</div>
-    </div>
-    <div class="mySlides fade">
-        <div class="numbertext">3 / 6</div>
-        <img src="./image/fruit3.png" style="width:100%">
-        <div class="text">Eat healthy Eat fruits!</div>
-    </div>          
-    <div class="mySlides fade">
-        <div class="numbertext">4 / 6</div>
-        <img src="./image/fruit4.png" style="width:100%">
-        <div class="text">Eat healthy Eat fruits!</div>
-    </div>
-
-    <div class="mySlides fade">
-        <div class="numbertext">5 / 6</div>
-        <img src="./image/fruit5.png" style="width:100%">
-        <div class="text">Eat healthy Eat fruits!</div>
-    </div>
-    <div class="mySlides fade">
-        <div class="numbertext">6 / 6</div>
-        <img src="./image/fruit6.png" style="width:100%">
-        <div class="text">Eat healthy Eat fruits!</div>
-    </div>
-</div>
-<br>
-<div style="text-align:center">
-<span class="dot"></span> 
-<span class="dot"></span> 
-<span class="dot"></span> 
-<span class="dot"></span> 
-<span class="dot"></span> 
-<span class="dot"></span> 
-</div>
 
 
 <div id="footer">
@@ -128,6 +183,9 @@
 
 
 </script>
+<script src="../js/login.js"></script>
+
+
 </html>
 
 
