@@ -90,13 +90,7 @@ font-weight: 200;
 }
 
 
-.login {
-margin: var(--spacing) auto;
-width: 400px;
-background-color:white;
-padding:20px;
-border-radius:20px;
-}
+.login {margin: var(--spacing) auto;width: 400px;background-color:white;/* padding:20px; */border-radius:20px;}
 .login-screen {
 background-color: #FFF;
 padding-bottom: 70px;
