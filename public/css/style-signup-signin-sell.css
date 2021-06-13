@@ -100,6 +100,7 @@ height: auto%;
 }
 
 .login_title {
+  padding-top:20px;
 text-align: center;
 color: var(--greenBackground);
 font-size: 15px;
@@ -113,6 +114,8 @@ font-size: 15px;
 }
 .login-form {
 text-align: center;
+padding-bottom:20px;
+
 }
 .control-group {
 margin-bottom: 10px;
