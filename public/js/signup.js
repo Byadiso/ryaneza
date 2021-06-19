@@ -5,6 +5,9 @@ const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 const SignupForm = document.getElementById('signUpForm');
 const header_signUp = document.getElementById('header_signUp');
+const signupBtn = document.getElementById('signupBtn');
+
+
 
 
 
@@ -21,6 +24,22 @@ const errorDisplay = document.querySelector('div#error');
  * @returns {string} true or error messages
  */
 // Adapted from https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
+// function isValidPassword(value) {
+//   if (!/[a-z]/.test(value)) {
+//     return 'Your password must contain at least one lowercase letter';
+//   } if (!/[A-Z]/.test(value)) {
+//     return 'Your password must contain at least one uppercase letter';
+//   } if (!/\d/.test(value)) {
+//     return 'Your password must contain at least one number';
+//   } if (!/[@$!%*?&]/.test(value)) {
+//     return 'Your password must contain at least one of these special characters: @, $, !, %, *, ?, &';
+//   } if (value.length < 6) {
+//     return 'Your password must be composed of at least 6 characters';
+//   }
+//   return 'true';
+// }
+
+
 function isValidPassword(value) {
   if (!/[a-z]/.test(value)) {
     return 'Your password must contain at least one lowercase letter';
@@ -28,13 +47,15 @@ function isValidPassword(value) {
     return 'Your password must contain at least one uppercase letter';
   } if (!/\d/.test(value)) {
     return 'Your password must contain at least one number';
-  } if (!/[@$!%*?&]/.test(value)) {
-    return 'Your password must contain at least one of these special characters: @, $, !, %, *, ?, &';
   } if (value.length < 6) {
     return 'Your password must be composed of at least 6 characters';
   }
   return 'true';
 }
+
+
+
+
 
 // name.onchange = () => {
 //   password2Err.innerHTML = '';
@@ -43,19 +64,19 @@ function isValidPassword(value) {
 email.onchange = () => {
   emailErr.innerHTML = /\S+@\S+\.\S+/.test(email.value) ? '' : 'Please enter a valid email';  
 //   usernameErr.innerHTML = '';
-  password2Err.innerHTML = '';
+passwordErr.innerHTML = '';
 };
 
 password.onchange = () => {
   passwordErr.innerHTML = isValidPassword(password.value) === 'true' ? '' : isValidPassword(password.value);
-  password2Err.innerHTML = password2.value === password.value ? '' : 'Passwords don\'t match';
+  passwordErr.innerHTML = password2.value === password.value ? '' : 'Passwords don\'t match';
 };
 password2.oninput = () => {
-  password2Err.innerHTML = password2.value === password.value ? '' : 'Passwords don\'t match';
+  passwordErr.innerHTML = password2.value === password.value ? '' : 'Passwords don\'t match';
 };
 
 signupBtn.onmouseover = () => {
-  if (emailErr.innerHTML !== '' || passwordErr.innerHTML !== '' || password2Err.innerHTML !== '') {
+  if (emailErr.innerHTML !== '' || passwordErr.innerHTML !== '' || passwordErr.innerHTML !== '') {
     signupBtn.style.opacity = 0.6;
   } else {
     signupBtn.style.opacity = 1;
@@ -65,7 +86,7 @@ signupBtn.onmouseover = () => {
 
 signupBtn.onclick = (e) => {
   e.preventDefault();
-  if (emailErr.innerHTML !== '' || passwordErr.innerHTML !== '' || password2Err.innerHTML !== '') {
+  if (emailErr.innerHTML !== '' || passwordErr.innerHTML !== '' || passwordErr.innerHTML !== '') {
     emailErr.innerHTML = '*Please correct errors in red below!!';
   }  else if (password.value === ''|| email.value === '' ){
 
@@ -94,7 +115,7 @@ signupBtn.onclick = (e) => {
                 header_signUp.classList.add('success');            
                 } 
                 if(user.status == false){
-                  password2Err.innerHTML = user.message          
+                  passwordErr.innerHTML = user.message          
                 }  
          }).catch((err) => {
                 errorDisplay.innerHTML = err.message;

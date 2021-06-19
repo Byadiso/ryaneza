@@ -2,8 +2,8 @@
     import crypto from 'crypto';
     const {ObjectId } = mongoose.Schema;
     // const uuidv1 = require('uuid/v1');
-    const { v1: uuidv1 } = require('uuid');
-    const { strict } = require('assert');
+    import  uuidv1 from 'uuid';
+    // const { strict } = require('assert');
 
     const userSchema = new mongoose.Schema({
         name:{
@@ -16,7 +16,7 @@
             type:String,
             trim:true,
             required:true,
-            unique: true
+            // unique: true
         },
         hashed_password:{
             type:String,

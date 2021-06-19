@@ -10,6 +10,6 @@ router.post('/v1/signup', userSignupValidator , signup);
 router.post('/v1/login', signin);
 router.get('/v1/signout', signout);
 
-http://localhost:3000/api/v1/login
+
 
 module.exports = router;

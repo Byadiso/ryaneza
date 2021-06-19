@@ -9,17 +9,28 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const admin= document.querySelector('.admin_details');
     const allUser = document.querySelector('.all_user');
     const purchaseHistory = document.querySelector('.manager_purchase_history');
+    
+    let userIdStored = JSON.parse(localStorage.getItem('user'));
+    let id = userIdStored.user._id
+    let token = userIdStored.token
+    
 
     const for_admin_only = document.querySelector('.for_admin_only');  
-    
+
+    //For history purchase for admin or seller purpose he has to get all purchase products
+
+    const purchase_history_button = document.querySelector('#purchase_history_button');
+    let user = userIdStored.user
   
-   
-   let userIdStored = JSON.parse(localStorage.getItem('user'));
-   let id = userIdStored.user._id
-   let token = userIdStored.token
-   console.log(userIdStored);
-   console.log(token);
-   console.log(id);
+    let isAdmin;  
+    let url;
+
+   //check if is admin   
+    isAdmin = user.role && user.role ==1  
+
+    //show button according to the user viewing them 
+    isAdmin ? purchase_history_button.textContent= "All purchase history" : purchase_history_button.textContent="My purchase history"
+    
   
     // for fetching user detail
      const  fetchingUser = ( () => {
@@ -38,7 +49,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
    }); 
      
    function renderUser(user){
-     console.log(user);
+    
 
     //fro user details 
    const userHeader = document.querySelector('.all_admin_header');
@@ -133,7 +144,7 @@ admin.append(userContainer);
       delBtns.forEach(btn => {
         btn.addEventListener('click',(e)=>{
           let propId = e.target.parentElement.dataset.id;
-          console.log('soon i am going to delete you enemy ' + propId);
+          console.log('soon i am going to delete you friend ' + propId);
 
           // checking for deletion later
 
@@ -223,7 +234,7 @@ const  fetchAllUsers = ( () => {
   //  console.log(properties)
     for ( var i= 0; i < users.length; i++ ){ 
       
-      let {_id,name,role,createdAt, following, followers} = users[i];
+      let {_id,name,role,createdAt } = users[i];
   
       let user_container_manager = document.createElement('div');
        user_container_manager.classList.add('dashboard_manager');
@@ -233,14 +244,14 @@ const  fetchAllUsers = ( () => {
        user_container_manager.innerHTML = 
          
     `    
-    <div>
+    <div data-id="${_id}">
          <p id="name"><strong>Name:</strong> ${name + " "} </p>
          <p id="role"><strong>${" "} Role:</strong> ${role == 1 ? role ="Admin" : role ="Normal"}</p>            
         <p id="time_joined"><strong>Joined:</strong> ${timestamp}</p> 
     </div>
         
       `
-      // console.log(user_container_manager)
+      
       
       allUser.appendChild(user_container_manager);
       
@@ -256,8 +267,18 @@ const  fetchAllUsers = ( () => {
 // show user purchase history
 
 const  fetchAllUsersPurchaseHistory = ( () => {
-  let userId= id
-  fetch( `http://localhost:3000/api/order/list/${userId}`,
+  let userId= id;
+  
+  // fetch all order  if regular user show purchase history
+
+  if(isAdmin){
+    url =`http://localhost:3000/api/order/list/${userId}`;
+   } else {
+    url= `http://localhost:3000/api/v1/orders/by/user/${userId}`;
+  }
+  
+
+  fetch(url ,
   {
     method: 'GET',
     headers: {
@@ -272,19 +293,21 @@ const  fetchAllUsersPurchaseHistory = ( () => {
 });
 
 function renderUsersPurchaseHistory(data){
-  console.log(data)
+  if (data == null) return purchaseHistory.innerHTML = `<div> <h2>Nothing to show</h2></div>` ;
   
   const headerUser =document.querySelector('.purchase_history_header');
   headerUser.textContent = data.length;
- //  console.log(properties)
+ 
    for ( var i= 0; i < data.length; i++ ){ 
+
+   
      
      let {_id,address,amount,products,status,transaction_id,user,createdAt} = data[i];
  
      let user_container_purchase_history = document.createElement('div');
      user_container_purchase_history.classList.add('manager_purchase_history_item');
       var timestamp= timeDifference(new Date(), new Date(createdAt));
-   //    let photoUrl = `http://localhost:3000/api/v1/user/photo/${_id}`
+  
 
    
   
