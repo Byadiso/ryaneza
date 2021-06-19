@@ -9,7 +9,7 @@
         "start": "nodemon --exec babel-node server.js",
         "coveralls": "nyc report --reporter=text-lcov | coveralls",
         "dev": "node server.j -e js,html",
-        "Dev":"node --exec babel-node server.js",
+        "Dev": "node --exec babel-node server.js",
         "heroku-postbuild": "npm run build"
     },
     "author": "",
@@ -44,7 +44,6 @@
         "morgan": "^1.10.0",
         "multer": "^1.4.2",
         "multer-storage-cloudinary": "^4.0.0",
-        "nodemon": "^1.19.1",
         "nunjucks": "^3.2.0",
         "password-hash": "^1.2.2",
         "path": "^0.12.7",
@@ -66,6 +65,7 @@
         "joi": "^14.3.1",
         "mocha": "^6.1.4",
         "mocha-lcov-reporter": "^1.3.0",
+        "nodemon": "^2.0.7",
         "nyc": "^14.1.1"
     }
 }
