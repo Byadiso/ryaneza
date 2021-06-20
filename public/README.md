@@ -1,1 +1,1 @@
-# Property Pro Lite is a platform where people can create and/or search properties for sale or rent.
+# Ryaneza is a platform where people can and/or search and buy fruits and vegetables.

@@ -17,7 +17,7 @@
 
 # PROJECT OVERVIEW
 
-**ryaneza** is a platform where people can search fruits and vegetables for buying or get a delivery at door. It was built from using javascritpt, node, HTML , CSS.
+**ryaneza** is a platform where people can search fruits and vegetables and buy them or get a delivery at door. It was built from using javascritpt, node, HTML , CSS.
 
 -   The user interface link : https://byadiso.github.io/ryaneza/
 -   Live app is hosted on heroku : https://ryaneza.herokuapp.com
@@ -34,6 +34,7 @@
 -   user can do simple payment
 -   user can modify or mark his fruit or vegetable as bought
 -   user can view purchase history
+-   admin can view purchase history of all products(vegetables and fruits)
 -   user can return bad good (fruits or vegetables)
 
 # DEMO
@@ -63,6 +64,10 @@
 -   POST/api/v1/property _Create proeprty_
 -   PUT/api/v1/property _Update property_
 -   DELETE/api/v1/property _Delete Property_
+-   PUT/api/v1/property/comment _Comment on Property_
+-   POST/api/v1/create/order _Create Order_
+-   GET/api/orders/list/:userId _View all Orders_
+-   GET/api/v1/order/:userId _View purchase Products_
 
 -   POST/api/v1/auth/signup _User to signup_
 -   POST/api/v1/auth/signin _User to signin_
@@ -72,6 +77,8 @@
 Everything work perfect , However :
 
 -   I am still improving styling css
+
+-   I am still work on heroku hosting
 
 # Installation
 
