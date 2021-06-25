@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
    //creating property here is for admin only so this menu for creating property will have hide class
 
-  user.role == 0 ? for_admin_only.textContent ='You are not admin to post' : for_admin_only.textContent ='Plz admin you can post';
+  user.role == 1 ? for_admin_only.classList.remove("hide") : for_admin_only.classList.add("hide");
   // for_admin_only.textContent = 'yese'
 
    const userContainer = document.createElement('div');

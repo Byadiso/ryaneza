@@ -29,7 +29,7 @@
 -   user can view
 -   user can view specific fruit or vegetable
 -   user can view user fruit or vegetable
--   user admin can delete his fruit or vegetable
+-   admin can delete his fruit or vegetable
 -   user can add property to the cart
 -   user can do simple payment
 -   user can modify or mark his fruit or vegetable as bought
