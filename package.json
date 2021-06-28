@@ -10,7 +10,7 @@
         "coveralls": "nyc report --reporter=text-lcov | coveralls",
         "dev": "node server.j -e js,html",
         "Dev": "node --exec babel-node server.js",
-        "heroku-postbuild": "npm run build"
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix public && npm run build --prefix public"
         
 
     },
