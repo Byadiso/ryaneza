@@ -32,7 +32,7 @@ var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
-var _auth = require('./routes/auth');
+var _auth = require('../routes/auth');
 
 var _auth2 = _interopRequireDefault(_auth);
 

@@ -5,15 +5,14 @@
     "main": "server.js",
     "scripts": {
         "test": "nyc mocha --require babel-polyfill --require babel-register --exec babel-node tests/ --exit",
-        "build": "babel server.js -d dist",
+        "build": "babel --out-dir -d dist",
         "start": "nodemon --exec babel-node server.js",
+        "serve": "node dist/server.js",
         "coveralls": "nyc report --reporter=text-lcov | coveralls",
         "startDev": "npm run build && node dist/server.js",
         "dev": "node server.js -e js,html",
-        "Dev": "node --exec babel-node server.js",
+        "Dev": "node babel-node server.js",
         "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix public && npm run build --prefix public"
-        
-
     },
     "author": "",
     "license": "ISC",
@@ -54,6 +53,9 @@
         "uuid": "^3.3.2"
     },
     "devDependencies": {
+        "@babel/cli": "^7.14.5",
+        "@babel/core": "^7.14.6",
+        "@babel/node": "^7.14.7",
         "babel-cli": "^6.26.0",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "babel-polyfill": "^6.26.0",
